@@ -29,6 +29,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary' 
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'w0rp/ale'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 "clear highlighted
@@ -57,3 +58,4 @@ set lbr
 set shiftwidth=2 expandtab
 set number
 let g:deoplete#enable_at_startup=1
+let g:airline_theme='dracula'
