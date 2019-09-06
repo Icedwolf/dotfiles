@@ -1,5 +1,6 @@
 call plug#begin()
 Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
+Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf'
@@ -18,8 +19,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-  inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-  inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+  let g:deoplete#enable_at_startup=1
+  " Use tab for completion
+  inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'StanAngeloff/php.vim'
 Plug 'stephpy/vim-php-cs-fixer'
@@ -55,7 +57,16 @@ set termguicolors
 set breakindent
 set formatoptions=l
 set lbr
-set shiftwidth=2 expandtab
 set number
-let g:deoplete#enable_at_startup=1
 let g:airline_theme='dracula'
+" Sane tabs
+" - Two spaces wide
+set tabstop=2
+set softtabstop=2
+" - Expand them all
+set expandtab
+" - Indent by 2 spaces by default
+set shiftwidth=2
+set encoding=utf-8
+set cursorline
+set title
