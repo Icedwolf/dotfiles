@@ -19,9 +19,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-  let g:deoplete#enable_at_startup=1
-  " Use tab for completion
-  inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'StanAngeloff/php.vim'
 Plug 'stephpy/vim-php-cs-fixer'
@@ -70,3 +67,8 @@ set shiftwidth=2
 set encoding=utf-8
 set cursorline
 set title
+" Deoplete
+let g:deoplete#enable_at_startup=1
+" Use tab for completion
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
