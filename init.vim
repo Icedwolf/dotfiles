@@ -1,4 +1,6 @@
 call plug#begin()
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'wakatime/vim-wakatime'
 Plug 'sbdchd/neoformat'
 Plug 'fszymanski/fzf-gitignore'
 Plug 'sheerun/vim-polyglot'
