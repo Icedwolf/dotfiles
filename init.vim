@@ -84,3 +84,5 @@ let g:airline_theme='dracula'
 set termguicolors     " enable true colors support
 let ayucolor="mirage" " for mirage version of theme
 colorscheme ayu
+
+set timeoutlen=1000 ttimeoutlen=0
