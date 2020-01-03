@@ -1,7 +1,9 @@
 call plug#begin()
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'StanAngeloff/php.vim', {'for': 'php'}
 Plug 'wakatime/vim-wakatime'
+Plug 'chrisbra/NrrwRgn'
 Plug 'sbdchd/neoformat'
 Plug 'fszymanski/fzf-gitignore'
 Plug 'sheerun/vim-polyglot'
@@ -25,21 +27,33 @@ Plug 'tpope/vim-commentary'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'w0rp/ale'
 Plug 'jiangmiao/auto-pairs'
-Plug 'SevereOverfl0w/async-clj-omni'
-Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-
-  let g:deoplete#enable_at_startup=1
-  autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-  inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+let g:deoplete#enable_at_startup=1
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+      \ 'do': 'yarn install',
+      \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html', 'php'] }
+
 call plug#end()
+
+let g:user_emmet_settings = {
+\  'javascript' : {
+\      'extends' : 'jsx',
+\  },
+\  'typescript' : {
+\      'extends' : 'tsx',
+\  },
+\}
 
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
+
+set termguicolors
+set background=dark
+syntax on
+colorscheme dracula
 
 map <esc> :noh<cr>
 
@@ -52,6 +66,7 @@ map <leader>f :FZF<cr>
 map <leader>F :FZF~<cr>
 map <leader><C-f> :Rg<cr>
 map <C-o> :NERDTreeToggle<cr>
+nmap <leader>o :NERDTreeFind<CR>
 
 set breakindent
 set formatoptions=l
@@ -76,10 +91,5 @@ set cursorline
 set title
 
 let g:airline_theme='dracula'
-
-set termguicolors
-set background=dark
-syntax on
-colorscheme dracula
 
 set noshowmode
