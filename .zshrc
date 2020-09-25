@@ -2,7 +2,7 @@ export ZSH="/home/celio/.oh-my-zsh"
 
 ZSH_THEME="spaceship"
 
-plugins=(git wakatime)
+plugins=(git zsh-wakatime)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -38,13 +38,8 @@ zplugin light zsh-users/zsh-completions
 
 . $HOME/z.sh
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
-
-export FZF_DEFAULT_OPTS="--no-mouse --height 50% -1 --reverse --multi --inline-info --preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -300' --preview-window='right:hidden:wrap' --bind='f3:execute(bat --style=numbers {} || less -f {}),f2:toggle-preview,ctrl-d:half-page-down,ctrl-u:half-page-up,ctrl-a:select-all+accept,ctrl-y:execute-silent(echo {+} | pbcopy)'"
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
 export PATH=~/bin:$PATH
 
@@ -55,10 +50,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-. $HOME/.asdf/asdf.sh
-
-. $HOME/.asdf/completions/asdf.bash
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if [ -d "$HOME/.local/bin" ] ; then
@@ -67,7 +58,7 @@ fi
 
 export PATH=~/go/bin:$PATH
 
-export KEYTIMEOUT=1
+KEYTIMEOUT=1
 
 #vim mode config
 bindkey -v
@@ -89,7 +80,7 @@ function zle-line-init zle-keymap-select {
 
 zle -N zle-line-init
 zle -N zle-keymap-select
-#
-# Edit line in vim with ctrl-e:
+
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
+[ -f "/home/celio/.ghcup/env" ] && source "/home/celio/.ghcup/env" # ghcup-env

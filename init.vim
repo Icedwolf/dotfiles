@@ -1,6 +1,5 @@
 call plug#begin()
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'StanAngeloff/php.vim', {'for': 'php'}
 Plug 'wakatime/vim-wakatime'
 Plug 'chrisbra/NrrwRgn'
@@ -9,7 +8,7 @@ Plug 'fszymanski/fzf-gitignore'
 Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -28,32 +27,57 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'w0rp/ale'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+Plug 'tmhedberg/matchit'
+Plug 'prettier/vim-prettier', {
+      \ 'do': 'yarn install',
+      \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html', 'php', '*'] }
+Plug 'sainnhe/tmux-fzf'
+Plug 'junegunn/vim-easy-align'
+Plug 'ayu-theme/ayu-vim'
+
+
+
+"new
+Plug 'mhinz/vim-signify'
+Plug 'junegunn/gv.vim'
+Plug 'rhysd/git-messenger.vim'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-repeat'
+Plug 'machakann/vim-swap'
+Plug 'machakann/vim-highlightedyank'
+Plug 'chaoren/vim-wordmotion'
+Plug 'wellle/targets.vim'
+Plug 'StanAngeloff/php.vim', {'for': 'php'}
+Plug 'stephpy/vim-php-cs-fixer', {'for': 'php'}
+Plug 'nishigori/vim-php-dictionary', {'for': 'php'}
+Plug 'lumiliet/vim-twig', {'for': 'twig'} " twig
+Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'} " php refactoring options
+Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install --no-dev -o'}
+Plug '2072/php-indenting-for-vim', {'for': 'php'}
+Plug 'tobyS/vmustache' | Plug 'tobyS/pdv', {'for': 'php'} " php doc autocompletion
+call plug#end()
+
 let g:deoplete#enable_at_startup=1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-Plug 'prettier/vim-prettier', {
-      \ 'do': 'yarn install',
-      \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html', 'php'] }
-
-call plug#end()
-
 let g:user_emmet_settings = {
-\  'javascript' : {
-\      'extends' : 'jsx',
-\  },
-\  'typescript' : {
-\      'extends' : 'tsx',
-\  },
-\}
+      \  'javascript' : {
+      \      'extends' : 'jsx',
+      \  },
+      \  'typescript' : {
+      \      'extends' : 'tsx',
+      \  },
+      \}
 
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
 
+let ayucolor="mirage"
 set termguicolors
 set background=dark
 syntax on
-colorscheme dracula
+colorscheme ayu
 
 map <esc> :noh<cr>
 
@@ -93,3 +117,11 @@ set title
 let g:airline_theme='dracula'
 
 set noshowmode
+
+set grepprg=rg\ -H\ --no-heading\ --smart-case\ --vimgrep
+set grepformat=%f:%l:%c:%m
+set rtp+=~/.fzf
+set rtp+=/usr/local/opt/fzf
+set timeoutlen=1000 ttimeoutlen=0
+"default clipboard
+set clipboard=unnamedplus
