@@ -47,14 +47,14 @@ Plug 'tobyS/vmustache'
 Plug 'tobyS/pdv', {'for': 'php'}
 Plug 'sbdchd/neoformat'
 call plug#end()
+nnoremap <SPACE> <Nop>
+let mapleader = "\<Space>"
 map <leader>g :GFiles<cr>
 map <leader>f :FZF<cr>
 map <leader>F :FZF~<cr>
 map <leader><C-f> :Rg<cr>
 map <C-o> :NERDTreeToggle<cr>
 nmap <leader>o :NERDTreeFind<CR>
-nnoremap <SPACE> <Nop>
-map <Space> <Leader>
 
 let g:deoplete#enable_at_startup=1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
@@ -68,6 +68,10 @@ let g:user_emmet_settings = {
       \      'extends' : 'tsx',
       \  },
       \}
+
+let b:prettier_ft_default_args = {
+  \ 'parser': 'php',
+  \ }
 
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/sbin/python3'
@@ -110,11 +114,13 @@ set grepprg=rg\ -H\ --no-heading\ --smart-case\ --vimgrep
 set grepformat=%f:%l:%c:%m
 set rtp+=~/.fzf
 set rtp+=/usr/local/opt/fzf
-set timeoutlen=5 ttimeoutlen=0
+"set timeoutlen=15
+"set ttimeoutlen=10
 "default clipboard
 set clipboard=unnamedplus
 
 "autoformat on save
+autocmd BufWritePre *.php Prettier
 autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 autocmd BufWritePre *.js Neoformat
 "Paste in visual mode without copying
