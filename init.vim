@@ -3,10 +3,8 @@ Plug 'vim-syntastic/syntastic'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mmozuras/vim-whitespace'
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'StanAngeloff/php.vim', {'for': 'php'}
 Plug 'wakatime/vim-wakatime'
 Plug 'chrisbra/NrrwRgn'
-Plug 'fszymanski/fzf-gitignore'
 Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -43,9 +41,14 @@ Plug 'wellle/targets.vim'
 Plug 'StanAngeloff/php.vim', {'for': 'php'}
 Plug 'stephpy/vim-php-cs-fixer', {'for': 'php'}
 Plug '2072/php-indenting-for-vim', {'for': 'php'}
+Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o'}
 Plug 'tobyS/vmustache'
 Plug 'tobyS/pdv', {'for': 'php'}
 Plug 'sbdchd/neoformat'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'thosakwe/vim-flutter'
+Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
 call plug#end()
 nnoremap <SPACE> <Nop>
 let mapleader = "\<Space>"
@@ -126,3 +129,4 @@ autocmd BufWritePre *.js Neoformat
 "Paste in visual mode without copying
 xnoremap p pgvy
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+autocmd BufNewFile,BufRead Dockerfile.* set filetype=dockerfile
