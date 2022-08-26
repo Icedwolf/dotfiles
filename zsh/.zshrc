@@ -15,23 +15,24 @@ export DOTFILES="$HOME/dotfiles"
 
 source $DOTFILES/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source <(kubectl completion zsh)
+source <(helm completion zsh)
 
 export BROWSER="brave"
-export EDITOR="nvim"
+export EDITOR="lvim"
 export TERMINAL="kitty"
 export READER="zathura"
 
-alias change="nvim ~/.zshrc"
+alias change="lvim ~/.zshrc"
 alias att="sudo pacman -Syyuu"
 alias update="source ~/.zshrc"
 alias clip="xclip -sel clip <"
+alias kbconf="lvim ~/.kube/config"
+alias dc="docker-compose"
 
-. $HOME/z/z.sh
+. $DOTFILES/z/z.sh
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 KEYTIMEOUT=1
 
