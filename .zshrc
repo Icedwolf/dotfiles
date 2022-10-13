@@ -5,17 +5,26 @@ fi
 if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ]; then
   [ -z "${TMUX}" ] && { tmux attach || tmux; } >/dev/null 2>&1
 fi
-
+autoload -Uz compinit && compinit
+setopt SHARE_HISTORY
+HISTFILE=$HOME/.zhistory
+SAVEHIST=1000
+HISTSIZE=999
+# autocompletion using arrow keys (based on history)
+bindkey '\e[A' history-search-backward
+bindkey '\e[B' history-search-forward
+setopt HIST_EXPIRE_DUPS_FIRST
 unsetopt BEEP
 setopt appendhistory
 setopt autocd extendedglob nomatch menucomplete
 setopt interactive_comments
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export DOTFILES="$HOME/dotfiles"
 
-source $DOTFILES/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source <(kubectl completion zsh)
 source <(helm completion zsh)
+eval "$(_MOLECULE_COMPLETE=SHELL_source molecule)"
 
 export BROWSER="brave"
 export EDITOR="lvim"
@@ -28,6 +37,13 @@ alias update="source ~/.zshrc"
 alias clip="xclip -sel clip <"
 alias kbconf="lvim ~/.kube/config"
 alias dc="docker-compose"
+alias lcontext="kubectl config get-contexts"
+alias ucontext="kubectl config use-context"
+alias l="exa -blnar -s mod"
+alias ls="exa"
+alias find="fd"
+alias vim="lvim"
+alias nvim="lvim"
 
 . $DOTFILES/z/z.sh
 
@@ -35,6 +51,8 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
 KEYTIMEOUT=1
+export KB=$HOME/.kube
+export KUBECONFIG=$KB/prod:$KB/homolog:$KB/dev:$KB/credinet-prod
 
 #vim mode config
 bindkey -v
