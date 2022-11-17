@@ -1,10 +1,8 @@
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ]; then
   [ -z "${TMUX}" ] && { tmux attach || tmux; } >/dev/null 2>&1
 fi
+
+KEYTIMEOUT=1
 autoload -Uz compinit && compinit
 setopt SHARE_HISTORY
 HISTFILE=$HOME/.zhistory
@@ -20,19 +18,17 @@ setopt autocd extendedglob nomatch menucomplete
 setopt interactive_comments
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-export DOTFILES="$HOME/dotfiles"
-
 source <(kubectl completion zsh)
 source <(helm completion zsh)
 eval "$(_MOLECULE_COMPLETE=SHELL_source molecule)"
 
-export BROWSER="brave"
+export BROWSER="firefox"
 export EDITOR="lvim"
-export TERMINAL="kitty"
+export TERMINAL="alacritty"
 export READER="zathura"
 
 alias change="lvim ~/.zshrc"
-alias att="sudo pacman -Syyuu"
+alias att="paru -Syyuu"
 alias update="source ~/.zshrc"
 alias clip="xclip -sel clip <"
 alias kbconf="lvim ~/.kube/config"
@@ -44,15 +40,13 @@ alias ls="exa"
 alias find="fd"
 alias vim="lvim"
 alias nvim="lvim"
-
-. $DOTFILES/z/z.sh
+eval $(thefuck --alias)
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
-KEYTIMEOUT=1
 export KB=$HOME/.kube
-export KUBECONFIG=$KB/prod:$KB/homolog:$KB/dev:$KB/credinet-prod
+export KUBECONFIG=$KB/prod:$KB/homolog:$KB/dev:$KB/credinet-prod:$KB/kb
 
 #vim mode config
 bindkey -v
@@ -74,14 +68,9 @@ function zle-line-init zle-keymap-select {
 
 zle -N zle-line-init
 zle -N zle-keymap-select
-
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-eval $(thefuck --alias)
-
-export PATH=$HOME/bin/ctags/:$HOME/.local/bin:$HOME/.asdf/shims:$HOME/.asdf/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.fzf/bin:~/go/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH=$HOME/bin/ctags/:$HOME/.local/bin:$HOME/.asdf/shims:$HOME/.asdf/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.fzf/bin:~/go/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.cargo/bin
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+eval "$(starship init zsh)"
