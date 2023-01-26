@@ -1,23 +1,16 @@
-vim.opt.wrap = true --wordwrap
-vim.opt.shiftwidth = 4 -- the number of spaces inserted for each indentation
-vim.cmd([[
-map <Leader>bb :!bundle install<cr>
-map <Leader>gdm :Git diff master<cr>
-imap jj <esc>
-]])
-
-lvim.log.level = "warn"
-lvim.format_on_save = false
-lvim.colorscheme = "onedarker"
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.relativenumber = true
+vim.opt.wrap = true
+lvim.colorscheme = "lunar"
+lvim.log.level = "info"
+lvim.format_on_save = {
+    enabled = true,
+    pattern = "*.lua",
+    timeout = 1000,
+}
 lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.builtin.alpha.active = true
-lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.notify.active = true
-lvim.builtin.terminal.active = true
-lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
-
 lvim.builtin.treesitter.ensure_installed = {
     "bash",
     "c",
@@ -36,10 +29,10 @@ lvim.builtin.treesitter.ensure_installed = {
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
+
 lvim.plugins = {
     {
         'wfxr/minimap.vim',
-        run = "cargo install --locked code-minimap",
         cmd = { "Minimap", "MinimapClose", "MinimapToggle", "MinimapRefresh", "MinimapUpdateHighlight" },
         config = function()
             vim.cmd("let g:minimap_width = 10")
@@ -76,11 +69,13 @@ lvim.plugins = {
     },
     {
         "npxbr/glow.nvim",
-        ft = { "markdown" },
-        run = "yay -S glow"
+        ft = { "markdown" }
     },
     { "tpope/vim-repeat" },
     {
         "tpope/vim-surround",
     },
+    {
+        "ThePrimeagen/refactoring.nvim",
+    }
 }
