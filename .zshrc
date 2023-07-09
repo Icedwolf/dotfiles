@@ -74,16 +74,16 @@ alias dotfiles="lvim ~/Documents/dotfiles"
 alias kube="kubectl"
 
 #  EXPORTS
+export DOTFILES="$HOME/dotfiles"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-export PATH=$HOME/bin/ctags/:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.fzf/bin:~/go/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.cargo/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/scripts/
+export PATH=$HOME/bin/ctags/:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.fzf/bin:~/go/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.cargo/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/scripts/:$DOTFILES/scripts
 #export clusters context
 export KB=$HOME/.kube
-export KUBECONFIG=$KB/credinet_prod:$KB/dev:$KB/local:$KB/cred-hml:$KB/rancher01:$KB/rancher01-hml
+ export KUBECONFIG=$KB/credinet_prod:$KB/dev:$KB/local:$KB/cred-hml:$KB/rancher01:$KB/rancher01-hml
 export BROWSER="firefox"
 export EDITOR="lvim"
 export TERMINAL="alacritty"
 export READER="zathura"
-
 
 #vim mode config
 bindkey -v
@@ -112,7 +112,6 @@ bindkey '^e' edit-command-line
 if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ]; then
   [ -z "${TMUX}" ] && { tmux attach || tmux; } >/dev/null 2>&1
 fi
-
 
 eval "$(starship init zsh)"
 eval $(thefuck --alias)
