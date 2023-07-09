@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Check if the correct number of arguments is provided
+if [ $# -ne 1 ]; then
+  echo "Usage: $0 <filename>"
+  exit 1
+fi
+
+filename=$1
+destination="$HOME/dotfiles/$filename"
+
+# Check if the file exists
+if [ ! -f "$filename" ]; then
+  echo "File '$filename' does not exist."
+  exit 1
+fi
+
+# Check if the destination directory exists
+if [ ! -d "$(dirname "$destination")" ]; then
+  echo "Destination directory '~/dotfiles' does not exist."
+  exit 1
+fi
+
+# Copy the file to the destination
+cp "$filename" "$destination"
+echo "File '$filename' copied to '$destination'."
