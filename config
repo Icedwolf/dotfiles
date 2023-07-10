@@ -1,5 +1,5 @@
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
-exec mako -c ~/.config/mako/config
+exec mako 
 exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 
 set $mod Mod4
@@ -27,9 +27,10 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86Search exec $menu
 bindsym Print exec sway-interactive-screenshot
-bindsym $mod+Return exec $term
-bindsym $mod+Shift+q kill
+
 bindsym $mod+d exec $menu
+bindsym $mod+Return exec $term
+bindsym $mod+q kill
 floating_modifier $mod normal
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
@@ -98,14 +99,42 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
 bindsym $mod+r mode "resize"
+
 bar {
     position top
-        status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
         colors {
-            statusline #cccccc
-            background #000000
-            inactive_workspace #11111111 #22222222 #333333
+            statusline #000000
+            background #161821
+            separator #0011ff
+            focused_workspace #ffffff #ff440f #000000
+            inactive_workspace #222222 #000000 #ffffff
         }
+        #status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+        status_command /usr/sbin/bumblebee-status -m cpu memory battery date time pasink pasource -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t iceberg-contrast
 }
+
+gaps inner 0
+gaps outer 0
+smart_gaps off
+
+# Borders
+default_border pixel 1
+for_window [class=".*"] border pixel 1
+
+### Colors
+  # Class                   Border      BG       Text      Indicator  Child border
+  client.focused            #c5c8c6   #1d1f21   #ffffff    #ffffff    #c5c8c6
+  client.unfocused          #1d1f21   #1d1f21   #ffffff    #000000    #1d1f21
+  client.focused_inactive   #c5c8c6   #1d1f21   #ffffff    #ffffff    #c5c8c6
+  client.background         #1d1f21
+
+# init apps on startup
+exec --no-startup-id pgrep spotify || exec spotify
+exec --no-startup-id pgrep firefox || exec firefox
+exec --no-startup-id pgrep alacritty || exec alacritty
+exec --no-startup-id pgrep discord || exec discord
+exec --no-startup-id pgrep teams || exec teams
+
 include /etc/sway/config.d/*
