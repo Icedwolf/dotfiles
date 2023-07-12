@@ -4,7 +4,14 @@ exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 
 # swayfx config aka eye candy
 blur enable
+blur_xray enable
+blur_passes 2
+blur_radius 5
 shadows enable
+shadows_on_csd enable
+shadow_blur_radius 20
+corner_radius 1
+smart_corner_radius disable
 
 set $mod Mod4
 set $left h
@@ -59,6 +66,9 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+Shift+Up move up
 
 bindsym $mod+Escape exec swaylock -f -c 000000
+
+#default layout
+workspace_layout tabbed
 
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -126,9 +136,9 @@ bar {
 }
 
 # Fk gaps
-gaps inner 0
-gaps outer 0
-smart_gaps off
+gaps inner 1
+gaps outer 1
+smart_gaps on
 
 # Borders
 default_border pixel 1
