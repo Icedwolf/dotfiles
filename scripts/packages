@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Get the list of explicitly installed packages
+explicit_packages=$(pacman -Qe | awk '{print $1}')
+
+# Get the list of dependencies of explicitly installed packages
+dependency_packages=$(pacman -Qdtq)
+
+# Combine both lists to get all user-installed packages
+all_packages=("$explicit_packages" "$dependency_packages")
+
+# Print the list of all user-installed packages
+echo "User-installed packages:"
+for package in "${all_packages[@]}"; do
+    echo "$package"
+done
