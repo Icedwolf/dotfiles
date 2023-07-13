@@ -11,7 +11,7 @@ shadows enable
 shadows_on_csd enable
 shadow_blur_radius 20
 corner_radius 1
-smart_corner_radius disable
+smart_corner_radius enable
 
 set $mod Mod4
 set $left h
@@ -25,7 +25,8 @@ set $menu fuzzel | xargs swaymsg exec --
 bindsym $mod+d exec $menu
 bindsym $mod+apostrophe exec passotp
 
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg $HOME/Pictures/buster.png fill
 
 input * {
     xkb_layout "br"
@@ -66,9 +67,6 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+Shift+Up move up
 
 bindsym $mod+Escape exec swaylock -f -c 000000
-
-#default layout
-workspace_layout tabbed
 
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -138,6 +136,8 @@ bar {
 # Fk gaps
 gaps inner 1
 gaps outer 1
+gaps horizontal 1
+gaps vertical 1
 smart_gaps on
 
 # Borders
@@ -149,6 +149,9 @@ client.focused            #c5c8c6   #1d1f21   #ffffff    #ffffff    #c5c8c6
 client.unfocused          #1d1f21   #1d1f21   #ffffff    #000000    #1d1f21
 client.focused_inactive   #c5c8c6   #1d1f21   #ffffff    #ffffff    #c5c8c6
 client.background         #1d1f21
+
+#default layout
+workspace_layout tabbed
 
 # init apps on startup
 exec --no-startup-id pgrep spotify || exec spotify
