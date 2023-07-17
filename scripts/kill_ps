@@ -3,7 +3,7 @@
 # default to sigterm -15
 SIGCODE=-${1:-15}
 
-pid=$(ps -ef \
+pid=$(ps -u $USER -o pid,cmd --no-headers \
 	| sed 1d \
 	| eval "fzf ${FZF_DEFAULT_OPTS} -m --header='[kill:process:$SIGCODE]'" \
 	| awk '{print $2}')
