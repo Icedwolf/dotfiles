@@ -23,6 +23,14 @@ set $term alacritty
 #set $menu tofi-drun | xargs swaymsg exec --
 set $menu fuzzel | xargs swaymsg exec --
 bindsym $mod+d exec $menu
+bindsym $mod+delete exec alacritty --class fzf-kill -o window.dimensions.columns=100 \
+    -o window.dimensions.lines=20 \
+    -o font.size=10 \
+    -o window.padding.x=20 \
+    -o window.padding.y=20 \
+    --title "fzf-switcher" \
+    -e kill_ps
+for_window [app_id="fzf-kill"] floating enable
 bindsym $mod+apostrophe exec passotp
 
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
