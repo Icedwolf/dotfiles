@@ -16,8 +16,8 @@ k9s:
     fullScreenLogs: false
     textWrap: false
     showTime: false
-  currentContext: rancher01-hml01
-  currentCluster: rancher01-hml01
+  currentContext: rancher01
+  currentCluster: rancher01
   clusters:
     dev:
       namespace:
@@ -109,7 +109,7 @@ k9s:
       portForwardAddress: localhost
     rancher01:
       namespace:
-        active: default
+        active: all
         lockFavorites: false
         favorites:
         - kube-system
@@ -122,7 +122,7 @@ k9s:
         - erp
         - kasdal-producao
       view:
-        active: pod
+        active: pods
       featureGates:
         nodeShell: false
       shellPod:
@@ -150,7 +150,7 @@ k9s:
         - homolog-cdto
         - sgdonline-ms
       view:
-        active: pods
+        active: pod
       featureGates:
         nodeShell: false
       shellPod:

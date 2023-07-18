@@ -6,30 +6,39 @@
 # Skin...
 k9s:
   body:
+    fgColor: green
     bgColor: default
   promt:
+    fgColor: olive
     bgColor: default
   info:
+    fgColor: orangered
     sectionColor: default
   dialog:
+    fgColor: orange
     bgColor: default
     labelFgColor: default
     fieldFgColor: default
   frame:
     crumbs:
+      fgColor: darkred
       bgColor: default
     title:
+      fgColor: snow
       bgColor: default
       counterColor: default
     menu:
-      fgColor: default
+      fgColor: snow
+    status:
+      newColor: lime
   views:
     charts:
+      fgColor: snow
       bgColor: default
     table:
       bgColor: default
       header:
-        fgColor: default
+        fgColor: snow
         bgColor: default
     xray:
       bgColor: default

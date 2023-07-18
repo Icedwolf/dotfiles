@@ -19,10 +19,13 @@ set $down j
 set $up k
 set $right l
 set $term alacritty
-# ainda n decidi que porra de launcher usar, muitas opções, o tofi continua interessante por ter inicialização mais rapida
-#set $menu tofi-drun | xargs swaymsg exec --
 set $menu fuzzel | xargs swaymsg exec --
 bindsym $mod+d exec $menu
+
+# Lockscreen
+bindsym $mod+Escape exec random_wallpaper
+
+# FZF KILL 
 bindsym $mod+delete exec alacritty --class fzf-kill -o window.dimensions.columns=100 \
     -o window.dimensions.lines=20 \
     -o font.size=10 \
@@ -31,6 +34,8 @@ bindsym $mod+delete exec alacritty --class fzf-kill -o window.dimensions.columns
     --title "fzf-switcher" \
     -e kill_ps
 for_window [app_id="fzf-kill"] floating enable
+
+# Passmenu
 bindsym $mod+apostrophe exec passotp
 
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
@@ -73,8 +78,6 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Right move right
 bindsym $mod+Shift+Up move up
-
-bindsym $mod+Escape exec random_wallpaper
 
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
