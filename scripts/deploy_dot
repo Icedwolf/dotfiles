@@ -4,13 +4,11 @@
 # FILES
 ln -sf $DOTFILES/.zshrc ~/.zshrc
 ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
-ln -sf $DOTFILES/k9s/config.yml ~/.config/k9s/config.yml
-ln -sf $DOTFILES/k9s/skin.yml ~/.config/k9s/skin.yml
 
 # FOLDERS
-ln -sf $DOTFILES/sway/* ~/.config/sway/*
-ln -sf $DOTFILES/mako/* ~/.config/mako/*
-ln -sf $DOTFILES/fuzzel/* ~/.config/fuzzel/*
-ln -sf $DOTFILES/alacritty/* ~/.config/alacritty/*
-ln -sf $DOTFILES/sway-interactive-screenshot/* ~/.config/sway-interactive-screenshot/*
-
+ln -sf $DOTFILES/sway/* ~/.config/sway
+ln -sf $DOTFILES/mako/* ~/.config/mako
+ln -sf $DOTFILES/fuzzel/* ~/.config/fuzzel
+ln -sf $DOTFILES/alacritty/* ~/.config/alacritty
+ln -sf $DOTFILES/sway-interactive-screenshot/* ~/.config/sway-interactive-screenshot
+ln -sf $DOTFILES/k9s/* ~/.config/k9s

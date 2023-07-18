@@ -122,7 +122,7 @@ k9s:
         - erp
         - kasdal-producao
       view:
-        active: pods
+        active: xray
       featureGates:
         nodeShell: false
       shellPod:
