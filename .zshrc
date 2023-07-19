@@ -45,6 +45,7 @@ alias kube="kubectl"
 alias clima="curl wttr.in/Blumenau"
 alias config="lvim /home/icedwolf/.config"
 alias tf="terraform"
+alias docker-compose="podman-compose"
 
 #  EXPORTS
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
