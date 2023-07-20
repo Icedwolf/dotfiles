@@ -1,0 +1,17 @@
+#!/bin/bash
+
+folder_path="$HOME/screen"
+
+# Check if the folder exists
+if [ -d "$folder_path" ]; then
+  # Check if the folder is empty
+  if [ -z "$(ls -A $folder_path)" ]; then
+    notify-send "Folder Status" "Folder is empty. Nothing to clean."
+  else
+    # Clean the folder (remove all files and subdirectories)
+    rm -rf "$folder_path"/*
+    notify-send "Folder Status" "Folder cleaned successfully."
+  fi
+else
+  notify-send "Folder Status" "Folder not found."
+fi

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # default to sigterm -15
-SIGCODE=-${1:-15}
+SIGCODE=-${1:-9}
 
 pid=$(ps -u $USER -o pid,cmd --no-headers \
 	| sed 1d \
