@@ -4,6 +4,7 @@
 # FILES
 ln -sf $DOTFILES/.zshrc ~/.zshrc
 ln -sf $DOTFILES/tmux/.tmux.conf ~/.config/tmux/tmux.conf
+ln -sf $DOTFILES/lvim/config.lua ~/.config/lvim/config.lua
 
 # FOLDERS
 ln -sf $DOTFILES/sway/* ~/.config/sway
