@@ -51,7 +51,7 @@ alias docker-compose="podman-compose"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 #export clusters context
 export KB=$HOME/.kube
-export KUBECONFIG=$KB/credinet_prod:$KB/dev:$KB/local:$KB/cred-hml:$KB/rancher01:$KB/rancher01-hml
+export KUBECONFIG=$KB/credinet_prod:$KB/dev:$KB/local:$KB/cred-hml:$KB/rancher01:$KB/rancher01-hml:$KB/rancher-ggdc
 export BROWSER="firefox"
 export EDITOR="lvim"
 export TERMINAL="alacritty"
