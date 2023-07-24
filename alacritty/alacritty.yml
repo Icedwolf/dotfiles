@@ -15,20 +15,21 @@ scrolling:
   faux_multiplier: 3
   auto_scroll: false
 tabspaces: 8
+draw_bold_text_with_bright_colors: true
 font:
   normal:
-    family: FiraCode Nerd Font 
+    family: FiraMono Nerd Font Propo
     style: Regular
   bold:
-    family: FiraCode Nerd Font 
+    family: FiraMono Nerd Font Propo
     style: Bold
   italic:
-      family: FiraCode Nerd Font 
-      style: Retina
+    family: FiraMono Nerd Font Propo
+    style: Medium
   bold_italic:
-      family: FiraCode Nerd Font Propo
-      style: SemiBold
-  size: 10.0
+    family: FiraMono Nerd Font Propo
+    style: SemiBold
+  size: 10.5
   offset:
     x: 0
     y: 0
