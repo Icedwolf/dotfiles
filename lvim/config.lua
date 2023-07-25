@@ -1,3 +1,4 @@
+vim.o.termguicolors = true
 vim.opt.shiftwidth = 4
 vim.g.loaded_perl_provider = 0
 vim.opt.tabstop = 2

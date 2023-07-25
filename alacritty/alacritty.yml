@@ -1,3 +1,6 @@
+env:
+  TERM: alacritty-direct
+  COLORTERM: truecolor
 window:
   opacity: 0.5
   dimensions:
