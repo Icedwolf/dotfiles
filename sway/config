@@ -23,7 +23,8 @@ set $menu fuzzel | xargs swaymsg exec --
 bindsym $mod+d exec $menu
 
 # Lockscreen
-bindsym $mod+Escape exec random_wallpaper
+#bindsym $mod+Escape exec random_wallpaper
+bindsym $mod+Escape exec swaylock --image ~/Pictures/ggdc_wall.png -s fill
 
 # FZF KILL 
 bindsym $mod+delete exec alacritty --class fzf-kill -o window.dimensions.columns=100 \
@@ -41,7 +42,8 @@ bindsym $mod+apostrophe exec passotp
 # default wallpaper
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
-output * bg $HOME/Pictures/buster.png fill
+output HDMI-A-1 bg $HOME/Pictures/buster.png fill
+output eDP-1 bg $HOME/Pictures/ggdc_wall.png fill
 
 output eDP-1 {
     position 1920 0
