@@ -4,7 +4,6 @@
 # FILES
 ln -sf $DOTFILES/.zshrc ~/.zshrc
 ln -sf $DOTFILES/tmux/tmux.conf ~/.config/tmux/tmux.conf
-ln -sf $DOTFILES/lvim/config.lua ~/.config/lvim/config.lua
 
 # FOLDERS
 ln -sf $DOTFILES/sway/* ~/.config/sway
@@ -13,3 +12,5 @@ ln -sf $DOTFILES/fuzzel/* ~/.config/fuzzel
 ln -sf $DOTFILES/alacritty/* ~/.config/alacritty
 ln -sf $DOTFILES/sway-interactive-screenshot/* ~/.config/sway-interactive-screenshot
 ln -sf $DOTFILES/k9s/* ~/.config/k9s
+ln -sf $DOTFILES/lvim/ ~/.config/lvim
+ln -sf $DOTFILES/wob/* ~/.config/wob

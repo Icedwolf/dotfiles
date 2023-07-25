@@ -51,7 +51,7 @@ alias docker-compose="podman-compose"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 #export clusters context
 export KB=$HOME/.kube
-export KUBECONFIG=$KB/credinet_prod:$KB/dev:$KB/local:$KB/cred-hml:$KB/rancher01:$KB/rancher01-hml:$KB/rancher-ggdc
+export KUBECONFIG=$KB/credinet_prod:$KB/dev:$KB/local:$KB/cred-hml:$KB/rancher01:$KB/rancher01-hml:$KB/rancher-ggdc:$KB/k3d
 export BROWSER="firefox"
 export EDITOR="lvim"
 export TERMINAL="alacritty"
@@ -94,6 +94,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
+export DOCKER_HOST=unix:///run/user/$UID/podman/podman.sock
 
 export PATH=$HOME/bin/ctags/:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.fzf/bin:~/go/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.cargo/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/scripts/:$DOTFILES/scripts

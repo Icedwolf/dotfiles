@@ -52,6 +52,7 @@ output HDMI-A-1 {
 }
 
 input * {
+    xkb_numlock enabled
     xkb_layout "br"
 }
 

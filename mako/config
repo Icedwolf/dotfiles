@@ -1,17 +1,17 @@
 output=*
-background-color=#999999ff
+background-color=#99999944
 border-radius=1
-border-color=#ccccccff
+border-color=#cccccccc
 text-color=#000000
 anchor=bottom-left
 default-timeout=10000
 
 [urgency=low]
-border-color=#ccccccff
+border-color=#cccccccc
 
 [urgency=normal]
-border-color=#800080ff
+border-color=#800080cc
 
 [urgency=high]
-border-color=#ff0000ff
+border-color=#ff0000cc
 default-timeout=0

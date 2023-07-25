@@ -151,6 +151,17 @@ lvim.plugins = {
     },
     {
         "norcalli/nvim-colorizer.lua",
+        config = function()
+            require("colorizer").setup({
+                filetypes = { "*" },
+                user_default_options = {
+                    RRGGBBAA = true,
+                    css = true,
+                    AARRGGBB = true,
+                    mode = "background",
+                }
+            })
+        end,
     },
 }
 
