@@ -12,5 +12,5 @@ ln -sf $DOTFILES/fuzzel/* ~/.config/fuzzel
 ln -sf $DOTFILES/alacritty/* ~/.config/alacritty
 ln -sf $DOTFILES/sway-interactive-screenshot/* ~/.config/sway-interactive-screenshot
 ln -sf $DOTFILES/k9s/* ~/.config/k9s
-ln -sf $DOTFILES/lvim/ ~/.config/lvim
+ln -sf $DOTFILES/lvim/* ~/.config/lvim
 ln -sf $DOTFILES/wob/* ~/.config/wob

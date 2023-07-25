@@ -1,8 +1,8 @@
-output=*
-background-color=#999999dd
+layer=overlay
+background-color=#111111cc
 border-radius=1
 border-color=#cccccccc
-text-color=#000000
+text-color=#ffffff
 anchor=bottom-left
 default-timeout=10000
 

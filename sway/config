@@ -147,6 +147,7 @@ bindsym $mod+r mode "resize"
 
 bar {
     position top
+    font FiraMono Nerd Font Propo 11
         colors {
             statusline #000000
             background #161821
