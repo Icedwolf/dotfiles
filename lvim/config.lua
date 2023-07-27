@@ -96,12 +96,12 @@ lvim.plugins = {
     {
         "zbirenbaum/copilot.lua",
         cmd = "Copilot",
-        -- event = "InsertEnter",
+        event = "InsertEnter",
         config = function()
             require("copilot").setup({
                 panel = {
                     enabled = true,
-                    auto_refresh = true,
+                    auto_refresh = false,
                     keymap = {
                         jump_prev = "[[",
                         jump_next = "]]",
@@ -117,17 +117,18 @@ lvim.plugins = {
                 suggestion = {
                     enabled = true,
                     auto_trigger = true,
-                    debounce = 75,
+                    debounce = 50,
                     keymap = {
-                        accept = "<C-]>",
+                        accept = "<M-Tab>",
                         accept_word = false,
                         accept_line = false,
                         next = "<M-]>",
                         prev = "<M-[>",
+                        dismiss = "<C-]>",
                     },
                 },
                 filetypes = {
-                    ["."] = true,
+                    ["*"] = true,
                 },
             })
         end,
