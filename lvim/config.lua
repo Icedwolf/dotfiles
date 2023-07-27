@@ -96,12 +96,12 @@ lvim.plugins = {
     {
         "zbirenbaum/copilot.lua",
         cmd = "Copilot",
-        event = "InsertEnter",
+        -- event = "InsertEnter",
         config = function()
             require("copilot").setup({
                 panel = {
                     enabled = true,
-                    auto_refresh = false,
+                    auto_refresh = true,
                     keymap = {
                         jump_prev = "[[",
                         jump_next = "]]",
@@ -119,37 +119,19 @@ lvim.plugins = {
                     auto_trigger = true,
                     debounce = 75,
                     keymap = {
-                        accept = "<M-l>",
+                        accept = "<C-]>",
                         accept_word = false,
                         accept_line = false,
                         next = "<M-]>",
                         prev = "<M-[>",
-                        dismiss = "<C-]>",
                     },
                 },
                 filetypes = {
-                    yaml = true,
-                    markdown = true,
-                    help = false,
-                    gitcommit = true,
-                    gitrebase = false,
-                    hgcommit = false,
-                    svn = false,
-                    cvs = false,
-                    hcl = true,
                     ["."] = true,
                 },
             })
         end,
     },
-    -- {
-    --     "github/copilot.vim",
-    --     event = "VeryLazy",
-    --     config = function()
-    --         vim.g.copilot_assume_mapped = true
-    --         vim.g.copilot_no_tab_map = true
-    --     end
-    -- },
     {
         "norcalli/nvim-colorizer.lua",
         config = function()
@@ -176,5 +158,18 @@ formatters.setup {
     {
         command = "prettier",
         filetypes = { "typescript", "typescriptreact" },
+    },
+}
+
+lvim.lsp.automatic_configuration.skipped_servers = {
+    lspconfig = {
+        filetypes = {
+            terraform = "terraform-ls",
+        },
+        settings = {
+            terraform = {
+                path = "/usr/sbin/terraform-ls",
+            },
+        },
     },
 }
