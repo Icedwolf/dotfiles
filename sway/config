@@ -42,7 +42,8 @@ bindsym $mod+apostrophe exec passotp
 # default wallpaper
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
-output HDMI-A-1 bg $HOME/Pictures/buster.png fill
+output HDMI-A-1 bg $HOME/Pictures/nanachi.jpg fill
+#output HDMI-A-1 bg $HOME/Pictures/buster.png fill
 output eDP-1 bg $HOME/Pictures/ggdc_wall.png fill
 
 output eDP-1 {
