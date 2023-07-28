@@ -22,6 +22,7 @@ source <(k3d completion zsh)
 source <(bw completion --shell zsh)
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+export _Z_DATA="$DOTFILES/z/z.data"
 
 # PLUGINS
 source $DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh
