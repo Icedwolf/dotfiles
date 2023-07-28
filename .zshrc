@@ -15,6 +15,7 @@ setopt EXTENDED_GLOB        # Use extended globbing syntax.
 export DOTFILES="$HOME/dotfiles"
 
 # SOURCES
+# COMPLETIONS
 source <(kubectl completion zsh)
 source <(helm completion zsh)
 source <(k3d completion zsh)
@@ -25,6 +26,9 @@ source <(bw completion --shell zsh)
 # PLUGINS
 source $DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh
 source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# FUNCTIONS
+source $DOTFILES/zsh/functions.sh
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # ALIASES
@@ -46,6 +50,7 @@ alias clima="curl wttr.in/Blumenau"
 alias config="lvim /home/icedwolf/.config"
 alias tf="terraform"
 alias docker-compose="podman-compose"
+alias cat="smart_cat"
 
 #  EXPORTS
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
@@ -71,11 +76,6 @@ bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 
 precmd() { RPROMPT="" }
-function zle-line-init zle-keymap-select {
-   VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
-   RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
-   zle reset-prompt
-}
 
 zle -N zle-line-init
 zle -N zle-keymap-select
