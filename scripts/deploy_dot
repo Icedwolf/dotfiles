@@ -15,6 +15,7 @@ declare -A CONFIG_FOLDERS=(
   ["lvim"]="lvim"
   ["wob"]="wob"
   ["newsboat"]="newsboat"
+  ["containers"]="containers"
 )
 
 # Convert associative array keys to a regular array
