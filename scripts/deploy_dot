@@ -1,16 +1,35 @@
 #!/bin/zsh
 # This script is used to deploy this folder dotfiles config to the right directories
 
-# FILES
-ln -sf $DOTFILES/.zshrc ~/.zshrc
-ln -sf $DOTFILES/tmux/tmux.conf ~/.config/tmux/tmux.conf
+# Define the base path for all configurations
+BASE_CONFIG_PATH="$HOME/.config/"
 
-# FOLDERS
-ln -sf $DOTFILES/sway/* ~/.config/sway
-ln -sf $DOTFILES/mako/* ~/.config/mako
-ln -sf $DOTFILES/fuzzel/* ~/.config/fuzzel
-ln -sf $DOTFILES/alacritty/* ~/.config/alacritty
-ln -sf $DOTFILES/sway-interactive-screenshot/* ~/.config/sway-interactive-screenshot
-ln -sf $DOTFILES/k9s/* ~/.config/k9s
-ln -sf $DOTFILES/lvim/* ~/.config/lvim
-ln -sf $DOTFILES/wob/* ~/.config/wob
+declare -A CONFIG_FOLDERS=(
+  ["tmux"]="tmux"
+  ["sway"]="sway"
+  ["mako"]="mako"
+  ["fuzzel"]="fuzzel"
+  ["alacritty"]="alacritty"
+  ["sway-interactive-screenshot"]="sway-interactive-screenshot"
+  ["k9s"]="k9s"
+  ["lvim"]="lvim"
+  ["wob"]="wob"
+  ["newsboat"]="newsboat"
+)
+
+# Convert associative array keys to a regular array
+folder_names=("${(@k)CONFIG_FOLDERS}")
+
+# Create destination folders and symlinks for files in each folder
+for folder in "${folder_names[@]}"; do
+  destination_path="$BASE_CONFIG_PATH${CONFIG_FOLDERS[$folder]}"
+  mkdir -p "$destination_path"
+  ln -sf "$DOTFILES/$folder/"* "$destination_path/"
+  echo "Symlinked files in $folder to $destination_path"
+done
+
+# FILES
+ln -sf "$DOTFILES/.zshrc" ~/.zshrc
+echo "Symlinked .zshrc"
+
+echo "Dotfiles deployment completed successfully."
