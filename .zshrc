@@ -13,24 +13,18 @@ setopt CDABLE_VARS          # Change directory to a path stored in a variable.
 setopt EXTENDED_GLOB        # Use extended globbing syntax.
 
 export DOTFILES="$HOME/dotfiles"
-
+#
 # SOURCES
-# COMPLETIONS
-source <(kubectl completion zsh)
-source <(helm completion zsh)
-source <(k3d completion zsh)
-source <(bw completion --shell zsh)
-
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 export _Z_DATA="$DOTFILES/z/z.data"
 
 # PLUGINS
 source $DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh
 source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # FUNCTIONS
 source $DOTFILES/zsh/functions.sh
-export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # ALIASES
 alias change="lvim ~/.zshrc"
@@ -83,28 +77,24 @@ zle -N zle-keymap-select
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ]; then
-  [ -z "${TMUX}" ] && { tmux attach || tmux; } >/dev/null 2>&1
-fi
-
-eval "$(starship init zsh)"
-eval $(thefuck --alias)
-eval "$(atuin init zsh)"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export DOCKER_HOST=unix:///run/user/$UID/podman/podman.sock
-
 export PATH=$HOME/bin/ctags/:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.fzf/bin:~/go/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.cargo/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/scripts/:$DOTFILES/scripts
 
 # SSH GPG
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
-gpg-connect-agent updatestartuptty /bye
+gpg-connect-agent updatestartuptty /bye > /dev/null
 
 # PODMAN ROOTLESS DOCKER SOCK 
 XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-/run/user/$(id -u)}
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
 export DOCKER_SOCK=$XDG_RUNTIME_DIR/podman/podman.sock
+
+# COMPLETIONS
+source <(kubectl completion zsh)
+source <(helm completion zsh)
+source <(k3d completion zsh)
+source <(bw completion --shell zsh)
+
+eval "$(starship init zsh)"
+eval $(thefuck --alias)
+eval "$(atuin init zsh)"
