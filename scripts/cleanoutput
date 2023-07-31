@@ -1,0 +1,3 @@
+#!/usr/sbin/zsh
+# Remove ANSI escape sequences from stdin
+sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"
