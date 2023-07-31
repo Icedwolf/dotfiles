@@ -12,52 +12,22 @@ setopt CORRECT              # Spelling correction
 setopt CDABLE_VARS          # Change directory to a path stored in a variable.
 setopt EXTENDED_GLOB        # Use extended globbing syntax.
 
-export DOTFILES="$HOME/dotfiles"
-#
+# EXPORTS
+source $DOTFILES/zsh/exports
+
 # SOURCES
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
-export _Z_DATA="$DOTFILES/z/z.data"
 
 # PLUGINS
 source $DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh
 source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # FUNCTIONS
-source $DOTFILES/zsh/functions.sh
+source $DOTFILES/zsh/functions
 
 # ALIASES
-alias change="lvim ~/.zshrc"
-alias att="paru -Syyuu --skipreview --nouseask --failfast --norebuild --noredownload --cleanafter; notify-send att-done"
-alias update="source ~/.zshrc"
-alias kbconf="lvim ~/.kube/config"
-alias lcontext="kubectl config get-contexts"
-alias ucontext="kubectl config use-context"
-alias l="exa -blnar -s mod --icons"
-alias ls="exa --icons"
-alias vim="lvim"
-alias nvim="lvim"
-alias attvim="lvim +LvimUpdate +q"
-alias cleancache="rm -rf ~/.cache"
-alias dotfiles="lvim $DOTFILES"
-alias kube="kubectl"
-alias clima="curl wttr.in/Blumenau"
-alias config="lvim /home/icedwolf/.config"
-alias tf="terraform"
-alias docker-compose="podman-compose"
-alias cat="smart_cat"
+source $DOTFILES/zsh/aliases
 
-#  EXPORTS
-export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-#export clusters context
-export KB=$HOME/.kube
-export KUBECONFIG=$KB/credinet_prod:$KB/dev:$KB/local:$KB/cred-hml:$KB/rancher01:$KB/rancher01-hml:$KB/rancher-ggdc:$KB/k3d
-export BROWSER="firefox"
-export EDITOR="lvim"
-export TERMINAL="alacritty"
-export READER="zathura"
-export PAGER="less"
-export LESS="--RAW-CONTROL-CHARS"
 
 #vim mode config
 bindkey -v
@@ -77,17 +47,13 @@ zle -N zle-keymap-select
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-export PATH=$HOME/bin/ctags/:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.fzf/bin:~/go/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.cargo/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/scripts/:$DOTFILES/scripts
 
 # SSH GPG
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 gpg-connect-agent updatestartuptty /bye > /dev/null
 
 # PODMAN ROOTLESS DOCKER SOCK 
 XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-/run/user/$(id -u)}
-export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
-export DOCKER_SOCK=$XDG_RUNTIME_DIR/podman/podman.sock
 
 # COMPLETIONS
 source <(kubectl completion zsh)
