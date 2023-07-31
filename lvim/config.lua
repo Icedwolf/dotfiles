@@ -166,6 +166,7 @@ lvim.lsp.automatic_configuration.skipped_servers = {
     lspconfig = {
         filetypes = {
             terraform = "terraform-ls",
+            tfvars = "terraform-ls",
         },
         settings = {
             terraform = {
