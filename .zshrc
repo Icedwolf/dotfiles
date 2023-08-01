@@ -82,6 +82,7 @@ source <(kubectl completion zsh)
 source <(helm completion zsh)
 source <(k3d completion zsh)
 source <(bw completion --shell zsh)
+source <(k6 completion zsh)
 
 # PLUGINS
 source $DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh

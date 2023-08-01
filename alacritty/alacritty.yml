@@ -1,3 +1,5 @@
+env:
+  TERM: xterm-256color
 window:
   opacity: 0.5
   dimensions:
@@ -15,7 +17,6 @@ scrolling:
   faux_multiplier: 3
   auto_scroll: false
 tabspaces: 8
-draw_bold_text_with_bright_colors: true
 font:
   normal:
     family: FiraMono Nerd Font Propo
@@ -39,28 +40,53 @@ font:
 render_timer: false
 persistent_logging: false
 draw_bold_text_with_bright_colors: true
+
+# Cyberpunk-Neon colours
 colors:
+  # Default colours
   primary:
-    background: '0x282828'
-    foreground: '0xeaeaea'
+    background: '0x000b1e'
+    foreground: '0x0abdc6'
+
+  # Colors that should be used to draw the terminal cursor. If these are unset,
+  # the cursor colour will be the inverse of the cell colour.
+  # cursor:
+  #   text: '0x2e2e2d'
+  #   # text: '0x000000'
+  #   cursor: '0xffffff'
+
+  # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0xd54e53'
-    green:   '0xb9ca4a'
-    yellow:  '0xe6c547'
-    blue:    '0x7aa6da'
-    magenta: '0xc397d8'
-    cyan:    '0x70c0ba'
-    white:   '0xeaeaea'
+    black:   '0x123e7c'
+    red:     '0xff0000'
+    green:   '0xd300c4'
+    yellow:  '0xf57800'
+    blue:    '0x123e7c'
+    magenta: '0x711c91'
+    cyan:    '0x0abdc6'
+    white:   '0xd7d7d5'
+
+  # Bright colors
   bright:
-    black:   '0x666666'
-    red:     '0xff3334'
-    green:   '0x9ec400'
-    yellow:  '0xe7c547'
-    blue:    '0x7aa6da'
-    magenta: '0xb77ee0'
-    cyan:    '0x54ced6'
-    white:   '0xffffff'
+    black:   '0x1c61c2'
+    red:     '0xff0000'
+    green:   '0xd300c4'
+    yellow:  '0xf57800'
+    blue:    '0x00ff00'
+    magenta: '0x711c91'
+    cyan:    '0x0abdc6'
+    white:   '0xd7d7d5'
+
+  # dim colors
+  dim:
+    black:   '0x1c61c2'
+    red:     '0xff0000'
+    green:   '0xd300c4'
+    yellow:  '0xf57800'
+    blue:    '0x123e7c'
+    magenta: '0x711c91'
+    cyan:    '0x0abdc6'
+    white:   '0xd7d7d5'
   indexed_colors: []
 visual_bell:
   animation: EaseOutExpo
