@@ -156,7 +156,7 @@ bar {
             focused_workspace #ffffff #ff440f #000000
             inactive_workspace #222222 #000000 #ffffff
         }
-        status_command /usr/sbin/bumblebee-status -m nic cpu memory battery spacer date time pasink pasource -p time.format="%H:%M" date.format="%a, %b %d %Y" -p nic.states="^down" -t iceberg-contrast
+        status_command /usr/sbin/bumblebee-status -m nic cpu memory battery spacer date time pasink pasource -p time.format="%H:%M" date.format="%a, %b %d %Y" -p nic.states="^down" -t dracula-powerline
 }
 
 # Fk gaps
