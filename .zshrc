@@ -2,6 +2,7 @@ KEYTIMEOUT=1
 autoload -Uz compinit && compinit
 unsetopt BEEP
 setopt interactive_comments
+export DOTFILES="$HOME/dotfiles"
 
 # CD
 setopt AUTO_CD              # Go to folder path without using cd.
