@@ -1,4 +1,3 @@
-zmodload zsh/zprof
 KEYTIMEOUT=1
 unsetopt BEEP
 setopt interactive_comments
@@ -87,5 +86,3 @@ source <(bw completion --shell zsh)
 # PLUGINS
 source $DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh
 source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-zprof
