@@ -1,6 +1,6 @@
 #!/bin/zsh
 alias change="lvim ~/.zshrc"
-alias att="paru -Syyuu --skipreview --nouseask --failfast --norebuild --noredownload --cleanafter; notify-send att-done"
+alias att="paru -Syyuu --skipreview --nouseask --failfast --norebuild --noredownload --cleanafter;git --git-dir=$DOTFILES/.git submodule update; notify-send att-done"
 alias update="source ~/.zshrc"
 alias kbconf="lvim ~/.kube/config"
 alias lcontext="kubectl config get-contexts"
