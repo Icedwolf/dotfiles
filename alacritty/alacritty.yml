@@ -1,7 +1,7 @@
 env:
   TERM: xterm-256color
 window:
-  opacity: 0
+  opacity: 0.0
   dimensions:
     columns: 0
     lines: 0
@@ -41,9 +41,7 @@ render_timer: false
 persistent_logging: false
 draw_bold_text_with_bright_colors: true
 
-# Cyberpunk-Neon colours
 colors:
-  # Default colors
   primary:
     background: '#000000'
     foreground: '#ffffff'
@@ -51,7 +49,6 @@ colors:
     text: '#F81CE5'
     cursor: '#ffffff'
 
-  # Normal colors
   normal:
     black: '#000000'
     red: '#fe0100'
@@ -62,7 +59,6 @@ colors:
     cyan: '#00ffff'
     white: '#d0d0d0'
 
-  # Bright colors
   bright:
     black: '#808080'
     red: '#fe0100'
