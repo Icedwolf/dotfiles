@@ -7,6 +7,15 @@ vim.opt.wrap = true
 vim.g.python3_host_prog = "/usr/sbin/python3"
 lvim.colorscheme = "blue"
 lvim.log.level = "info"
+
+-- Ctlr-p to open registers on telescope
+lvim.builtin.telescope.pickers.registers = {
+    theme = "dropdown",
+}
+lvim.keys.normal_mode["<C-p>"] = false
+lvim.keys.normal_mode["<C-p>"] = "<cmd>Telescope registers<cr>"
+
+-- transparency
 lvim.transparent_window = true
 local auto_theme_custom = require('lualine.themes.auto')
 auto_theme_custom.normal.c.bg = 'none'

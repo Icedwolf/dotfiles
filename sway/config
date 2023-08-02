@@ -185,7 +185,7 @@ exec --no-startup-id pgrep alacritty || exec alacritty
 exec --no-startup-id pgrep firefox || exec firefox
 
 workspace 2
-exec --no-startup-id pgrep spotify || exec spotify
+# exec --no-startup-id pgrep spotify || exec spotify # TODO: start ncspot
 exec --no-startup-id pgrep discord || exec discord
 exec --no-startup-id pgrep teams || exec teams
 
