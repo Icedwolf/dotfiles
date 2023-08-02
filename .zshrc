@@ -45,7 +45,11 @@ source $DOTFILES/zsh/aliases
 source $DOTFILES/zsh/exports
 
 # COMPLETIONS
-autoload -Uz compinit 
+setopt MENU_COMPLETE
+setopt AUTO_LIST
+setopt COMPLETE_IN_WORD
+setopt GLOB_COMPLETE
+autoload -Uz compinit;
 if [[ -n ${HOME}/.zcompdump(#qN.mh+24) ]]; then
     compinit;
 else
