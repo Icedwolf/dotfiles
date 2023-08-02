@@ -1,0 +1,5 @@
+lastfm-key = ""
+lastfm-secret = ""
+min-play-time = 0
+player-whitelist = [ncspot]
+filter-script = ""

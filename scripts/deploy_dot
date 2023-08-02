@@ -17,6 +17,7 @@ CONFIG_FOLDERS=(
   "newsboat"
   "containers"
   "ncspot"
+  "rescrobbled"
 )
 
 # Create destination folders and symlinks for files in each folder
