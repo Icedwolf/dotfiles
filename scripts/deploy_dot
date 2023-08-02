@@ -4,26 +4,24 @@
 # Define the base path for all configurations
 BASE_CONFIG_PATH="$HOME/.config/"
 
-declare -A CONFIG_FOLDERS=(
-  ["tmux"]="tmux"
-  ["sway"]="sway"
-  ["mako"]="mako"
-  ["fuzzel"]="fuzzel"
-  ["alacritty"]="alacritty"
-  ["sway-interactive-screenshot"]="sway-interactive-screenshot"
-  ["k9s"]="k9s"
-  ["lvim"]="lvim"
-  ["wob"]="wob"
-  ["newsboat"]="newsboat"
-  ["containers"]="containers"
+CONFIG_FOLDERS=(
+  "tmux"
+  "sway"
+  "mako"
+  "fuzzel"
+  "alacritty"
+  "sway-interactive-screenshot"
+  "k9s"
+  "lvim"
+  "wob"
+  "newsboat"
+  "containers"
+  "ncspot"
 )
 
-# Convert associative array keys to a regular array
-folder_names=("${(@k)CONFIG_FOLDERS}")
-
 # Create destination folders and symlinks for files in each folder
-for folder in "${folder_names[@]}"; do
-  destination_path="$BASE_CONFIG_PATH${CONFIG_FOLDERS[$folder]}"
+for folder in "${CONFIG_FOLDERS[@]}"; do
+  destination_path="$BASE_CONFIG_PATH$folder"
   mkdir -p "$destination_path"
   ln -sf "$DOTFILES/$folder/"* "$destination_path/"
   echo "Symlinked files in $folder to $destination_path"
