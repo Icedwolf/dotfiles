@@ -18,6 +18,7 @@ CONFIG_FOLDERS=(
   "containers"
   "ncspot"
   "rescrobbled"
+  "systemd/user"
 )
 
 # Create destination folders and symlinks for files in each folder
