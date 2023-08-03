@@ -36,34 +36,23 @@ gpg-connect-agent updatestartuptty /bye > /dev/null
 XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-/run/user/$(id -u)}
 
 # FUNCTIONS
-source $DOTFILES/zsh/functions
+source $DOTFILES/zsh/functions.zsh
 
 # ALIASES
-source $DOTFILES/zsh/aliases
+source $DOTFILES/zsh/aliases.zsh
 
 # EXPORTS
-source $DOTFILES/zsh/exports
-
-# COMPLETIONS
-fpath=($DOTFILES/zsh/completions $fpath)
-fpath=($DOTFILES/zsh/zsh-completions/src $fpath)
-setopt MENU_COMPLETE
-setopt AUTO_LIST
-setopt COMPLETE_IN_WORD
-setopt GLOB_COMPLETE
-autoload -Uz compinit;
-if [[ -n ${HOME}/.zcompdump(#qN.mh+24) ]]; then
-    compinit;
-else
-    compinit -C;
-fi;
-_comp_options+=(globdots) # With hidden files
-
-# PLUGINS
-source $DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh
-source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $DOTFILES/zsh/exports.zsh
 
 # SOURCES
 [[ -r "${DOTFILES}/z/z.sh" ]] && source $DOTFILES/z/z.sh
 eval "$(starship init zsh)"
 eval "$(atuin init zsh)"
+
+# COMPLETIONS
+source $DOTFILES/zsh/completions.zsh
+
+# PLUGINS
+source $DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh
+source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
