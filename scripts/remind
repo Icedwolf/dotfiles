@@ -1,0 +1,23 @@
+#!/bin/zsh
+# zsh script which schedules a reminder using notify-send with a sound played by paplay
+# usage: ./remind.sh <text> <time> [<urgency>]
+# example: ./remind.sh "hello world" 10s critical
+
+function remind {
+    local text="$1"
+    local sound="/usr/share/sounds/freedesktop/stereo/complete.oga"
+
+    (sleep "$2" && paplay "$sound" && notify-send "$text" -u "$3") &  # Run the tasks in the background
+}
+
+# Check if at least the text and time arguments are provided
+if [ $# -lt 2 ]; then
+    echo "Usage: $0 <text> <time> [<urgency>]"
+    echo "Example: $0 \"hello world\" 10s critical"
+    exit 1
+fi
+
+# Set default urgency level to "critical" if not provided
+urgency="${3:-critical}"
+
+remind "$1" "$2" "$urgency"
