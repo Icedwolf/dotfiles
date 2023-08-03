@@ -7,7 +7,7 @@ function remind {
     local text="$1"
     local sound="/usr/share/sounds/freedesktop/stereo/complete.oga"
 
-    (sleep "$2" && paplay "$sound" && notify-send "$text" -u "$3") &  # Run the tasks in the background
+    (sleep "$2" && notify-send "$text" -u "$3" && paplay "$sound") &  # Run the tasks in the background
 }
 
 # Check if at least the text and time arguments are provided
