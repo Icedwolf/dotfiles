@@ -6,7 +6,7 @@ exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 blur enable
 blur_xray enable
 blur_passes 1
-blur_radius 3
+blur_radius 1
 shadows enable
 shadows_on_csd enable
 shadow_blur_radius 40
