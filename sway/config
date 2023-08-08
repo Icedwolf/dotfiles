@@ -21,21 +21,18 @@ set $up k
 set $right l
 set $term alacritty
 set $menu fuzzel | xargs swaymsg exec --
+set $clipboard cliphist list | fuzzel -I -d | cliphist decode | wl-copy
 bindsym $mod+d exec $menu
 
+#clipboard
+exec wl-paste --watch cliphist store
+
+bindsym $mod+p exec $clipboard
 # Lockscreen
 bindsym $mod+Escape exec swaylock --image ~/Pictures/ggdc_wall.png -s fill
 
 # FZF KILL 
-bindsym $mod+delete exec alacritty --class fzf-kill -o window.dimensions.columns=100 \
-    -o window.dimensions.lines=20 \
-    -o font.size=10 \
-    -o window.padding.x=20 \
-    -o window.padding.y=20 \
-    --title "fzf-switcher" \
-    -e kill_ps
-for_window [app_id="fzf-kill"] floating enable
-
+bindsym $mod+delete exec kill_ps
 # Passmenu
 bindsym $mod+apostrophe exec passotp
 

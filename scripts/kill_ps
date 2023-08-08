@@ -2,7 +2,7 @@
 
 pid=$(ps -u $USER -o pid,cmd --no-headers \
 	| sed 1d \
-	| eval "fzf ${FZF_DEFAULT_OPTS} -m --header='[kill:process:$SIGCODE]'" \
+	| eval "fuzzel -d" \
 	| awk '{print $2}')
 
 if [[ -n $pid ]]; then
