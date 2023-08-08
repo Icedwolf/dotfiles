@@ -44,15 +44,14 @@ source $DOTFILES/zsh/aliases.zsh
 # EXPORTS
 source $DOTFILES/zsh/exports.zsh
 
-# SOURCES
-[[ -r "${DOTFILES}/z/z.sh" ]] && source $DOTFILES/z/z.sh
-eval "$(starship init zsh)"
-eval "$(atuin init zsh)"
-
 # COMPLETIONS
 source $DOTFILES/zsh/completions.zsh
+
+# SOURCES
+source $DOTFILES/z/z.sh
+eval "$(starship init zsh)"
+eval "$(atuin init zsh)"
 
 # PLUGINS
 source $DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh
 source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
