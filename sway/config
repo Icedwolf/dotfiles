@@ -21,13 +21,14 @@ set $up k
 set $right l
 set $term alacritty
 set $menu fuzzel | xargs swaymsg exec --
-set $clipboard cliphist list | fuzzel -I -d | cliphist decode | wl-copy
 bindsym $mod+d exec $menu
 
 #clipboard
 exec wl-paste --watch cliphist store
+set $clipboard cliphist list | fuzzel -I -d | cliphist decode | wl-copy
 
 bindsym $mod+p exec $clipboard
+bindsym $mod+shift+p exec cliphist wipe | notify-send "Clipboard" "Cleared"
 # Lockscreen
 bindsym $mod+Escape exec swaylock --image ~/Pictures/ggdc_wall.png -s fill
 
