@@ -7,6 +7,7 @@ vim.opt.wrap = true
 vim.g.python3_host_prog = "/usr/sbin/python3"
 lvim.colorscheme = "blue"
 lvim.log.level = "info"
+vim.api.nvim_set_keymap('n', '<Esc>', ':noh<CR>', { noremap = true, silent = true })
 
 -- Ctlr-p to open registers on telescope
 lvim.keys.normal_mode["<C-p>"] = false
