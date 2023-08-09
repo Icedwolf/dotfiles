@@ -1,5 +1,7 @@
 # Skip global init
 skip_global_compinit=1
+# PODMAN ROOTLESS DOCKER SOCK 
+XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-/run/user/$(id -u)}
 export XDG_CONFIG_HOME="$HOME/.config"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export DOTFILES="$HOME/dotfiles"
