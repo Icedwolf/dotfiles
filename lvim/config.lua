@@ -9,9 +9,6 @@ lvim.colorscheme = "blue"
 lvim.log.level = "info"
 
 -- Ctlr-p to open registers on telescope
-lvim.builtin.telescope.pickers.registers = {
-    theme = "dropdown",
-}
 lvim.keys.normal_mode["<C-p>"] = false
 lvim.keys.normal_mode["<C-p>"] = "<cmd>Telescope registers<cr>"
 
@@ -26,7 +23,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     end,
 })
 
--- i want a way to turn my lunarvim bottom bar transparent
 lvim.format_on_save = {
     enabled = true,
     pattern = "*.lua",
@@ -155,19 +151,6 @@ lvim.plugins = {
                 }
             })
         end,
-    },
-}
-
-local linters = require "lvim.lsp.null-ls.linters"
-linters.setup {
-    { command = "eslint", filetypes = { "typescript", "typescriptreact" } }
-}
-
-local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup {
-    {
-        command = "prettier",
-        filetypes = { "typescript", "typescriptreact" },
     },
 }
 
