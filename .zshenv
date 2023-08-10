@@ -1,20 +1,28 @@
 # Skip global init
 skip_global_compinit=1
-# PODMAN ROOTLESS DOCKER SOCK 
-XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-/run/user/$(id -u)}
+
+# XDG
+export XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-/run/user/$(id -u)} # PODMAN ROOTLESS DOCKER SOCK 
 export XDG_CONFIG_HOME="$HOME/.config"
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-export DOTFILES="$HOME/dotfiles"
-export _Z_DATA="$DOTFILES/z/z.data"
+
+# Default apps
 export BROWSER="firefox"
 export EDITOR="lvim"
 export VISUAL="lvim"
 export TERMINAL="alacritty"
 export READER="zathura"
 export PAGER="less"
-export PATH=$HOME/bin/ctags/:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.fzf/bin:~/go/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.cargo/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/scripts/:$DOTFILES/scripts
 export LESS="--RAW-CONTROL-CHARS"
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+
+# ZSH envs
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export DOTFILES="$HOME/dotfiles"
 export HISTFILE="$ZDOTDIR/.zhistory"
 export HISTSIZE=10000               
 export SAVEHIST=10000               
+
+# Z jump
+export _Z_DATA="$DOTFILES/z/z.data"
+
+# PATHS
+export PATH=$HOME/bin/ctags/:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.fzf/bin:~/go/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.cargo/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/scripts/:$DOTFILES/scripts
