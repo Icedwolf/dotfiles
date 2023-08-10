@@ -30,15 +30,17 @@ set $clipboard cliphist list | fuzzel -I -d | cliphist decode | wl-copy
 bindsym $mod+p exec $clipboard
 bindsym $mod+shift+p exec cliphist wipe | notify-send "Clipboard" "Cleared"
 # Lockscreen
-set $lock swaylock --image ~/Pictures/ggdc_wall.png -s fill
+set $lock swaylock --image $HOME/Pictures/ggdc_wall.png -s fill && swayidle 
 bindsym $mod+Escape exec $lock
 
 #Idle
+set $lights_out swaymsg "output * dpms off"
+set $lights_on swaymsg "output * dpms on"
 exec swayidle -w \
-             timeout 300 $lock \
-             timeout 600 'swaymsg "output * dpms off"' \
-             resume 'swaymsg "output * dpms on"' \
-             before-sleep $lock
+                timeout 60 $lock \
+                timeout 75 $lights_out \
+                     resume $lights_on \
+                before-sleep $lock
 
 # FZF KILL 
 bindsym $mod+delete exec kill_ps
