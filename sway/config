@@ -36,18 +36,22 @@ bindsym $mod+Escape exec $lock
 #Idle
 set $lights_out swaymsg "output * dpms off"
 set $lights_on swaymsg "output * dpms on"
+
 exec swayidle -w \
-                timeout 60 $lock \
-                timeout 75 $lights_out \
-                     resume $lights_on \
-                before-sleep $lock
+    timeout 15 'if pgrep -x swaylock; then swaymsg "output * power off"; fi' \
+    timeout 300 $lock \
+    timeout 300 $lights_out \
+    resume $lights_on \
+    before-sleep $lights_out \
+    before-sleep 'playerctl pause' \
+    before-sleep $lock 
 
 # FZF KILL 
 bindsym $mod+delete exec kill_ps
 # Passmenu
 bindsym $mod+apostrophe exec passotp
 
-output HDMI-A-1 bg $HOME/Pictures/sephiroth_1.jpg fill
+output HDMI-A-1 bg $HOME/Pictures/griffith.png center
 output eDP-1 bg $HOME/Pictures/ggdc_wall.png fill
 
 output eDP-1 {
@@ -56,6 +60,22 @@ output eDP-1 {
 
 output HDMI-A-1 {
     position 0 0
+}
+
+# Work mouse
+input 1739:52693:DELL0959:00_06CB:CDD5_Mouse {
+    natural_scroll disabled
+    dwt enabled
+    accel_profile "flat"
+    pointer_accel 0.5 # set mouse sensitivity (between -1 and 1)
+}
+
+# Work note touchpad
+input 1739:52693:DELL0959:00_06CB:CDD5_Touchpad {
+    natural_scroll disabled
+    dwt enabled
+    accel_profile "flat"
+    pointer_accel 0.6 # set pad sensitivity (between -1 and 1)
 }
 
 input * {
