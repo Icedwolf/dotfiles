@@ -63,7 +63,7 @@ output HDMI-A-1 {
 }
 
 # Work mouse
-input 1739:52693:DELL0959:00_06CB:CDD5_Mouse {
+input type:mouse {
     natural_scroll disabled
     dwt enabled
     accel_profile "flat"
@@ -71,14 +71,14 @@ input 1739:52693:DELL0959:00_06CB:CDD5_Mouse {
 }
 
 # Work note touchpad
-input 1739:52693:DELL0959:00_06CB:CDD5_Touchpad {
+input type:touchpad {
     natural_scroll disabled
     dwt enabled
     accel_profile "flat"
     pointer_accel 0.6 # set pad sensitivity (between -1 and 1)
 }
 
-input * {
+input type:keyboard {
     xkb_numlock enabled
     xkb_layout "br"
 }
