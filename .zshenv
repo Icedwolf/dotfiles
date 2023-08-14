@@ -11,8 +11,7 @@ export EDITOR="lvim"
 export VISUAL="lvim"
 export TERMINAL="alacritty"
 export READER="zathura"
-export PAGER="less"
-export LESS="--RAW-CONTROL-CHARS"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # ZSH envs
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
