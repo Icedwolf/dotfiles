@@ -23,8 +23,5 @@ export SAVEHIST=10000
 # Z jump
 export _Z_DATA="$DOTFILES/z/z.data"
 
-# NNN FIFO
-export NNN_FIFO=/tmp/nnn.fifo
-
 # PATHS
 export PATH=$HOME/bin/ctags/:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.fzf/bin:~/go/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.cargo/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/scripts/:$DOTFILES/scripts
