@@ -62,20 +62,18 @@ output HDMI-A-1 {
     position 0 0
 }
 
-# Work mouse
-input type:mouse {
-    natural_scroll disabled
-    dwt enabled
-    accel_profile "flat"
-    pointer_accel 0.5 # set mouse sensitivity (between -1 and 1)
-}
-
 # Work note touchpad
 input type:touchpad {
     natural_scroll disabled
     dwt enabled
     accel_profile "flat"
     pointer_accel 0.6 # set pad sensitivity (between -1 and 1)
+}
+
+# Work mouse
+input type:mouse {
+    accel_profile "flat"
+    pointer_accel -1 # set mouse sensitivity (between -1 and 1)
 }
 
 input type:keyboard {
@@ -85,10 +83,9 @@ input type:keyboard {
 
 floating_modifier $mod normal
 
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle 
-bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+ | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $WOBSOCK
+bindsym XF86AudioLowerVolume exec amixer sset Master 5%- | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $WOBSOCK
+bindsym XF86AudioMute exec amixer sset Master toggle | sed -En '/\[on\]/ s/.*\[([0-9]+)%\].*/\1/ p; /\[off\]/ s/.*/0/p' | head -1 > $WOBSOCK
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
 bindsym XF86MonBrightnessUp exec brightnessctl set +5% | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
 bindsym XF86AudioPlay exec playerctl play-pause | sleep 0.2 && notify-send "playerctl" "$(playerctl status) - $(playerctl metadata --format '{{artist}} - {{title}}')"
@@ -180,7 +177,7 @@ bar {
             focused_workspace #ffffff #ff440f #000000
             inactive_workspace #222222 #000000 #ffffff
         }
-        status_command /usr/sbin/bumblebee-status -m playerctl nic cpu memory battery date time pasink pasource -p time.format="%H:%M" date.format="%a %b %d" -p memory.format="{percent:05.02f}%" -p nic.states="^down" -p nic.format="{ssid} {strength}" -t dracula-powerline
+        status_command /usr/sbin/bumblebee-status -m playerctl nic cpu memory battery date time amixer -p time.format="%H:%M" date.format="%a %b %d" -p memory.format="{percent:05.02f}%" -p nic.states="^down" -p nic.format="{ssid} {strength}" -t dracula-powerline
 }
 
 gaps inner 1
