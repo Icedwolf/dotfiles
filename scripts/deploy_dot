@@ -14,10 +14,7 @@ CONFIG_FOLDERS=(
   "k9s"
   "lvim"
   "wob"
-  "newsboat"
   "containers"
-  "ncspot"
-  "rescrobbled"
   "systemd/user"
   "environment.d"
 )
