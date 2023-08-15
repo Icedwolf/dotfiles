@@ -11,7 +11,7 @@ export EDITOR="lvim"
 export VISUAL="lvim"
 export TERMINAL="alacritty"
 export READER="zathura"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANPAGER="sh -c 'bat --style=plain --color=always -l man -p'"
 
 # ZSH envs
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
