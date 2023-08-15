@@ -19,10 +19,12 @@ CONFIG_FOLDERS=(
   "ncspot"
   "rescrobbled"
   "systemd/user"
+  "environment.d"
 )
 
 # Create destination folders and symlinks for files in each folder
 for folder in "${CONFIG_FOLDERS[@]}"; do
+    echo $folder
   destination_path="$BASE_CONFIG_PATH$folder"
   mkdir -p "$destination_path"
   ln -sf "$DOTFILES/$folder/"* "$destination_path/"
@@ -31,7 +33,7 @@ done
 
 # FILES
 ln -sf "$DOTFILES/zsh/.zshrc" $ZDOTDIR/.zshrc
-ln -sf "$DOTFILES/.zshenv" ~/.zshenv
+ln -sf "$DOTFILES/.zshenv" $HOME/.zshenv
 echo "Symlinked .zshrc && .zshenv"
 
 echo "Dotfiles deployment completed successfully."
