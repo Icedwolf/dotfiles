@@ -15,8 +15,6 @@ CONFIG_FOLDERS=(
   "lvim"
   "wob"
   "containers"
-  "systemd/user"
-  "environment.d"
 )
 
 # Create destination folders and symlinks for files in each folder
@@ -31,6 +29,7 @@ done
 # FILES
 ln -sf "$DOTFILES/zsh/.zshrc" $ZDOTDIR/.zshrc
 ln -sf "$DOTFILES/.zshenv" $HOME/.zshenv
-echo "Symlinked .zshrc && .zshenv"
+ln -sf "$DOTFILES/.zprofile" $HOME/.zprofile
+echo "Symlinked .zshrc && .zprofile .zshenv"
 
 echo "Dotfiles deployment completed successfully."

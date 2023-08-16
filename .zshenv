@@ -2,7 +2,7 @@
 skip_global_compinit=1
 
 # XDG
-export XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-/run/user/$(id -u)} # PODMAN ROOTLESS DOCKER SOCK 
+export XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-/run/user/$(id -u)}
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # Default apps
@@ -16,9 +16,6 @@ export MANPAGER="sh -c 'bat --style=plain --color=always -l man -p'"
 # ZSH envs
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export DOTFILES="$HOME/dotfiles"
-export HISTFILE="$ZDOTDIR/.zhistory"
-export HISTSIZE=10000               
-export SAVEHIST=10000               
 
 # Z jump
 export _Z_DATA="$DOTFILES/z/z.data"
