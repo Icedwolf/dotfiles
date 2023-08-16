@@ -208,5 +208,10 @@ exec --no-startup-id pgrep firefox || exec firefox
 
 workspace 1
 exec --no-startup-id pgrep discord || exec discord
+exec --no-startup-id pgrep teams-for-linux || exec teams-for-linux
+exec --no-startup-id pgrep spotify || exec spotify
+
+workspace 3 
+exec --no-startup-id pgrep Obsidian-1.3.7.AppImage || exec Obsidian-1.3.7.AppImage
 
 include /etc/sway/config.d/*
