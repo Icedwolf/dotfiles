@@ -173,4 +173,5 @@ exec --no-startup-id pgrep discord || exec discord
 exec --no-startup-id pgrep teams-for-linux || exec teams-for-linux
 exec --no-startup-id pgrep spotify || exec spotify
 
+exec brightnessctl set 100% | echo 100 > $WOBSOCK
 include /etc/sway/config.d/*
