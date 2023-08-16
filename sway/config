@@ -177,7 +177,7 @@ bar {
             focused_workspace #ffffff #ff440f #000000
             inactive_workspace #222222 #000000 #ffffff
         }
-        status_command /usr/sbin/bumblebee-status -m playerctl nic cpu memory battery date time amixer -p time.format="%H:%M" date.format="%a %b %d" -p memory.format="{percent:05.02f}%" -p nic.states="^down" -p nic.format="{ssid} {strength}" -t dracula-powerline
+        status_command /usr/sbin/bumblebee-status -m playerctl nic cpu memory battery date time amixer brightness -p time.format="%H:%M" date.format="%a %b %d" -p memory.format="{percent:05.02f}%" -p nic.states="^down" -p nic.format="{ssid} {strength}" -t dracula-powerline
 }
 
 gaps inner 1
@@ -210,8 +210,5 @@ workspace 1
 exec --no-startup-id pgrep discord || exec discord
 exec --no-startup-id pgrep teams-for-linux || exec teams-for-linux
 exec --no-startup-id pgrep spotify || exec spotify
-
-workspace 3 
-exec --no-startup-id pgrep Obsidian-1.3.7.AppImage || exec Obsidian-1.3.7.AppImage
 
 include /etc/sway/config.d/*
