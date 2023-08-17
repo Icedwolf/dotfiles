@@ -144,7 +144,7 @@ bindsym $mod+Control+Shift+k move workspace to output up
 
 bar {
     position top
-    font FiraMono Nerd Font Propo 10
+        font Noto Mono Nerd Font 10
         colors {
             statusline #000000
             background #161821
