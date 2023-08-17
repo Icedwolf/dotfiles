@@ -1,6 +1,6 @@
 #!/bin/zsh
 alias change="lvim $DOTFILES"
-alias att="paru -Syyuu --skipreview --nouseask --failfast --norebuild --noredownload --cleanafter;git -C $DOTFILES submodule update --remote;cargo-install-update install-update --all; lvim +LvimUpdate +q; notify-send att-done"
+alias att="paru -Syyuu --skipreview --nouseask --failfast --norebuild --noredownload --cleanafter;git -C $DOTFILES submodule update --remote;cargo-install-update install-update --all;gem update; lvim +LvimUpdate +q; notify-send att-done"
 alias update="source $ZDOTDIR/.zshrc"
 alias kbconf="lvim ~/.kube/config"
 alias lcontext="kubectl config get-contexts"
