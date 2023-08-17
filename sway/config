@@ -61,6 +61,11 @@ input "type:touchpad" {
     scroll_method two_finger
 }
 
+input "type:mouse" {
+    pointer_accel 0.3
+    accel_profile flat
+}
+
 input "type:keyboard" {
     xkb_numlock enabled
     xkb_layout "br"
