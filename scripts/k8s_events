@@ -49,7 +49,7 @@ for context in $context_names; do
             if [[ "$line" == *"$context"* ]]; then
                 echo -e "${CYAN}$line${RESET}"
             elif [[ "$line" != *"Fetching events"* && "$line" != *"Command executed in"* ]]; then
-                echo -e "$color_code$line$RESET"
+                echo -e "${color_code}$line${RESET}"
             else
                 echo "$line"
             fi
