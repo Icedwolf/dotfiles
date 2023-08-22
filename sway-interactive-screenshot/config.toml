@@ -4,7 +4,7 @@
 prompt = "📷> "
 
 # Directory in which to save screenshots.
-save_dir = "$HOME/Pictures/Screenshots"
+save_dir = "~/Pictures/Screenshots"
 
 # File name format.
 # See: https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
@@ -32,7 +32,7 @@ prompt = "📹> "
 pid_file = "${XDG_RUNTIME_DIR}/sway-interactive-screenshot.${WAYLAND_DISPLAY}.video.pid"
 
 # Directory in which to save screencast.
-save_dir = "$HOME/Pictures/Screenshots"
+save_dir = "~/Pictures/Screenshots"
 
 # File name format.
 # See: https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
