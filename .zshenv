@@ -7,6 +7,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 # Default apps
 export BROWSER="firefox"
+export MOZ_ENABLE_WAYLAND=1
 export EDITOR="lvim"
 export VISUAL="lvim"
 export TERMINAL="alacritty"
@@ -16,9 +17,9 @@ export MANPAGER="sh -c 'bat --style=plain --color=always -l man -p'"
 # ZSH envs
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export DOTFILES="$HOME/dotfiles"
- export HISTFILE="$ZDOTDIR/.zhistory"
- export HISTSIZE=10000
- export SAVEHIST=10000
+export HISTFILE="$ZDOTDIR/.zhistory"
+export HISTSIZE=10000
+export SAVEHIST=10000
 
 # Z jump
 export _Z_DATA="$DOTFILES/z/z.data"

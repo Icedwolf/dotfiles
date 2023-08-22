@@ -2,7 +2,7 @@ zmodload zsh/complist
 fpath=($DOTFILES/zsh/completions $fpath)
 fpath=($DOTFILES/zsh/zsh-completions/src $fpath)
 setopt MENU_COMPLETE
-setopt AUTO_LIST
+setopt AUTOLIST
 setopt COMPLETE_IN_WORD
 autoload -Uz compinit;
 _comp_options+=(globdots) # With hidden files

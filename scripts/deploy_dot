@@ -15,6 +15,7 @@ CONFIG_FOLDERS=(
   "lvim"
   "wob"
   "containers"
+  "git"
 )
 
 # Create destination folders and symlinks for files in each folder
