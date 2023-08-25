@@ -30,8 +30,8 @@ set $clipboard cliphist list | fuzzel -I -d | cliphist decode | wl-copy
 bindsym $mod+p exec $clipboard
 bindsym $mod+shift+p exec cliphist wipe | notify-send "Clipboard" "Cleared"
 # Lockscreen
-set $lock swaylock --image $HOME/Pictures/ggdc_wall.png -s fill && swayidle 
-bindsym $mod+Escape exec $lock
+set $lock swaylock --image $HOME/Pictures/ggdc_wall.png -s fill 
+bindsym $mod+Escape exec playerctl pause && $lock
 
 #Idle
 set $lights_out swaymsg "output * dpms off"
@@ -73,7 +73,7 @@ bindsym XF86AudioLowerVolume exec amixer sset Master 5%- | sed -En 's/.*\[([0-9]
 bindsym XF86AudioMute exec amixer sset Master toggle | sed -En '/\[on\]/ s/.*\[([0-9]+)%\].*/\1/ p; /\[off\]/ s/.*/0/p' | head -1 > $WOBSOCK
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
 bindsym XF86MonBrightnessUp exec brightnessctl set +5% | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
-bindsym XF86AudioPlay exec playerctl play-pause | sleep 0.2 && notify-send "playerctl" "$(playerctl status) - $(playerctl metadata --format '{{artist}} - {{title}}')"
+bindsym --locked XF86AudioPlay exec playerctl play-pause | sleep 0.2 && notify-send "playerctl" "$(playerctl status) - $(playerctl metadata --format '{{artist}} - {{title}}')"
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86Search exec $menu
