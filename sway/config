@@ -10,9 +10,12 @@ blur_radius 1
 shadows enable
 shadows_on_csd enable
 shadow_blur_radius 40
-shadow_color #000000cc
+shadow_color #0000007F
 corner_radius 1
 smart_corner_radius enable
+default_dim_inactive 0.3
+dim_inactive_colors.unfocused #000000FF
+layer_effects "waybar" blur enable; shadows enable; corner_radius 6
 
 set $mod Mod4
 set $left h
