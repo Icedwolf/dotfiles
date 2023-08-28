@@ -146,8 +146,10 @@ lvim.plugins = {
                 filetypes = { "*" },
                 user_default_options = {
                     RRGGBBAA = true,
+                    names = true,
+                    rgb_fn = true,
+                    hsl_fn = true,
                     css = true,
-                    AARRGGBB = true,
                     mode = "background",
                 }
             })
