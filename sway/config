@@ -34,12 +34,9 @@ bindsym $mod+shift+p exec cliphist wipe | notify-send "Clipboard" "Cleared"
 set $lock swaylock --image $HOME/Pictures/ggdc_wall.png -s fill 
 bindsym $mod+Escape exec playerctl pause && $lock
 
-#Idle
-set $lights_out swaymsg "output * dpms off"
-set $lights_on swaymsg "output * dpms on"
-
 # FZF KILL 
 bindsym $mod+delete exec kill_ps
+
 # Passmenu
 bindsym $mod+apostrophe exec passotp
 
