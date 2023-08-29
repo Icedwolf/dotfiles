@@ -11,7 +11,7 @@ setopt EXTENDED_GLOB        # Use extended globbing syntax.
 # VIM MODE CONFIG
 source $DOTFILES/zsh/vim.zsh
 
-# SSH GPG
+# SSH GPG 
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 gpg-connect-agent updatestartuptty /bye > /dev/null
