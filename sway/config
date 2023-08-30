@@ -40,7 +40,7 @@ bindsym $mod+delete exec kill_ps
 # Passmenu
 bindsym $mod+apostrophe exec passotp
 
-output HDMI-A-1 bg $HOME/Pictures/8.jpg fill
+output HDMI-A-1 bg $HOME/Pictures/4.jpg fill
 output eDP-1 bg $HOME/Pictures/ggdc_wall.png fill
 
 output eDP-1 {
