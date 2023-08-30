@@ -9,7 +9,7 @@ blur_passes 1
 blur_radius 1
 shadows enable
 shadows_on_csd enable
-shadow_blur_radius 40
+shadow_blur_radius 50
 shadow_color #0000007F
 corner_radius 1
 smart_corner_radius enable
@@ -40,7 +40,7 @@ bindsym $mod+delete exec kill_ps
 # Passmenu
 bindsym $mod+apostrophe exec passotp
 
-output HDMI-A-1 bg $HOME/Pictures/buster.png fill
+output HDMI-A-1 bg $HOME/Pictures/8.jpg fill
 output eDP-1 bg $HOME/Pictures/ggdc_wall.png fill
 
 output eDP-1 {
