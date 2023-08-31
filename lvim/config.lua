@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 lvim.colorscheme = "blue"
-lvim.log.level = "debug"
+lvim.log.level = "warning"
 lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.builtin.treesitter.highlight.enabled = true
