@@ -29,7 +29,7 @@ done
 
 # FILES
 ln -sf "$DOTFILES/zsh/.zshrc" $ZDOTDIR/.zshrc
-ln -sf "$DOTFILES/.zshenv" $HOME/.zshenv
+ln -sf "$DOTFILES/zsh/.zshenv" $HOME/.zshenv
 echo "Symlinked .zshrc .zshenv"
 
 echo "Dotfiles deployment completed successfully."
