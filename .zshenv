@@ -8,8 +8,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # Default apps
 export BROWSER="firefox"
 export MOZ_ENABLE_WAYLAND=1
-export EDITOR="lvim"
-export VISUAL="lvim"
+export EDITOR="nvim"
+export VISUAL="nvim"
 export TERMINAL="alacritty"
 export READER="zathura"
 export MANPAGER="sh -c 'bat --style=plain --color=always -l man -p'"

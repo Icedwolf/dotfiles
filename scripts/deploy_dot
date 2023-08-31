@@ -10,12 +10,12 @@ CONFIG_FOLDERS=(
   "fuzzel"
   "git"
   "k9s"
-  "lvim"
   "mako"
   "sway"
   "sway-interactive-screenshot"
   "tmux"
   "wob"
+  "nvim/lua/custom"
 )
 
 # Create destination folders and symlinks for files in each folder

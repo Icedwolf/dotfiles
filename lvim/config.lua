@@ -126,4 +126,5 @@ lvim.plugins = {
             })
         end,
     },
+    { "mattn/efm-langserver" },
 }
