@@ -107,7 +107,7 @@ lvim.plugins = {
             require("copilot").setup({
                 panel = {
                     enabled = true,
-                    auto_refresh = false,
+                    auto_refresh = true,
                     keymap = {
                         jump_prev = "[[",
                         jump_next = "]]",
@@ -116,7 +116,7 @@ lvim.plugins = {
                         open = "<M-CR>"
                     },
                     layout = {
-                        position = "bottom", -- | top | left | right
+                        position = "bottom",
                         ratio = 0.4
                     },
                 },
