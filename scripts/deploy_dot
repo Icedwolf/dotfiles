@@ -5,17 +5,17 @@
 BASE_CONFIG_PATH="$HOME/.config/"
 
 CONFIG_FOLDERS=(
-  "tmux"
-  "sway"
-  "mako"
-  "fuzzel"
   "alacritty"
-  "sway-interactive-screenshot"
+  "containers"
+  "fuzzel"
+  "git"
   "k9s"
   "lvim"
+  "mako"
+  "sway"
+  "sway-interactive-screenshot"
+  "tmux"
   "wob"
-  "containers"
-  "git"
 )
 
 # Create destination folders and symlinks for files in each folder
