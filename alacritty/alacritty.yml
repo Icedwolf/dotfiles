@@ -2,9 +2,6 @@ env:
   TERM: xterm-256color
 window:
   opacity: 0.4
-  dimensions:
-    columns: 0
-    lines: 0
   padding:
     x: 1
     y: 1
@@ -42,12 +39,10 @@ persistent_logging: false
 draw_bold_text_with_bright_colors: true
 
 colors:
-  # Default colors
   primary:
     background: '#000000'
     foreground: '#dddddd'
 
-  # Normal colors
   normal:
     black: '#000000'
     red: '#cc0403'
@@ -58,7 +53,6 @@ colors:
     cyan: '#0dcdcd'
     white: '#dddddd'
 
-  # Bright colors
   bright:
     black: '#767676'
     red: '#f2201f'
@@ -83,7 +77,6 @@ selection:
   save_to_clipboard: false
 dynamic_title: true
 cursor:
-  style: Block
   unfocused_hollow: true
 live_config_reload: true
 enable_experimental_conpty_backend: false
