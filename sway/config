@@ -150,7 +150,8 @@ gaps inner 1
 gaps outer 1
 gaps horizontal 1
 gaps vertical 1
-default_border pixel 1
+# remove window title bar
+default_border none
 for_window [class=".*"] border pixel 1
 hide_edge_borders smart_no_gaps
 smart_gaps on
