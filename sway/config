@@ -148,16 +148,13 @@ bar {
         status_command /usr/sbin/bumblebee-status -m playerctl nic cpu memory battery date time amixer brightness -p time.format="%H:%M" date.format="%a %b %d" -p memory.format="{percent:05.02f}%" -p nic.states="^down" -p nic.format="{ssid} {strength}" -t dracula-powerline
 }
 
-gaps inner 1
-gaps outer 1
-gaps horizontal 1
-gaps vertical 1
+gaps inner 0
+gaps outer 0
+gaps horizontal 0
+gaps vertical 0
 smart_gaps on
-
-# Borders
-default_border pixel 1,5
-for_window [class=".*"] border pixel 1,5
-
+default_border pixel 1
+for_window [class=".*"] border pixel 1
 hide_edge_borders smart_no_gaps
 
 ### Colors
