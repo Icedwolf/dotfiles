@@ -3,16 +3,17 @@ exec mako
 exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 
 # swayfx config aka eye candy
-blur enable
-blur_xray enable
-blur_passes 1
-blur_radius 1
-shadows enable
-shadows_on_csd enable
-shadow_blur_radius 10
-shadow_color #0000007F
-corner_radius 1
-smart_corner_radius enable
+# blur enable
+# blur_xray enable
+# blur_passes 1
+# blur_radius 1
+# shadows enable
+# shadows_on_csd enable
+# shadow_blur_radius 10
+# shadow_color #0000007F
+# corner_radius 1
+# smart_corner_radius enable
+# titlebar_separator disable
 
 set $mod Mod4
 set $left h
@@ -157,7 +158,6 @@ smart_gaps on
 default_border pixel 1,5
 for_window [class=".*"] border pixel 1,5
 
-titlebar_separator disable
 hide_edge_borders smart_no_gaps
 
 ### Colors
