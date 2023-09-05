@@ -41,30 +41,33 @@ draw_bold_text_with_bright_colors: true
 colors:
   primary:
     background: '#000000'
-    foreground: '#dddddd'
+    foreground: '#ffffff'
+  cursor:
+    text: '#F81CE5'
+    cursor: '#ffffff'
 
   normal:
     black: '#000000'
-    red: '#cc0403'
-    green: '#19cb00'
-    yellow: '#cecb00'
-    blue: '#0d73cc'
-    magenta: '#cb1ed1'
-    cyan: '#0dcdcd'
-    white: '#dddddd'
+    red: '#fe0100'
+    green: '#33ff00'
+    yellow: '#feff00'
+    blue: '#0066ff'
+    magenta: '#cc00ff'
+    cyan: '#00ffff'
+    white: '#d0d0d0'
 
   bright:
-    black: '#767676'
-    red: '#f2201f'
-    green: '#23fd00'
-    yellow: '#fffd00'
-    blue: '#1a8fff'
-    magenta: '#fd28ff'
-    cyan: '#14ffff'
-    white: '#ffffff'
+    black: '#808080'
+    red: '#fe0100'
+    green: '#33ff00'
+    yellow: '#feff00'
+    blue: '#0066ff'
+    magenta: '#cc00ff'
+    cyan: '#00ffff'
+    white: '#FFFFFF'
 visual_bell:
   animation: EaseOutExpo
-  duration: 0
+  duration: 1
   color: '0xffffff'
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
@@ -199,4 +202,4 @@ key_bindings:
   - { key: F11, mods: Super, chars: "\e[23;3~" }
   - { key: F12, mods: Super, chars: "\e[24;3~" }
   - { key: NumpadEnter, chars: "\n" }
-theme: Kitty
+theme: Hyper

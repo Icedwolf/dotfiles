@@ -52,6 +52,8 @@ output HDMI-A-1 {
 }
 
 input "type:keyboard" {
+    repeat_delay 350
+    repeat_rate 50
     xkb_numlock enabled
     xkb_layout "br"
 }
