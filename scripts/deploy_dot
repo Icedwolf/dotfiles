@@ -15,6 +15,7 @@ CONFIG_FOLDERS=(
   "sway-interactive-screenshot"
   "tmux"
   "wob"
+  "waybar"
   "nvim/lua/custom"
 )
 

@@ -52,7 +52,7 @@ output HDMI-A-1 {
 }
 
 input "type:keyboard" {
-    repeat_delay 350
+    repeat_delay 400
     repeat_rate 50
     xkb_numlock enabled
     xkb_layout "br"
@@ -138,26 +138,20 @@ bindsym $mod+Control+Shift+j move workspace to output down
 bindsym $mod+Control+Shift+k move workspace to output up
 
 bar {
+    status_command waybar
     position top
-        font Noto Mono Nerd Font 10
-        colors {
-            statusline #000000
-            background #161821
-            separator #0011ff
-            focused_workspace #ffffff #ff440f #000000
-            inactive_workspace #222222 #000000 #ffffff
-        }
-        status_command /usr/sbin/bumblebee-status -m playerctl nic cpu memory battery date time amixer brightness -p time.format="%H:%M" date.format="%a %b %d" -p memory.format="{percent:05.02f}%" -p nic.states="^down" -p nic.format="{ssid} {strength}" -t dracula-powerline
+    mode invisible
+    font Noto Mono Nerd Font 10
 }
 
-gaps inner 0
-gaps outer 0
-gaps horizontal 0
-gaps vertical 0
-smart_gaps on
+gaps inner 1
+gaps outer 1
+gaps horizontal 1
+gaps vertical 1
 default_border pixel 1
 for_window [class=".*"] border pixel 1
 hide_edge_borders smart_no_gaps
+smart_gaps on
 
 ### Colors
 client.focused            #c5c8c6   #1d1f21   #00ff00    #ffffff    #00ff00
