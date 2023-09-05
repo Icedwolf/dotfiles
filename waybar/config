@@ -71,12 +71,11 @@
             "car": "",
             "default": ["", ""]
         },
-        "on-click": "pavucontrol"
     },
     "custom/spotify": {
         "format": " {}",
-        "interval": 1, // Remove this if your script is endless and write in loop 
-        "max-length": 40,
+        "interval": 5,
+        "max-length": 50,
         "exec": "$HOME/.config/waybar/mediaplayer.sh 2> /dev/null", // Script in resources folder
         "exec-if": "pgrep spotify"
     }

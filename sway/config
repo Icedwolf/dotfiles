@@ -143,6 +143,8 @@ bar {
     mode invisible
     font Noto Mono Nerd Font 10
 }
+#toggle bar 
+bindsym $mod+o exec killall -SIGUSR1 waybar
 
 gaps inner 1
 gaps outer 1
