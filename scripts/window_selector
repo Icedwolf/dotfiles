@@ -1,11 +1,11 @@
 #!/bin/sh
 
-# ------Get available windows:
+# ------Get available windows excluding "(null)":
 windows=$(swaymsg -t get_tree | jq -r '
-	recurse(.nodes[]?) |
-		recurse(.floating_nodes[]?) |
-		select(.type=="con"), select(.type=="floating_con") |
-			(.id | tostring) + " " + .app_id + ": " + .name')
+    recurse(.nodes[]?) |
+    recurse(.floating_nodes[]?) |
+    select(.type=="con" and .name != null), select(.type=="floating_con" and .name != null) |
+    (.id | tostring) + " " + .app_id + ": " + .name')
 
 # ------Select window with fuzzel:
 selected=$(echo "$windows" | fuzzel -d | awk '{print $1}')
