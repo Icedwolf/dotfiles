@@ -37,6 +37,9 @@ bindsym $mod+Escape exec playerctl pause && $lock
 # FZF KILL 
 bindsym $mod+delete exec kill_ps
 
+bindsym $mod+tab exec window_selector
+bindsym $mod+c exec waypaper
+
 # Passmenu
 bindsym $mod+apostrophe exec passotp
 
