@@ -16,6 +16,7 @@ CONFIG_FOLDERS=(
   "tmux"
   "wob"
   "waybar"
+  "ncspot"
   "nvim/lua/custom"
 )
 
