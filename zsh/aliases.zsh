@@ -1,7 +1,7 @@
 #!/bin/zsh
 alias vim="nvim"
 alias change="nv $DOTFILES"
-alias att="paru -Syyuu --skipreview --nouseask --failfast --norebuild --noredownload --cleanafter --sudoloop;git -C $DOTFILES submodule update --remote;cargo-install-update install-update --all;gem update;notify-send att-done"
+alias att="paru -Syyuu --skipreview --nouseask --failfast --norebuild --noredownload --cleanafter --sudoloop;git -C $DOTFILES submodule update --remote;cargo-install-update install-update --all;gem update;$HOME/.config/tmux/plugins/tpm/bin/update_plugins all;notify-send att-done"
 alias update="source $ZDOTDIR/.zshrc"
 alias kbconf="vim ~/.kube/config"
 alias lcontext="kubectl config get-contexts"
