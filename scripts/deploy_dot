@@ -18,6 +18,7 @@ CONFIG_FOLDERS=(
   "waybar"
   "ncspot"
   "rescrobbled"
+  "systemd/user"
   "nvim/lua/custom"
 )
 
