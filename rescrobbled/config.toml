@@ -1,0 +1,4 @@
+lastfm-key = "df8de79a688b0d1b7d641cf6b406bd82"
+lastfm-secret = "6056cd5d9127ed4780747f39517f3309"
+min-play-time = 30
+player-whitelist = ["ncspot"]
