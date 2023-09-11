@@ -1,4 +1,7 @@
 notify = true
+use_nerdfont = true
+gapless = true
+shuffle = true
 [theme]
 #background = "black"
 primary = "#F8F8F2"
