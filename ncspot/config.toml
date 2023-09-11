@@ -1,5 +1,8 @@
+initial_screen = "queue"
+library_tabs = ["playlists", "artists", "albums", "tracks"]
+audio_cache = false
 notify = true
-use_nerdfont = true
+use_nerdfont = false
 gapless = true
 shuffle = true
 [theme]
