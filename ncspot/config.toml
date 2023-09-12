@@ -1,3 +1,7 @@
+hide_display_names = false
+bitrate = 320
+repeat = "playlist"
+playback_state = "Stopped"
 initial_screen = "queue"
 library_tabs = ["playlists", "artists", "albums", "tracks"]
 audio_cache = false
