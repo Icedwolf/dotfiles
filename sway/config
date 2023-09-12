@@ -1,3 +1,4 @@
+include /etc/sway/config.d/*
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
 exec mako 
 exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
@@ -169,15 +170,13 @@ workspace_layout tabbed
 
 # init apps on startup
 workspace 2
-exec --no-startup-id pgrep alacritty || exec $term -e tmux
+exec --no-startup-id pgrep alacritty || exec $term --class "terminal" -e tmux
 exec --no-startup-id pgrep firefox || exec firefox
 
 workspace 1
 exec --no-startup-id pgrep easyeffects || exec easyeffects
-exec --no-startup-id pgrep ncspot || exec $term --class "spot" -e tmux new-session -d -s ncspot 'ncspot'
+exec --no-startup-id pgrep ncspot || exec $term --class "spot" -e tmux new-session -s ncspot 'ncspot'
 exec --no-startup-id pgrep discord || exec discord
 exec --no-startup-id pgrep teams-for-linux || exec teams-for-linux
 
 exec brightnessctl set 100% | echo 100 > $WOBSOCK
-
-include /etc/sway/config.d/*
