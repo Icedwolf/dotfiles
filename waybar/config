@@ -3,8 +3,8 @@
     "position": "top", // Waybar at the bottom of your screen
     "height": 24, // Waybar height
     "modules-left": ["sway/workspaces", "sway/mode", "custom/spotify"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "tray", "clock"],
+    "modules-center": ["clock"], //"sway/window"
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "tray"],
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -13,7 +13,7 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "tray": {
-        "spacing": 10
+        "spacing": 5
     },
     "clock": {
         "format-alt": "{:%Y-%m-%d}"
@@ -43,12 +43,6 @@
         "format-bluetooth": "{volume}% {icon}",
         "format-muted": "",
         "format-icons": {
-            "headphones": "",
-            "handsfree": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
             "default": ["", ""]
         },
     },
@@ -56,7 +50,7 @@
         "format": " {}",
         "interval": 1,
         "max-length": 50,
-        "exec": "$DOTFILES/scripts/playing_status 2> /dev/null", // Script in resources folder
+        "exec": "$DOTFILES/scripts/playing_status 2> /dev/null",
         "exec-if": "pgrep ncspot"
     }
 }
