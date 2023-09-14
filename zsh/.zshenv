@@ -4,7 +4,7 @@ skip_global_compinit=1
 # XDG
 export XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-/run/user/$(id -u)}
 export XDG_CONFIG_HOME="$HOME/.config"
-
+export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 # Default apps
 export BROWSER="firefox"
 export MOZ_ENABLE_WAYLAND=1

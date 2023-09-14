@@ -13,6 +13,7 @@ source $DOTFILES/zsh/vim.zsh
 
 # SSH GPG 
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+export GPG_TTY=$(tty)
 gpgconf --launch gpg-agent -v
 gpg-connect-agent updatestartuptty /bye > /dev/null
 
