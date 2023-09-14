@@ -19,3 +19,4 @@ alias spotify="ncspot"
 alias kube_create="systemctl --user start podman.socket;k3d cluster create --servers 3 --k3s-arg '--kubelet-arg=feature-gates=KubeletInUserNamespace=true@server:*';k3d kubeconfig get k3s-default > ~/.kube/k3d;notify-send 'Cluster criado e kubeconfig setado'"
 alias evim="nvim ~/.config/nvim"
 alias ljunk="paru -Qtdq"
+alias css="rm -rf $HOME/Pictures/Screenshots/*" #clear screenshot folder
