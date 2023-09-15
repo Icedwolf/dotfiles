@@ -40,13 +40,15 @@ window#waybar {
 }
 
 #clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #tray, #mode {
-    padding: 0 3px;
-    margin: 0 2px;
+    padding: 0 1px;
+    margin: 0 1px;
 }
 
 #clock {
+    font-size: 13px;
     color: #0FFF50;
     font-weight: bold;
+    font-style: italic;
 }
 
 #battery {
@@ -57,6 +59,7 @@ window#waybar {
 }
 
 #battery.charging {
+   color: green;
 }
 
 @keyframes blink {
