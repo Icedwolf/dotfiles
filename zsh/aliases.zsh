@@ -20,3 +20,4 @@ alias kube_create="systemctl --user start podman.socket;k3d cluster create --ser
 alias evim="vim ~/.config/nvim"
 alias ljunk="paru -Qtdq"
 alias css="rm -rf $HOME/Pictures/Screenshots/*" #clear screenshot folder
+alias s="exec sway"
