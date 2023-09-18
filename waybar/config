@@ -1,9 +1,9 @@
 {
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar at the bottom of your screen
-    "height": 24, // Waybar height
+    "layer": "top",
+    "position": "top",
+    "height": 18,
     "modules-left": ["sway/workspaces", "sway/mode", "custom/spotify"],
-    "modules-center": ["clock"], //"sway/window"
+    "modules-center": ["clock"],
     "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "tray"],
     "sway/workspaces": {
         "disable-scroll": true,
