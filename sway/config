@@ -1,20 +1,6 @@
-include /etc/sway/config.d/*
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
 exec mako 
 exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
-
-# swayfx config aka eye candy
-# blur enable
-# blur_xray enable
-# blur_passes 1
-# blur_radius 1
-# shadows enable
-# shadows_on_csd enable
-# shadow_blur_radius 10
-# shadow_color #0000007F
-# corner_radius 1
-# smart_corner_radius enable
-# titlebar_separator disable
 
 set $mod Mod4
 set $left h
@@ -147,6 +133,7 @@ bar {
     mode invisible
     font Noto Mono Nerd Font 10
 }
+
 #toggle bar 
 bindsym $mod+o exec killall -SIGUSR1 waybar | notify-send "Waybar" "Toggle ($mod+o)"
 
@@ -180,3 +167,4 @@ exec --no-startup-id pgrep discord || exec discord
 exec --no-startup-id pgrep teams-for-linux || exec teams-for-linux
 
 exec brightnessctl set 100% | echo 100 > $WOBSOCK
+include /etc/sway/config.d/*
