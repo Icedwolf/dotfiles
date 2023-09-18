@@ -158,7 +158,7 @@ workspace_layout tabbed
 # init apps on startup
 workspace 2
 exec --no-startup-id pgrep alacritty || exec $term --class "terminal" -e tmux
-exec --no-startup-id pgrep firefox || exec firefox
+exec --no-startup-id pgrep firefox-beta-bin || exec firefox-beta-bin
 
 workspace 1
 exec --no-startup-id pgrep easyeffects || exec easyeffects
