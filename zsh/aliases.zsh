@@ -23,3 +23,4 @@ alias css="rm -rf $HOME/Pictures/Screenshots/*" #clear screenshot folder
 alias s="exec sway"
 alias c="clear"
 alias essh="vim ~/.ssh/config"
+alias ke="k8s_events"
