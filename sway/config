@@ -14,9 +14,9 @@ bindsym $mod+d exec $menu
 #clipboard
 exec wl-paste --watch cliphist store
 set $clipboard cliphist list | fuzzel -I -d | cliphist decode | wl-copy
-
 bindsym $mod+p exec $clipboard
 bindsym $mod+shift+p exec cliphist wipe | notify-send "Clipboard" "Cleared"
+
 # Lockscreen
 set $lock swaylock --image $wall/ggdc_wall.png -s fill 
 bindsym $mod+Escape exec playerctl pause && $lock
