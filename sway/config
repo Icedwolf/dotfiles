@@ -1,7 +1,7 @@
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
 exec mako 
 exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
-
+set $wall $HOME/Pictures/walls/
 set $mod Mod4
 set $left h
 set $down j
@@ -18,7 +18,7 @@ set $clipboard cliphist list | fuzzel -I -d | cliphist decode | wl-copy
 bindsym $mod+p exec $clipboard
 bindsym $mod+shift+p exec cliphist wipe | notify-send "Clipboard" "Cleared"
 # Lockscreen
-set $lock swaylock --image $HOME/Pictures/ggdc_wall.png -s fill 
+set $lock swaylock --image $wall/ggdc_wall.png -s fill 
 bindsym $mod+Escape exec playerctl pause && $lock
 
 # FZF KILL 
@@ -30,8 +30,8 @@ bindsym $mod+c exec waypaper
 # Passmenu
 bindsym $mod+apostrophe exec passotp
 
-output HDMI-A-1 bg $HOME/Pictures/4.jpg fill
-output eDP-1 bg $HOME/Pictures/ggdc_wall.png fill
+output HDMI-A-1 bg $wall/4.jpg fill
+output eDP-1 bg $wall/ggdc_wall.png fill
 
 output eDP-1 {
     position 1920 0
@@ -70,7 +70,7 @@ bindsym XF86Search exec $menu
 bindsym Print exec sway-interactive-screenshot
 
 bindsym $mod+Up exec makoctl restore
-bindsym $mod+Down exec makoctl dismiss
+bindsym $mod+Down exec makoctl dismiss -a
 bindsym $mod+Return exec $term
 bindsym $mod+q kill
 bindsym $mod+Shift+c reload
