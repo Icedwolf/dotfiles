@@ -1,10 +1,10 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 18,
+    "height": 19,
     "modules-left": ["sway/workspaces", "sway/mode", "custom/spotify"],
     "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "tray"],
+    "modules-right": ["wireplumber","network", "cpu", "memory", "battery", "tray"],
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -41,9 +41,8 @@
         "format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
         "format-disconnected": "Disconnected ⚠ "
     },
-    "pulseaudio": {
+    "wireplumber": {
         "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon}",
         "format-muted": "",
         "format-icons": {
             "default": [" ", " "]
