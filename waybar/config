@@ -2,15 +2,12 @@
     "layer": "top",
     "position": "top",
     "height": 19,
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/spotify"],
+    "modules-left": ["sway/workspaces", "custom/spotify"],
     "modules-center": ["clock"],
     "modules-right": ["custom/mic-volume", "wireplumber", "network", "cpu", "memory", "battery", "tray"],
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
-    },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
     },
     "tray": {
         "spacing": 5
@@ -43,7 +40,7 @@
     },
     "wireplumber": {
         "format": "{volume}% {icon}",
-        "format-muted": "",
+        "format-muted": ",",
         "format-icons": {
             "default": [" ", " "]
         },
@@ -55,11 +52,11 @@
         "exec": "$DOTFILES/scripts/playing_status 2> /dev/null",
         "exec-if": "pgrep ncspot"
     },
-"custom/mic-volume": {
-    "format": "{}%  ",
-    "interval": 1,
-    "exec": "amixer get Capture | sed -En 's/.*\\[([0-9]+)%\\].*/\\1/p' | head -1",
-    "return-type": "custom/text",
-    "tooltip": true
-},
+    "custom/mic-volume": {
+      "format": "{}%  ",
+      "interval": 1,
+      "exec": "amixer get Capture | sed -En 's/.*\\[([0-9]+)%\\].*/\\1/p' | head -1",
+      "return-type": "custom/text",
+      "tooltip": true
+    },
 }
