@@ -32,6 +32,7 @@ pass
 pass-git-helper
 pass-import
 pass-otp
+paru
 pinentry
 playerctl
 podman
@@ -59,3 +60,4 @@ zathura-djvu
 zathura-pdf-mupdf
 zathura-ps
 zbar
+
