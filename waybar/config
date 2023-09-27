@@ -4,7 +4,7 @@
     "height": 19,
     "modules-left": ["sway/workspaces", "sway/mode", "custom/spotify"],
     "modules-center": ["clock"],
-    "modules-right": ["wireplumber","network", "cpu", "memory", "battery", "tray"],
+    "modules-right": ["custom/mic-volume", "wireplumber", "network", "cpu", "memory", "battery", "tray"],
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -54,5 +54,12 @@
         "max-length": 50,
         "exec": "$DOTFILES/scripts/playing_status 2> /dev/null",
         "exec-if": "pgrep ncspot"
-    }
+    },
+"custom/mic-volume": {
+    "format": "{}%  ",
+    "interval": 1,
+    "exec": "amixer get Capture | sed -En 's/.*\\[([0-9]+)%\\].*/\\1/p' | head -1",
+    "return-type": "custom/text",
+    "tooltip": true
+},
 }
