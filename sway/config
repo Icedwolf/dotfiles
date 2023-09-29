@@ -19,6 +19,7 @@ bindsym $mod+shift+p exec cliphist wipe | notify-send "Clipboard" "Cleared"
 # Wallpaper
 set $wall $HOME/Pictures/walls/
 bindsym $mod+c exec waypaper
+bindsym $mod+r exec waypaper --restore --random
 output HDMI-A-1 bg $wall/4.jpg fill
 output eDP-1 bg $wall/ggdc_wall.png fill
 
@@ -166,6 +167,7 @@ workspace 1
 exec --no-startup-id pgrep easyeffects || exec easyeffects
 exec --no-startup-id pgrep ncspot || exec $term --class "spot" -e tmux new-session -s ncspot 'ncspot'
 exec --no-startup-id pgrep teams-for-linux || exec electron24 /opt/teams-for-linux/resources/app.asar
+exec waypaper --restore --random
 
 exec brightnessctl set 100% | echo 100 > $WOBSOCK
 include /etc/sway/config.d/*
