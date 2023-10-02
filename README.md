@@ -38,6 +38,28 @@ This repository contains my personal dotfiles, which are configuration files and
 
 - **Package_list**: Listed packages for my system install.
 
+### Submodules
+
+#### Zsh Autosuggestions
+- **Path**: `zsh/zsh-autosuggestions`
+- **URL**: [https://github.com/zsh-users/zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+- **Description**: This submodule includes the Zsh Autosuggestions plugin, which enhances your Zsh shell by providing intelligent command auto-completion suggestions as you type.
+
+#### Fast Syntax Highlighting
+- **Path**: `zsh/fsh`
+- **URL**: [https://github.com/zdharma-continuum/fast-syntax-highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting)
+- **Description**: This submodule contains the Fast Syntax Highlighting plugin for Zsh. It adds syntax highlighting to your shell, making it easier to read and understand command input and output.
+
+### .gitignore
+
+#### Excluded Tags
+- **Pattern**: `z/**`
+- **Description**: This pattern in the `.gitignore` file specifies that all files and directories under the "z" directory and its subdirectories are excluded from version control.
+
+#### Exception for z/z.sh
+- **Pattern**: `!z/z.sh`
+- **Description**: Despite excluding everything under "z," this exception allows the inclusion of the specific file `z/z.sh` in version control. This file is not ignored and is tracked by Git.
+
 ## Usage
 
 Feel free to use and modify these dotfiles to suit your needs. It's recommended to symlink the configuration files from this repository to their respective locations in your home directory. Please be cautious and backup your existing configuration files before overwriting them.
