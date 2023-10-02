@@ -34,9 +34,9 @@ This repository contains my personal dotfiles, which are configuration files and
 
 - **Scripts**: Various utility scripts that enhance the command-line experience.
 
-- grubcmd: My custom grub kernel params.
+- **Grubcmd**: My custom grub kernel params.
 
-- package_list: Listed packages for my system install.
+- **Package_list**: Listed packages for my system install.
 
 ## Usage
 
