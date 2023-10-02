@@ -140,15 +140,16 @@ bar {
 # Toggle bar
 bindsym $mod+o exec killall -SIGUSR1 waybar | notify-send "Waybar" "Toggle ($mod+o)"
 
+# Gaps
 gaps inner 1
 gaps outer 1
 gaps horizontal 1
 gaps vertical 1
-
-# Remove window title bar
-for_window [class=".*"] border pixel 1
-hide_edge_borders smart_no_gaps
 smart_gaps on
+hide_edge_borders smart_no_gaps
+
+# Windows
+for_window [class=".*"] border pixel 1
 
 ### Colors
 client.focused            #c5c8c6   #1d1f21   #00ff00    #ffffff    #00ff00
@@ -158,16 +159,20 @@ client.focused_inactive   #c5c8c6   #1d1f21   #ffffff    #ffffff    #c5c8c6
 #default layout
 workspace_layout tabbed
 
-# init apps on startup
+# Init apps
 workspace 2
 exec --no-startup-id pgrep alacritty || exec $term --class "terminal" -e tmux
 exec --no-startup-id pgrep firefox-beta-bin || exec firefox-beta-bin
-
 workspace 1
 exec --no-startup-id pgrep easyeffects || exec easyeffects
 exec --no-startup-id pgrep ncspot || exec $term --class "spot" -e tmux new-session -s ncspot 'ncspot'
 exec --no-startup-id pgrep teams-for-linux || exec electron24 /opt/teams-for-linux/resources/app.asar
 exec waypaper --restore --random
 
+# Set default brightness
 exec brightnessctl set 100% | echo 100 > $WOBSOCK
-include /etc/sway/config.d/*
+
+# ETC default config removed from include to keep configs in one file
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
