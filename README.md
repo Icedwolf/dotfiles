@@ -34,6 +34,10 @@ This repository contains my personal dotfiles, which are configuration files and
 
 - **Scripts**: Various utility scripts that enhance the command-line experience.
 
+- grubcmd: My custom grub kernel params.
+
+- package_list: Listed packages for my system install.
+
 ## Usage
 
 Feel free to use and modify these dotfiles to suit your needs. It's recommended to symlink the configuration files from this repository to their respective locations in your home directory. Please be cautious and backup your existing configuration files before overwriting them.
