@@ -34,31 +34,9 @@ bindsym $mod+tab exec window_selector
 # Passmenu
 bindsym $mod+apostrophe exec passotp
 
-output eDP-1 {
-    position 1920 0
-}
-
-output HDMI-A-1 {
-    position 0 0
-}
-
-input "type:keyboard" {
-    repeat_delay 400
-    repeat_rate 50
-    xkb_numlock enabled
-    xkb_layout "br"
-}
-
-input * {
-    tap enabled
-    natural_scroll enabled
-    pointer_accel 0.4
-    accel_profile flat
-    scroll_method two_finger
-}
-
 floating_modifier $mod normal
 
+# Media keys
 bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+ | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $WOBSOCK
 bindsym XF86AudioLowerVolume exec amixer sset Master 5%- | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $WOBSOCK
 bindsym Shift+XF86AudioRaiseVolume exec amixer sset Capture 5%+ | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $WOBSOCK
@@ -130,6 +108,7 @@ bindsym $mod+Control+Shift+h move workspace to output left
 bindsym $mod+Control+Shift+j move workspace to output down
 bindsym $mod+Control+Shift+k move workspace to output up
 
+# Waybar config
 bar {
     status_command waybar
     position top
@@ -175,3 +154,27 @@ exec brightnessctl set 100% | echo 100 > $WOBSOCK
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+
+# Work devices config
+output eDP-1 {
+    position 1920 0
+}
+
+output HDMI-A-1 {
+    position 0 0
+}
+
+input "type:keyboard" {
+    repeat_delay 400
+    repeat_rate 50
+    xkb_numlock enabled
+    xkb_layout "br"
+}
+
+input * {
+    tap enabled
+    natural_scroll enabled
+    pointer_accel 0.4
+    accel_profile flat
+    scroll_method two_finger
+}
