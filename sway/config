@@ -1,5 +1,5 @@
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
-exec mako 
+exec mako
 exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 set $mod Mod4
 set $left h
@@ -164,7 +164,6 @@ workspace 2
 exec --no-startup-id pgrep alacritty || exec $term --class "terminal" -e tmux
 exec --no-startup-id pgrep firefox-beta-bin || exec firefox-beta-bin
 workspace 1
-exec --no-startup-id pgrep easyeffects || exec easyeffects
 exec --no-startup-id pgrep ncspot || exec $term --class "spot" -e tmux new-session -s ncspot 'ncspot'
 exec --no-startup-id pgrep teams-for-linux || exec electron24 /opt/teams-for-linux/resources/app.asar
 exec waypaper --restore --random
