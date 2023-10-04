@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Default value for n
+n=10
+
+# Check if an argument was provided and if it's an integer
+if [ "$#" -eq 1 ] && [[ "$1" =~ ^[0-9]+$ ]]; then
+	n="$1"
+elif [ "$#" -eq 0 ]; then
+	echo "Using default value for n: $n"
+else
+	echo "Error: Please provide a valid integer argument for the number of packages to display."
+	echo "Usage: $0 [n]"
+	exit 1
+fi
+
+# Use the pacman logs to extract the last n installed packages
+grep -E "\[ALPM\] installed" /var/log/pacman.log* |
+	awk -F 'installed ' '{print $2}' |
+	tail -n "$n"
