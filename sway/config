@@ -109,13 +109,16 @@ bindsym $mod+Control+Shift+h move workspace to output left
 bindsym $mod+Control+Shift+j move workspace to output down
 bindsym $mod+Control+Shift+k move workspace to output up
 
-# Waybar config
-bar {
-    status_command waybar
-    position top
-    mode invisible
-    font Noto Mono Nerd Font 10
-}
+# Disable swaybar
+# bar {
+#     status_command waybar
+#     position top
+#     mode invisible
+#     font Noto Mono Nerd Font 10
+# }
+
+# Start Waybar
+exec waybar
 
 # Toggle bar
 bindsym $mod+o exec killall -SIGUSR1 waybar | notify-send "Waybar" "Toggle ($mod+o)"
