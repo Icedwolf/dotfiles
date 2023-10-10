@@ -46,9 +46,6 @@ window#waybar {
     font-style: italic;
 }
 
-#battery {
-}
-
 #battery icon {
     color: red;
 }
