@@ -60,4 +60,3 @@ zathura-djvu
 zathura-pdf-mupdf
 zathura-ps
 zbar
-
