@@ -37,4 +37,7 @@ ln -sf "$DOTFILES/zsh/.zshrc" $ZDOTDIR/.zshrc
 ln -sf "$DOTFILES/zsh/.zshenv" $HOME/.zshenv
 echo "Symlinked .zshrc .zshenv"
 
+echo "Creating user crontab"
+crontab $DOTFILES/cron/*
+
 echo "Dotfiles deployment completed successfully."
