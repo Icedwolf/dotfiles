@@ -38,6 +38,20 @@ ln -sf "$DOTFILES/zsh/.zshenv" $HOME/.zshenv
 echo "Symlinked .zshrc .zshenv"
 
 echo "Creating user crontab"
-crontab $DOTFILES/cron/*
+# Specify the path to your dotfiles/cron folder
+DOTFILES_CRON_FOLDER="$DOTFILES/cron"
+# Create a temporary file for the new crontab
+temp_crontab_file=$(mktemp)
+# Loop through files in the dotfiles/cron folder and append them to the temporary crontab file
+for cron_file in "$DOTFILES_CRON_FOLDER"/*; do
+    if [ -f "$cron_file" ]; then
+        cat "$cron_file" >> "$temp_crontab_file"
+    fi
+done
+# Install the new crontab
+crontab "$temp_crontab_file"
+# Clean up the temporary file
+rm "$temp_crontab_file"
+echo "User crontab updated"
 
 echo "Dotfiles deployment completed successfully."
