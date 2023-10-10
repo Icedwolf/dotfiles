@@ -19,6 +19,7 @@ CONFIG_FOLDERS=(
   "waybar"
   "ncspot"
   "rescrobbled"
+  "task"
   "systemd/user"
 )
 
