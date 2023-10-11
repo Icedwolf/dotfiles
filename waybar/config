@@ -53,9 +53,9 @@
         "exec-if": "pgrep ncspot"
     },
     "custom/mic-volume": {
-      "format": "{}%  ",
+      "format": "{} ",
       "interval": 1,
-      "exec": "amixer get Capture | sed -En 's/.*\\[([0-9]+)%\\].*/\\1/p' | head -1",
+      "exec": "amixer get Capture | awk -F'[][]' '/\\[off\\]/{print \"Muted \"} /\\[on\\]/{print $2\" \"}' | tail -n 1",
       "return-type": "custom/text",
       "tooltip": true
     },
