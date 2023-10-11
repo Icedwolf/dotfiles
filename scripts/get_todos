@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Source your user's environment
+source /home/icedwolf/.zshenv
+source /home/icedwolf/.config/zsh/.zshrc
+
+# Set the environment variables for the user
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+
+# Get your task list and extract the tasks you want
+tasks=$(/usr/sbin/task list | /usr/sbin/awk 'FNR==4 {$1=""; $2=""; gsub(/"/, "", $0); print $0}')
+
+# Check if there are tasks
+if [[ -n "$tasks" ]]; then
+	/usr/sbin/notify-send -u critical "$tasks"
+else
+	/usr/sbin/notify-send -u normal "No tasks found."
+fi

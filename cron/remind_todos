@@ -1,1 +1,1 @@
-*/60 * * * * /usr/sbin/notify-send -u critical "$(task list | awk 'FNR==4 {$1=$2=""; print $0}')"
+*/45 * * * * /home/icedwolf/dotfiles/scripts/get_todos
