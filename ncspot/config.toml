@@ -1,16 +1,16 @@
 hide_display_names = false
 bitrate = 320
 repeat = "playlist"
-playback_state = "Stopped"
+playback_state = "Paused"
 initial_screen = "queue"
 library_tabs = ["playlists", "artists", "albums", "tracks"]
-audio_cache = false
+audio_cache = true
 notify = true
 use_nerdfont = false
 gapless = true
 shuffle = true
+volnorm = true
 [theme]
-#background = "black"
 primary = "#F8F8F2"
 secondary = "light black"
 title = "#bd93f9"
