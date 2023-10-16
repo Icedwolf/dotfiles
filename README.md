@@ -26,8 +26,6 @@ This repository contains my personal dotfiles, which are configuration files and
 
 - **Waybar**: Configuration for Waybar, a customizable status bar for Sway.
 
-- **Wob**: Configuration for Wob, a lightweight notification daemon for Wayland.
-
 - **Z**: Configuration files and a script for the "z" command-line tool, for directory navigation.
 
 - **Zsh**: Zsh configurations, including aliases, completions, exports, functions, and more.

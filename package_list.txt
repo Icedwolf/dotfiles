@@ -15,6 +15,7 @@ fzf
 git
 github-cli
 go
+gnupg
 helm
 k9s
 kubectl
@@ -54,7 +55,6 @@ teams-for-linux
 tmux
 tree-sitter-cli
 waybar
-wob
 zathura-cb
 zathura-djvu
 zathura-pdf-mupdf
