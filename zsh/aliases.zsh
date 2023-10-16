@@ -25,4 +25,4 @@ alias c="clear"
 alias essh="vim ~/.ssh/config"
 alias ke="k8s_events"
 alias t="task"
-alias wget='wget --no-hsts'
+alias wget="wget --hsts-file=$HOME/.config/wget-hsts"
