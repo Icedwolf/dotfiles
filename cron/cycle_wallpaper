@@ -1,1 +1,1 @@
-*/5 * * * * XDG_RUNTIME_DIR=/run/user/$(id -u) WAYLAND_DISPLAY=wayland-1 /usr/bin/env DISPLAY=:0 /home/icedwolf/.local/bin/waypaper --restore --random
+*/15 * * * * XDG_RUNTIME_DIR=/run/user/$(id -u) WAYLAND_DISPLAY=wayland-1 /usr/bin/env DISPLAY=:0 /home/icedwolf/.local/bin/waypaper --restore --random
