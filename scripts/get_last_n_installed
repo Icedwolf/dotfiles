@@ -1,20 +1,33 @@
 #!/bin/bash
 
-# Default value for n
+# Default value for n (number of packages)
 n=10
 
-# Check if an argument was provided and if it's an integer
-if [ "$#" -eq 1 ] && [[ "$1" =~ ^[0-9]+$ ]]; then
-	n="$1"
-elif [ "$#" -eq 0 ]; then
-	echo "Using default value for n: $n"
-else
-	echo "Error: Please provide a valid integer argument for the number of packages to display."
-	echo "Usage: $0 [n]"
+# Help message function
+print_help() {
+	echo "Usage: $0 [number]"
+	echo "List the latest <number> installed packages on a Pacman-based system."
 	exit 1
+}
+
+# Check if the argument is an integer
+is_integer() {
+	if [[ $1 =~ ^[0-9]+$ ]]; then
+		return 0 # True (integer)
+	else
+		return 1 # False (not an integer)
+	fi
+}
+
+# Parse the positional argument as the number
+if [ -n "$1" ]; then
+	if is_integer "$1"; then
+		n="$1"
+	else
+		echo "Error: The argument must be a integer."
+		print_help
+	fi
 fi
 
-# Use the pacman logs to extract the last n installed packages
-grep -E "\[ALPM\] installed" /var/log/pacman.log* |
-	awk -F 'installed ' '{print $2}' |
-	tail -n "$n"
+# Main logic to list the latest n installed packages
+expac --timefmt='%Y-%m-%d %T' '%l\t%n' $(zcat -f /var/log/pacman.log* | awk '/\[ALPM\] installed/ {print $4}' | sort -u) | sort -r | head -n "$n"
