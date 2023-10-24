@@ -17,9 +17,7 @@ CONFIG_FOLDERS=(
   "tmux"
   "waybar"
   "ncspot"
-  "rescrobbled"
   "task"
-  "systemd/user"
 )
 
 # Create destination folders and symlinks for files in each folder
