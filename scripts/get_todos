@@ -2,7 +2,6 @@
 
 # Source your user's environment
 source /home/icedwolf/.zshenv
-source /home/icedwolf/.config/zsh/.zshrc
 
 # Set the environment variables for the user
 export XDG_RUNTIME_DIR=/run/user/$(id -u)
