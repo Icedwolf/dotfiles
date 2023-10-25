@@ -1,4 +1,3 @@
-#!/bin/zsh
 alias vim="nvim"
 alias change="vim $DOTFILES"
 alias att="paru -Syyuu --noconfirm --noupgrademenu --removemake --skipreview --nouseask --failfast --norebuild --noredownload --cleanafter --sudoloop;git -C $DOTFILES submodule update --remote;cargo-install-update install-update --all;gem update;pipx upgrade-all;$HOME/.config/tmux/plugins/tpm/bin/update_plugins all;notify-send att-done"

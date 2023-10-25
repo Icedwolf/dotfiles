@@ -1,32 +1,20 @@
 KEYTIMEOUT=1
 unsetopt BEEP
-setopt interactive_comments
 
-# CD
-setopt AUTO_CD              # Go to folder path without using cd.
-setopt CORRECT              # Spelling correction
-setopt CDABLE_VARS          # Change directory to a path stored in a variable.
-setopt EXTENDED_GLOB        # Use extended globbing syntax.
+setopt AUTO_CD
+setopt CORRECT
+setopt CDABLE_VARS
+setopt EXTENDED_GLOB
+setopt MENU_COMPLETE
+setopt AUTOLIST
+setopt COMPLETE_IN_WORD
+HISTFILE=
+HISTSIZE=SAVEHIST=0
 
-# VIM MODE CONFIG
 source $DOTFILES/zsh/vim.zsh
-
-# SSH GPG 
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-export GPG_TTY=$(tty)
-gpgconf --launch gpg-agent -v
-gpg-connect-agent updatestartuptty /bye > /dev/null
-
-# FUNCTIONS
 source $DOTFILES/zsh/functions.zsh
-
-# ALIASES
 source $DOTFILES/zsh/aliases.zsh
-
-# EXPORTS
 source $DOTFILES/zsh/exports.zsh
-
-# COMPLETIONS
 source $DOTFILES/zsh/completions.zsh
 
 # SOURCES
@@ -35,5 +23,8 @@ eval "$(starship init zsh)"
 eval "$(atuin init zsh)"
 
 # PLUGINS
+ZSH_AUTOSUGGEST_USE_ASYNC=true
+ZSH_HIGHLIGHT_MAXLENGTH=100
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 source $DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh
 source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
