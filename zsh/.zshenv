@@ -21,6 +21,7 @@ export DOTFILES="$HOME/dotfiles"
 export HISTFILE="$ZDOTDIR/.zhistory"
 export HISTSIZE=10000
 export SAVEHIST=10000
+export DISABLE_AUTO_TITLE=true
 
 # Z jump
 export _Z_DATA="$DOTFILES/z/z.data"
