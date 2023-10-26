@@ -77,3 +77,6 @@ window#waybar {
 #custom-spotify {
     color: rgb(102, 220, 105);
 }
+#keyboard-state label.capslock.locked {
+    color: red;
+}

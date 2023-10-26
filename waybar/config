@@ -4,53 +4,52 @@
     "height": 19,
     "modules-left": ["sway/workspaces", "custom/spotify"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/mic-volume", "wireplumber", "network", "cpu", "memory", "battery", "tray"],
+    "modules-right": ["keyboard-state", "custom/mic-volume", "wireplumber", "network", "cpu", "memory", "battery", "tray"],
     "sway/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": false,
+      "disable-scroll": true,
+      "all-outputs": false,
     },
     "tray": {
-        "spacing": 5
+      "spacing": 5
     },
     "clock": {
-        "interval": 1,
-        "format": "{:%H:%M:%S - %m-%d}",
+      "interval": 1,
+      "format": "{:%H:%M:%S - %m-%d}",
     },
     "cpu": {
-        "format": "CPU:{usage}% ",
-        "interval": 1,
+      "format": "CPU:{usage}% ",
+      "interval": 1,
     },
     "memory": {
-        "format": "RAM:{}% ",
-        "interval": 1,
+      "format": "RAM:{}% ", "interval": 1,
     },
     "battery": {
-        "bat": "BAT0",
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{capacity}% {icon}",
-        "format-icons": [" ", " ", " ", " ", " "]
+      "bat": "BAT0",
+      "states": {
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "{capacity}% {icon}",
+      "format-icons": [" ", " ", " ", " ", " "]
     },
     "network": {
-        "format-wifi": "{essid} ({signalStrength}%)   ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
-        "format-disconnected": "Disconnected ⚠ "
+      "format-wifi": "{essid} ({signalStrength}%)   ",
+      "format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
+      "format-disconnected": "Disconnected ⚠ "
     },
     "wireplumber": {
-        "format": "{volume}% {icon}",
-        "format-muted": ",",
-        "format-icons": {
-            "default": [" ", " "]
-        },
+      "format": "{volume}% {icon}",
+      "format-muted": ",",
+      "format-icons": {
+        "default": [" ", " "]
+      },
     },
     "custom/spotify": {
-        "format": " {}",
-        "interval": 1,
-        "max-length": 50,
-        "exec": "$DOTFILES/scripts/playing_status 2> /dev/null",
-        "exec-if": "pgrep ncspot"
+      "format": " {}",
+      "interval": 1,
+      "max-length": 50,
+      "exec": "$DOTFILES/scripts/playing_status 2> /dev/null",
+      "exec-if": "pgrep ncspot"
     },
     "custom/mic-volume": {
       "format": "{} ",
@@ -58,5 +57,14 @@
       "exec": "amixer get Capture | awk -F'[][]' '/\\[off\\]/{print \"Muted \"} /\\[on\\]/{print $2\" \"}' | tail -n 1",
       "return-type": "custom/text",
       "tooltip": true
+    },
+    "keyboard-state": {
+      "numlock": false,
+      "capslock": true,
+      "format": "Caps {icon}",
+      "format-icons": {
+        "locked": "🔒 ",
+        "unlocked": "🔓 "
+      }
     },
 }
