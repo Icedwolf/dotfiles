@@ -27,8 +27,5 @@ eval "$(starship init zsh)"
 eval "$(atuin init zsh)"
 
 # PLUGINS
-ZSH_AUTOSUGGEST_USE_ASYNC=true
-ZSH_HIGHLIGHT_MAXLENGTH=100
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 source $DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh
 source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
