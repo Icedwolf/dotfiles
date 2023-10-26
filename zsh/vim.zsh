@@ -31,3 +31,5 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
+# Enable Shift+Tab for backward completion cycling
+bindkey "\e[Z" reverse-menu-complete
