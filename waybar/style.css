@@ -1,82 +1,98 @@
 * {
-    border: none;
-    border-radius: 0;
-    font-family: "CaskaydiaCove Nerd Font";
-    font-size: 13px;
-    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-    min-height: 0;
+  border: none;
+  border-radius: 0;
+  font-family: "CaskaydiaCove Nerd Font";
+  font-size: 13px;
+  text-shadow:
+    1px 0 0 #000,
+    0 -1px 0 #000,
+    0 1px 0 #000,
+    -1px 0 0 #000;
+  min-height: 0;
 }
 
 window#waybar {
-    background: transparent;
-    color: white;
+  background: transparent;
+  color: white;
 }
 
 #window {
-    font-weight: bold;
-    font-family: "CaskaydiaCove Nerd Font";
+  font-weight: bold;
+  font-family: "CaskaydiaCove Nerd Font";
 }
 
 #workspaces button {
-    padding: 0 5px;
-    background: transparent;
-    color: white;
-    border-top: 2px solid transparent;
+  padding: 0 5px;
+  background: transparent;
+  color: white;
+  border-top: 2px solid transparent;
 }
 
 #workspaces button.focused {
-    color: #c9545d;
-    border-top: 2px solid #c9545d;
+  color: #c9545d;
+  border-top: 2px solid #c9545d;
 }
 
 #mode {
-    background: #64727D;
-    border-bottom: 3px solid white;
+  background: #64727d;
+  border-bottom: 3px solid white;
 }
 
-#clock, #battery, #cpu, #memory, #network, #custom-spotify, #tray, #mode {
-    padding: 0 1px;
-    margin: 0 1px;
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#custom-spotify,
+#tray,
+#mode #keyboard-state {
+  padding: 0 1px;
+  margin: 0 1px;
 }
 
 #clock {
-    font-size: 13px;
-    color: #0FFF50;
-    font-weight: bold;
-    font-style: italic;
+  font-size: 13px;
+  color: #0fff50;
+  font-weight: bold;
+  font-style: italic;
 }
 
 #battery icon {
-    color: red;
+  color: red;
 }
 
 #battery.charging {
-   color: green;
+  color: green;
 }
 
 @keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: black;
-    }
+  to {
+    background-color: #ffffff;
+    color: black;
+  }
 }
 
 #battery.warning:not(.charging) {
-    color: white;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  color: white;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #network.disconnected {
-    background: #f53c3c;
+  background: #f53c3c;
 }
 
 #custom-spotify {
-    color: rgb(102, 220, 105);
+  color: rgb(102, 220, 105);
 }
+
+#custom-microphone {
+  color: red;
+}
+
 #keyboard-state label.capslock.locked {
-    color: red;
+  color: red;
 }

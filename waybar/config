@@ -4,7 +4,7 @@
     "height": 19,
     "modules-left": ["sway/workspaces", "custom/spotify"],
     "modules-center": ["clock"],
-    "modules-right": ["keyboard-state", "custom/mic-volume", "wireplumber", "network", "cpu", "memory", "battery", "tray"],
+    "modules-right": ["keyboard-state", "custom/microphone", "wireplumber", "network", "cpu", "memory", "battery", "tray"],
     "sway/workspaces": {
       "disable-scroll": true,
       "all-outputs": false,
@@ -51,7 +51,7 @@
       "exec": "$DOTFILES/scripts/playing_status 2> /dev/null",
       "exec-if": "pgrep ncspot"
     },
-    "custom/mic-volume": {
+    "custom/microphone": {
       "format": "{} ",
       "interval": 1,
       "exec": "amixer get Capture | awk -F'[][]' '/\\[off\\]/{print \"Muted \"} /\\[on\\]/{print $2\" \"}' | tail -n 1",
