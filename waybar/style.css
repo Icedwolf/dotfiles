@@ -89,7 +89,7 @@ window#waybar {
   color: rgb(102, 220, 105);
 }
 
-#custom-microphone {
+.muted {
   color: red;
 }
 
