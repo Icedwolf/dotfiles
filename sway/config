@@ -29,10 +29,9 @@ bindsym Shift+XF86AudioMute exec amixer sset Capture toggle
 bindsym XF86AudioMute exec amixer sset Master toggle
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
-bindsym --locked XF86AudioPlay exec $spot -s play-pause | sleep 0.2 && notify-send "playerctl" "$(playerctl status) - $(playerctl metadata --format '{{artist}} - {{title}}')"
+bindsym --locked XF86AudioPlay exec $spot -s play-pause
 bindsym XF86AudioNext exec $spot next
 bindsym XF86AudioPrev exec $spot previous
-bindsym XF86Search exec $menu
 bindsym Print exec sway-interactive-screenshot
 
 # Lockscreen
