@@ -20,12 +20,11 @@ source $DOTFILES/zsh/functions.zsh
 source $DOTFILES/zsh/aliases.zsh
 source $DOTFILES/zsh/exports.zsh
 source $DOTFILES/zsh/completions.zsh
-
-# SOURCES
 source $DOTFILES/z/z.sh
-eval "$(starship init zsh)"
-eval "$(atuin init zsh)"
 
 # PLUGINS
 source $DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh
 source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+eval "$(starship init zsh)"
+eval "$(atuin init zsh)"
