@@ -28,3 +28,12 @@ source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 eval "$(starship init zsh)"
 eval "$(atuin init zsh)"
+
+autoload -Uz compinit;
+_comp_options+=(globdots) # With hidden files
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+    compinit;
+    zcompile ${ZDOTDIR}/.zcompdump
+else
+    compinit -C;
+fi;
