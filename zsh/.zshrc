@@ -8,12 +8,17 @@ setopt EXTENDED_GLOB
 setopt MENU_COMPLETE
 setopt AUTOLIST
 setopt COMPLETE_IN_WORD
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_REDUCE_BLANKS
 setopt COMPLETE_ALIASES
 setopt AUTO_PARAM_SLASH
 setopt AUTO_MENU
 setopt LIST_AMBIGUOUS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
 
 source $DOTFILES/zsh/vim.zsh
 source $DOTFILES/zsh/functions.zsh
@@ -26,7 +31,8 @@ source $DOTFILES/z/z.sh
 source $DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh
 source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 eval "$(atuin init zsh)"
 
 autoload -Uz compinit;
@@ -38,3 +44,4 @@ if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
 else
     compinit -C;
 fi;
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

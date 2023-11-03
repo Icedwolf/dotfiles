@@ -139,7 +139,7 @@ exec --no-startup-id pgrep alacritty || exec $term --class "terminal" -e tmux
 exec --no-startup-id pgrep firefox-beta-bin || exec firefox-beta-bin
 workspace 1
 exec --no-startup-id pgrep ncspot || exec $term --class "spot" -e tmux new-session -s ncspot 'ncspot'
-exec --no-startup-id pgrep teams-for-linux || exec electron24 /opt/teams-for-linux/resources/app.asar
+exec ferdium
 exec waypaper --restore --random
 
 # Set default brightness
