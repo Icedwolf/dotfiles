@@ -42,4 +42,6 @@ if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
 else
     compinit -C;
 fi;
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme && source ~/.config/zsh/.p10k.zsh
+
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+source ~/.config/zsh/.p10k.zsh
