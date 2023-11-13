@@ -13,7 +13,7 @@ export VISUAL="nvim"
 export TERMINAL="alacritty"
 export READER="zathura"
 export MANPAGER="sh -c 'bat --style=plain --color=always -l man -p'"
-export OBSIDIAN_VAULT="$HOME/Documents/obvault/"
+export OBSIDIAN_VAULT="$HOME/Documents/vault/"
 
 # ZSH envs
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
