@@ -16,16 +16,16 @@ scrolling:
 tabspaces: 8
 font:
   normal:
-    family: CaskaydiaCove NF
+    family: CaskaydiaCove NFP
     style: Regular
   bold:
-    family: CaskaydiaCove NF
+    family: CaskaydiaCove NFP
     style: Bold
   italic:
-    family: CaskaydiaCove NF
+    family: CaskaydiaCove NFP
     style: Italic
   bold_italic:
-    family: CaskaydiaCove NF
+    family: CaskaydiaCove NFP
     style: Bold Italic
   size: 10.5
   offset:

@@ -30,7 +30,9 @@ for folder in "${CONFIG_FOLDERS[@]}"; do
 done
 
 # FILES
-ln -sf "$DOTFILES/zsh/.zshrc" $ZDOTDIR/.zshrc
+ln -sf "$DOTFILES/zsh/.zshrc" $ZDOTDIR
+ln -sf "$DOTFILES/zsh/.p10k.zsh" $ZDOTDIR
+zcompile $ZDOTDIR/.p10k.zsh
 ln -sf "$DOTFILES/zsh/.zshenv" $HOME/.zshenv
 echo "Symlinked .zshrc .zshenv"
 
