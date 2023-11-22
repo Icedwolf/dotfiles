@@ -16,16 +16,16 @@ scrolling:
 tabspaces: 8
 font:
   normal:
-    family: CaskaydiaCove Nerd Font
+    family: CaskaydiaCove NF
     style: Regular
   bold:
-    family: CaskaydiaCove Nerd Font
+    family: CaskaydiaCove NF
     style: Bold
   italic:
-    family: CaskaydiaCove Nerd Font
+    family: CaskaydiaCove NF
     style: Italic
   bold_italic:
-    family: CaskaydiaCove Nerd Font
+    family: CaskaydiaCove NF
     style: Bold Italic
   size: 10.5
   offset:
@@ -40,35 +40,35 @@ draw_bold_text_with_bright_colors: true
 
 colors:
   primary:
-    background: '#000000'
-    foreground: '#ffffff'
+    background: "#000000"
+    foreground: "#ffffff"
   cursor:
-    text: '#F81CE5'
-    cursor: '#ffffff'
+    text: "#F81CE5"
+    cursor: "#ffffff"
 
   normal:
-    black: '#000000'
-    red: '#fe0100'
-    green: '#33ff00'
-    yellow: '#feff00'
-    blue: '#0066ff'
-    magenta: '#cc00ff'
-    cyan: '#00ffff'
-    white: '#d0d0d0'
+    black: "#000000"
+    red: "#fe0100"
+    green: "#33ff00"
+    yellow: "#feff00"
+    blue: "#0066ff"
+    magenta: "#cc00ff"
+    cyan: "#00ffff"
+    white: "#d0d0d0"
 
   bright:
-    black: '#808080'
-    red: '#fe0100'
-    green: '#33ff00'
-    yellow: '#feff00'
-    blue: '#0066ff'
-    magenta: '#cc00ff'
-    cyan: '#00ffff'
-    white: '#FFFFFF'
+    black: "#808080"
+    red: "#fe0100"
+    green: "#33ff00"
+    yellow: "#feff00"
+    blue: "#0066ff"
+    magenta: "#cc00ff"
+    cyan: "#00ffff"
+    white: "#FFFFFF"
 visual_bell:
   animation: EaseOutExpo
   duration: 1
-  color: '0xffffff'
+  color: "0xffffff"
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
 mouse:
@@ -76,7 +76,7 @@ mouse:
   triple_click: { threshold: 300 }
   hide_when_typing: false
 selection:
-  semantic_escape_chars: ",│`|:\"' ()[]{}<>"
+  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
   save_to_clipboard: false
 dynamic_title: true
 cursor:
@@ -93,27 +93,12 @@ key_bindings:
   - { key: Home, chars: "\e[H", mode: ~AppCursor }
   - { key: End, chars: "\eOF", mode: AppCursor }
   - { key: End, chars: "\e[F", mode: ~AppCursor }
-  - {
-      key: PageUp,
-      mods: Shift,
-      action: ScrollPageUp,
-      mode: ~Alt
-    }
+  - { key: PageUp, mods: Shift, action: ScrollPageUp, mode: ~Alt }
   - { key: PageUp, mods: Shift, chars: "\e[5;2~", mode: Alt }
   - { key: PageUp, mods: Control, chars: "\e[5;5~" }
   - { key: PageUp, chars: "\e[5~" }
-  - {
-      key: PageDown,
-      mods: Shift,
-      action: ScrollPageDown,
-      mode: ~Alt
-    }
-  - {
-      key: PageDown,
-      mods: Shift,
-      chars: "\e[6;2~",
-      mode: Alt
-    }
+  - { key: PageDown, mods: Shift, action: ScrollPageDown, mode: ~Alt }
+  - { key: PageDown, mods: Shift, chars: "\e[6;2~", mode: Alt }
   - { key: PageDown, mods: Control, chars: "\e[6;5~" }
   - { key: PageDown, chars: "\e[6~" }
   - { key: Tab, mods: Shift, chars: "\e[Z" }
