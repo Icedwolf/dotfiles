@@ -1,6 +1,6 @@
 export ZSH_HIGHLIGHT_MAXLENGTH=100
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
-export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+export ZSH_AUTOSUGGEST_STRATEGY=(atuin_top completion)
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export KB=$HOME/.kube
 export KUBECONFIG=$KB/credinet_prod:$KB/cred-hml:$KB/rancher01:$KB/rancher01-hml:$KB/rancher-ggdc:$KB/minikube

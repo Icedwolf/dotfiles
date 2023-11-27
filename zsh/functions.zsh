@@ -11,3 +11,7 @@ function smart_cat() {
         command cat "$@"
     fi
 }
+
+_zsh_autosuggest_strategy_atuin_top() {
+    suggestion=$(atuin search --cmd-only --limit 1 --search-mode prefix $1)
+}

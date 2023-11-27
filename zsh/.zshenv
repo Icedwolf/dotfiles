@@ -18,9 +18,8 @@ export OBSIDIAN_VAULT="$HOME/Documents/vault/"
 # ZSH envs
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export DOTFILES="$HOME/dotfiles"
-export HISTFILE="$ZDOTDIR/.zhistory"
-export HISTSIZE=10000
-export SAVEHIST=10000
+export HISTSIZE=0
+export SAVEHIST=0
 export DISABLE_AUTO_TITLE=true
 
 # Z jump

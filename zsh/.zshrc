@@ -12,8 +12,10 @@ setopt COMPLETE_ALIASES
 setopt AUTO_PARAM_SLASH
 setopt AUTO_MENU
 setopt LIST_AMBIGUOUS
-setopt HIST_IGNORE_SPACE
-setopt HIST_IGNORE_ALL_DUPS
+
+# PLUGINS
+source $DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh
+source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source $DOTFILES/zsh/vim.zsh
 source $DOTFILES/zsh/functions.zsh
@@ -21,12 +23,6 @@ source $DOTFILES/zsh/aliases.zsh
 source $DOTFILES/zsh/exports.zsh
 source $DOTFILES/zsh/completions.zsh
 source $DOTFILES/z/z.sh
-
-# PLUGINS
-source $DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh
-source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-eval "$(atuin init zsh)"
 
 autoload -Uz compinit;
 _comp_options+=(globdots) # With hidden files
@@ -37,6 +33,8 @@ if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
 else
     compinit -C;
 fi;
+
+eval "$(atuin init zsh)"
 
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 source ~/.config/zsh/.p10k.zsh
