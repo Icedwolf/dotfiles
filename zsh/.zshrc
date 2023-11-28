@@ -37,4 +37,4 @@ fi;
 eval "$(atuin init zsh)"
 
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-source ~/.config/zsh/.p10k.zsh
+source $ZDOTDIR/.p10k.zsh
