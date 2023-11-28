@@ -31,9 +31,11 @@ done
 
 # FILES
 ln -sf "$DOTFILES/zsh/.zshrc" $ZDOTDIR
+zcompile $ZDOTDIR/.zshrc
 ln -sf "$DOTFILES/zsh/.p10k.zsh" $ZDOTDIR
 zcompile $ZDOTDIR/.p10k.zsh
 ln -sf "$DOTFILES/zsh/.zshenv" $HOME/.zshenv
+zcompile $HOME/.zshenv
 echo "Symlinked .zshrc .zshenv"
 
 echo "Creating user crontab"
