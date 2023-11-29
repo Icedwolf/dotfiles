@@ -5,6 +5,7 @@ bindkey -M vicmd "^k" up-line-or-search
 bindkey -M vicmd "^j" down-line-or-search
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
+bindkey '^n' autosuggest-accept
 autoload -Uz select-bracketed select-quoted
 zle -N select-quoted
 zle -N select-bracketed
