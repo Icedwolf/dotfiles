@@ -33,7 +33,7 @@ bindsym --locked XF86AudioPlay exec $spot -s play-pause
 bindsym XF86AudioNext exec $spot next
 bindsym XF86AudioPrev exec $spot previous
 bindsym Print exec sway-interactive-screenshot
-
+bindsym shift+Print exec sway-interactive-screenshot -s focused-window
 # Lockscreen
 set $lock swaylock --image $wall/ggdc_wall.png -s fill 
 bindsym $mod+Escape exec $spot -s pause && $lock
