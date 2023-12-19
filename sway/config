@@ -20,7 +20,7 @@ bindsym $mod+c exec waypaper
 bindsym $mod+r exec waypaper --restore --random
 
 # Media keys
-set $spot playerctl -p ncspot
+set $spot playerctl -p "spotify,ncspot"
 bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
 bindsym XF86AudioLowerVolume exec amixer sset Master 5%-
 bindsym Shift+XF86AudioRaiseVolume exec amixer sset Capture 5%+
