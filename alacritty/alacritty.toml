@@ -80,10 +80,10 @@ save_to_clipboard = false
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [window]
-decorations = "full"
-dynamic_padding = true
 opacity = 0.5
-blur = true
+decorations = "Full"
+dynamic_padding = true
+blur = false
 
 [window.padding]
 x = 1
