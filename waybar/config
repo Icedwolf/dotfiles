@@ -49,7 +49,7 @@
       "interval": 1,
       "max-length": 50,
       "exec": "$DOTFILES/scripts/playing_status 2> /dev/null",
-      "exec-if": "pgrep ncspot"
+      "exec-if": "pgrep spotify"
     },
     "custom/microphone": {
       "format": "{} ",

@@ -14,7 +14,6 @@ alias config="vim /home/icedwolf/.config"
 alias tf="terraform"
 alias docker-compose="podman-compose"
 alias cat="smart_cat"
-alias spotify="ncspot"
 alias evim="vim ~/.config/nvim"
 alias ljunk="paru -Qtdq"
 alias css="rm -rf $HOME/Pictures/Screenshots/*" #clear screenshot folder

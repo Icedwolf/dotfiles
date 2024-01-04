@@ -21,7 +21,7 @@ bindsym $mod+c exec waypaper
 bindsym $mod+r exec waypaper --restore --random
 
 # Media keys
-set $spot playerctl -p "spotify,ncspot"
+set $spot playerctl -p "spotify"
 bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
 bindsym XF86AudioLowerVolume exec amixer sset Master 5%-
 bindsym Shift+XF86AudioRaiseVolume exec amixer sset Capture 5%+
@@ -139,7 +139,7 @@ workspace 2
 exec --no-startup-id pgrep alacritty || exec $term --class "terminal" -e tmux
 exec --no-startup-id pgrep firefox-beta-bin || exec firefox-beta-bin
 workspace 1
-exec --no-startup-id pgrep ncspot || exec $term --class "spot" -e tmux new-session -s ncspot 'ncspot'
+exec --no-startup-id pgrep spotify || exec spotify
 exec ferdium --enable-features=UseOzonePlatform --ozone-platform=wayland
 exec waypaper --restore --random
 

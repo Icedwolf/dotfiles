@@ -14,9 +14,9 @@ CONFIG_FOLDERS=(
   "mako"
   "sway"
   "sway-interactive-screenshot"
+  "waypaper"
   "tmux"
   "waybar"
-  "ncspot"
   "task"
 )
 

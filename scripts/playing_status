@@ -1,9 +1,7 @@
-#!/bin/bash
-NCSPOT_SOCKET="$XDG_RUNTIME_DIR/ncspot/ncspot.sock"
-if nc -W 1 -U $NCSPOT_SOCKET >/dev/null; then
-	ncspot_info=$(nc -W 1 -U $NCSPOT_SOCKET)
-	eval current_artist=$(echo $ncspot_info | jq '.playable.artists[0]')
-	eval current_title=$(echo $ncspot_info | jq '.playable.title')
-	eval ncspot_playing=$(echo $ncspot_info | jq '.mode.Playing.secs_since_epoch')
+#!/bin/sh
+player_status=$(playerctl status 2>/dev/null)
+if [ "$player_status" = "Playing" ]; then
+	echo "$(playerctl metadata artist) - $(playerctl metadata title)"
+elif [ "$player_status" = "Paused" ]; then
+	echo " $(playerctl metadata artist) - $(playerctl metadata title)"
 fi
-echo $playing $current_artist - $current_title ♫
