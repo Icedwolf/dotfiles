@@ -1,7 +1,14 @@
-#!/bin/sh
+#!/bin/bash
+
+# Get player status, suppress errors if playerctl is not available
 player_status=$(playerctl status 2>/dev/null)
+
+# Replace problematic characters
+artist=$(playerctl metadata artist | sed 's/[&<>"]//g')
+title=$(playerctl metadata title | sed 's/[&<>"\]//g')
+
 if [ "$player_status" = "Playing" ]; then
-	echo "$(playerctl metadata artist) - $(playerctl metadata title)"
+	echo "$artist - $title"
 elif [ "$player_status" = "Paused" ]; then
-	echo " $(playerctl metadata artist) - $(playerctl metadata title)"
+	echo " $artist - $title"
 fi
