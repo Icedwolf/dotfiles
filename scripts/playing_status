@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Get player status, suppress errors if playerctl is not available
-player_status=$(playerctl status 2>/dev/null)
+player_status=$(playerctl -p spotify status 2>/dev/null)
 
 # Replace problematic characters
-artist=$(playerctl metadata artist | sed 's/[&<>"]//g')
-title=$(playerctl metadata title | sed 's/[&<>"\]//g')
+artist=$(playerctl -p spotify metadata artist | sed 's/[&<>"]//g')
+title=$(playerctl -p spotify metadata title | sed 's/[&<>"\]//g')
 
 if [ "$player_status" = "Playing" ]; then
 	echo "$artist - $title"
