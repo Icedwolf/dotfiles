@@ -11,7 +11,7 @@ k9s:
     logoless: false
     crumbsless: false
     noIcons: false
-    reactive: true
+    reactive: false
   skipLatestRevCheck: false
   disablePodCounting: false
   shellPod:
