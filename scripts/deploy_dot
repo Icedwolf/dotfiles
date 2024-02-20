@@ -46,7 +46,4 @@ zcompile $DOTFILES/zsh/functions.zsh
 zcompile $DOTFILES/zsh/aliases.zsh
 zcompile $DOTFILES/zsh/exports.zsh
 zcompile $DOTFILES/zsh/completions.zsh
-autoload -Uz compinit;
-compinit
-zcompile ${ZDOTDIR}/.zcompdump
 echo "Dotfiles deployment completed successfully."
