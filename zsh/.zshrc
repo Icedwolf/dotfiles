@@ -26,13 +26,7 @@ source $DOTFILES/z/z.sh
 
 autoload -Uz compinit;
 _comp_options+=(globdots) # With hidden files
-if [[ ! -e ${ZDOTDIR}/.zcompdump || ${${(%):-%N}:-0} -nt ${ZDOTDIR}/.zcompdump ]]; then
-    compinit
-    zcompile ${ZDOTDIR}/.zcompdump
-    echo "recompiled zcompdump"
-else
-    compinit -C
-fi
+compinit -C
 
 eval "$(atuin init zsh)"
 

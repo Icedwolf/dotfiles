@@ -46,22 +46,7 @@ zcompile $DOTFILES/zsh/functions.zsh
 zcompile $DOTFILES/zsh/aliases.zsh
 zcompile $DOTFILES/zsh/exports.zsh
 zcompile $DOTFILES/zsh/completions.zsh
-
-echo "Creating user crontab"
-# Specify the path to your dotfiles/cron folder
-DOTFILES_CRON_FOLDER="$DOTFILES/cron"
-# Create a temporary file for the new crontab
-temp_crontab_file=$(mktemp)
-# Loop through files in the dotfiles/cron folder and append them to the temporary crontab file
-for cron_file in "$DOTFILES_CRON_FOLDER"/*; do
-    if [ -f "$cron_file" ]; then
-        cat "$cron_file" >> "$temp_crontab_file"
-    fi
-done
-# Install the new crontab
-crontab "$temp_crontab_file"
-# Clean up the temporary file
-rm "$temp_crontab_file"
-echo "User crontab updated"
-
+autoload -Uz compinit;
+compinit
+zcompile ${ZDOTDIR}/.zcompdump
 echo "Dotfiles deployment completed successfully."
