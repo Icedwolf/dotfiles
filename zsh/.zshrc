@@ -28,6 +28,7 @@ autoload -Uz compinit
 _comp_options+=(globdots) # With hidden files
 if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
 	compinit;
+  zcompile ${ZDOTDIR}/.zcompdump
 else
 	compinit -C;
 fi;
