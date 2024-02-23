@@ -142,6 +142,7 @@ workspace 1
 exec --no-startup-id pgrep spotify || exec spotify
 exec ferdium --enable-features=UseOzonePlatform --ozone-platform=wayland
 exec waypaper --restore --random
+exec 1password
 
 # Set default brightness
 exec brightnessctl set 100%
