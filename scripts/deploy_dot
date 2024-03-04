@@ -17,7 +17,6 @@ CONFIG_FOLDERS=(
   "waypaper"
   "tmux"
   "waybar"
-  "task"
 )
 
 # Create destination folders and symlinks for files in each folder

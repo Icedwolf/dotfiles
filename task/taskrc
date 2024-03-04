@@ -1,6 +1,0 @@
-data.location=$OBSIDIAN_VAULT/task/
-data.location=$OBSIDIAN_VAULT/task/
-hooks.location=$OBSIDIAN_VAULT/task/hooks
-include dark-violets-256.theme
-news.version=2.6.0
-uda.priority.values=H,M,,L
