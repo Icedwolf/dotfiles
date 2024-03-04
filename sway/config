@@ -50,7 +50,7 @@ floating_modifier $mod normal
 
 bindsym $mod+Up exec makoctl restore
 bindsym $mod+Down exec makoctl dismiss -a
-bindsym $mod+Return exec $term
+bindsym $mod+Return exec $term --class "terminal" -e tmux
 bindsym $mod+q kill
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit?' -B 'Yes' 'swaymsg exit'
