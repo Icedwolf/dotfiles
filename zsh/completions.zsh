@@ -1,6 +1,5 @@
 zmodload zsh/complist
 fpath=($DOTFILES/zsh/completions $fpath)
-fpath=($DOTFILES/zsh/zsh-completions/src $fpath)
 
 # Define completers
 zstyle ':completion:*' completer _extensions _complete _approximate
