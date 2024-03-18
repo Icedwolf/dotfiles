@@ -21,7 +21,8 @@ export DOTFILES="$HOME/dotfiles"
 export HISTSIZE=0
 export SAVEHIST=0
 export DISABLE_AUTO_TITLE=true
-export WORDCHARS="${WORDCHARS/\//}"
+export WORDCHARS=""
+#
 # Z jump
 export _Z_DATA="$DOTFILES/z/z.data"
 
