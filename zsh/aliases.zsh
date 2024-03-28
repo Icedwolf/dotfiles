@@ -1,6 +1,6 @@
 alias vim="nvim"
 alias change="vim $DOTFILES"
-alias att="paru -Syyuu --noconfirm --noupgrademenu --removemake --skipreview --nouseask --failfast --norebuild --noredownload --cleanafter --sudoloop;git -C $DOTFILES submodule update --remote;cargo-install-update install-update --all;gem update;pipx upgrade-all;$HOME/.config/tmux/plugins/tpm/bin/update_plugins all;helm repo update;notify-send att-done"
+alias att="paru -Syyuu --noconfirm --noupgrademenu --removemake --skipreview --nouseask --failfast --norebuild --noredownload --cleanafter --sudoloop;git -C $DOTFILES submodule update --remote;cargo-install-update install-update --all;gem update;pipx upgrade-all;$HOME/.config/tmux/plugins/tpm/bin/update_plugins all;helm repo update; deploy_dot; notify-send att-done"
 alias update="source $ZDOTDIR/.zshrc"
 alias kbconf="vim ~/.kube/config"
 alias lcontext="kubectl config get-contexts"

@@ -24,16 +24,11 @@ source $DOTFILES/zsh/exports.zsh
 source $DOTFILES/zsh/completions.zsh
 source $DOTFILES/z/z.sh
 
+eval "$(atuin init zsh)"
+
 autoload -Uz compinit 
 _comp_options+=(globdots) # With hidden files
-if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
-	compinit;
-  zcompile ${ZDOTDIR}/.zcompdump
-else
-	compinit -C;
-fi;
-
-eval "$(atuin init zsh)"
+compinit -C
 
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 source $ZDOTDIR/.p10k.zsh

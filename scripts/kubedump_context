@@ -3,25 +3,23 @@
 set -e
 
 CONTEXT="$1"
+NAMESPACE="$2"
 
-if [[ -z ${CONTEXT} ]]; then
-	echo "Usage: $0 KUBE-CONTEXT"
+if [[ -z ${CONTEXT} || -z ${NAMESPACE} ]]; then
+	echo "Usage: $0 KUBE-CONTEXT NAMESPACE"
 	exit 1
 fi
 
-NAMESPACES=$(kubectl --context ${CONTEXT} get -o json namespaces | jq ".items[].metadata.name" | sed "s/\"//g")
 RESOURCES="configmap secret daemonset deployment service hpa statefulset ingress"
 
-for ns in ${NAMESPACES}; do
-	echo "dumping from namespace: ${ns}"
-	for resource in ${RESOURCES}; do
-		echo "dumping resource: ${resource}"
-		rsrcs=$(kubectl --context ${CONTEXT} -n ${ns} get -o json ${resource} | jq ".items[].metadata.name" | sed "s/\"//g")
-		for r in ${rsrcs}; do
-			echo "dumped ${r}"
-			dir="${CONTEXT}/${ns}/${resource}"
-			mkdir -p "${dir}"
-			kubectl --context ${CONTEXT} -n ${ns} get -o yaml ${resource} ${r} >"${dir}/${r}.yaml"
-		done
+echo "Dumping resources from namespace: ${NAMESPACE}"
+for resource in ${RESOURCES}; do
+	echo "Dumping resource: ${resource}"
+	rsrcs=$(kubectl --context ${CONTEXT} -n ${NAMESPACE} get -o json ${resource} | jq -r ".items[].metadata.name")
+	for r in ${rsrcs}; do
+		echo "Dumped ${r}"
+		dir="${CONTEXT}/${NAMESPACE}/${resource}"
+		mkdir -p "${dir}"
+		kubectl --context ${CONTEXT} -n ${NAMESPACE} get -o yaml ${resource} ${r} >"${dir}/${r}.yaml"
 	done
 done
