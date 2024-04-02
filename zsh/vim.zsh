@@ -1,8 +1,8 @@
 bindkey -v
-bindkey "^k" up-line-or-search
-bindkey "^j" down-line-or-search
-bindkey -M vicmd "^k" up-line-or-search
-bindkey -M vicmd "^j" down-line-or-search
+bindkey "^k" atuin-up-search
+bindkey "^j" atuin-down-search
+bindkey -M vicmd "^k" atuin-up-search
+bindkey -M vicmd "^j" atuin-down-search
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 bindkey '^n' autosuggest-accept
