@@ -1,3 +1,5 @@
+autoload -z compinit
+compinit -C
 KEYTIMEOUT=1
 unsetopt BEEP
 
@@ -13,22 +15,18 @@ setopt AUTO_PARAM_SLASH
 setopt AUTO_MENU
 setopt LIST_AMBIGUOUS
 
-source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
+source $DOTFILES/zsh/completions.zsh
 source $DOTFILES/zsh/vim.zsh
 source $DOTFILES/zsh/functions.zsh
 source $DOTFILES/zsh/aliases.zsh
 source $DOTFILES/zsh/exports.zsh
-source $DOTFILES/zsh/completions.zsh
-#source $DOTFILES/z/z.sh
 
 eval "$(atuin init zsh)"
 eval "$(zoxide init zsh)"
 
-autoload -Uz compinit 
-_comp_options+=(globdots) # With hidden files
-compinit -C
-
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 source $ZDOTDIR/.p10k.zsh
+
+# Plugins
+source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh

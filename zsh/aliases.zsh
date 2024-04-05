@@ -19,6 +19,7 @@ alias ljunk="paru -Qtdq"
 alias css="rm -rf $HOME/Pictures/Screenshots/*" #clear screenshot folder
 alias s="exec sway"
 alias c="clear"
+alias cl="c;l"
 alias essh="vim ~/.ssh/config"
 alias ke="k8s_events"
 alias wget="wget --hsts-file=$HOME/.config/wget-hsts"
