@@ -1,5 +1,6 @@
 #!/bin/zsh
 source $DOTFILES/zsh/.zshrc
+_comp_options+=(globdots)
 # This script is used to deploy this folder dotfiles config to the right directories
 
 # Define the base path for all configurations
@@ -45,6 +46,5 @@ zcompile $DOTFILES/zsh/aliases.zsh
 zcompile $DOTFILES/zsh/exports.zsh
 zcompile $DOTFILES/zsh/completions.zsh
 rm -f $ZDOTDIR/.zcompdump $ZDOTDIR/.zcompdump.zwc
-_comp_options+=(globdots)
 compinit
 zcompile $ZDOTDIR/.zcompdump

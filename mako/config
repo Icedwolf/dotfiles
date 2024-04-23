@@ -4,7 +4,7 @@ background-color=#111111cc
 border-radius=1
 border-color=#cccccccc
 text-color=#ffffff
-anchor=top-left
+anchor=bottom-left
 default-timeout=10000
 
 [urgency=low]
