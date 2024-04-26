@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Capture the image path into a variable
+image_path=$(swww query | awk -F' ' '/image:/ {print $NF}' | uniq)
+
+# Check if the variable is empty
+if [ -z "$image_path" ]; then
+	echo "Error: No image found"
+	exit 1
+fi
+
+# Extract the filename from the image path
+filename=$(basename "$image_path")
+
+# Define the destination folder
+destination_folder="$HOME/Pictures/favs/"
+
+# Check if the destination folder exists
+[ -d "$destination_folder" ] || {
+	echo "Error: Destination folder does not exist"
+	exit 1
+}
+
+# Copy the image to the destination folder
+cp "$image_path" "$destination_folder/$filename" && echo "Image copied" || echo "Error: Failed to copy image"

@@ -15,10 +15,10 @@ bindsym $mod+p exec $clipboard
 bindsym $mod+shift+p exec cliphist wipe | notify-send "Clipboard" "Cleared"
 
 # Wallpaper
-set $wall $HOME/Pictures/walls/
 exec swww init
 bindsym $mod+c exec waypaper
 bindsym $mod+r exec waypaper --restore --random
+bindsym $mod+s exec notify-send "$(favwall)"
 
 # Media keys
 set $spot playerctl -p "spotify"
@@ -35,8 +35,10 @@ bindsym XF86AudioNext exec $spot next
 bindsym XF86AudioPrev exec $spot previous
 bindsym Print exec sway-interactive-screenshot
 bindsym shift+Print exec sway-interactive-screenshot -s focused-window
+
 # Lockscreen
-set $lock swaylock --image $wall/ggdc_wall.png -s fill 
+set $wall $HOME/Pictures/walls
+set $lock swaylock --image $HOME/Pictures/walls/ggdc_wall.png -s fill 
 bindsym $mod+Escape exec $spot -s pause && $lock
 
 # FZF KILL
@@ -91,7 +93,7 @@ bindsym $mod+Shift+0 move container to workspace number 10
 
 bindsym $mod+b splith
 bindsym $mod+v splitv
-bindsym $mod+s layout stacking
+#bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+f fullscreen
