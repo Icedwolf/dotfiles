@@ -15,7 +15,7 @@ bindsym $mod+p exec $clipboard
 bindsym $mod+shift+p exec cliphist wipe | notify-send "Clipboard" "Cleared"
 
 # Wallpaper
-exec swww init
+exec swww-daemon
 bindsym $mod+c exec waypaper
 bindsym $mod+r exec waypaper --restore --random
 bindsym $mod+s exec notify-send "$(favwall)"

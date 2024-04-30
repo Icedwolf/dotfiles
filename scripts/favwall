@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Capture the image path into a variable
-image_path=$(swww query | awk -F' ' '/image:/ {print $NF}' | uniq)
+image_path=$(swww query | awk '{print substr($0, index($0, $8))}' | uniq)
 
+echo $image_path
 # Check if the variable is empty
 if [ -z "$image_path" ]; then
 	echo "Error: No image found"
