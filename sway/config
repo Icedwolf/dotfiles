@@ -139,7 +139,7 @@ workspace_layout tabbed
 # Init apps
 workspace 2
 exec --no-startup-id pgrep alacritty || exec $term --class "terminal" -e tmux
-exec --no-startup-id pgrep mercury-browser || exec mercury-browser
+exec --no-startup-id pgrep floorp || exec floorp
 workspace 1
 exec --no-startup-id pgrep spotify || exec spotify
 exec ferdium --enable-features=UseOzonePlatform --ozone-platform=wayland
