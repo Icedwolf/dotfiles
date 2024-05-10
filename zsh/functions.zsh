@@ -15,3 +15,11 @@ function smart_cat() {
 _zsh_autosuggest_strategy_atuin_top() {
     suggestion=$(atuin search --cmd-only --limit 1 --search-mode prefix $1)
 }
+
+autoload -Uz bashcompinit && bashcompinit
+_get_kube_contexts() {
+  local -a contexts
+  contexts=($(kubectl config get-contexts -o=name))
+  _describe 'values' contexts
+}
+compdef _get_kube_contexts ucontext
