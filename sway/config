@@ -28,8 +28,8 @@ bindsym Shift+XF86AudioRaiseVolume exec amixer sset Capture 5%+
 bindsym Shift+XF86AudioLowerVolume exec amixer sset Capture 5%-
 bindsym Shift+XF86AudioMute exec amixer sset Capture toggle
 bindsym XF86AudioMute exec amixer sset Master toggle
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 15%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +15%
 bindsym --locked XF86AudioPlay exec $spot -s play-pause
 bindsym XF86AudioNext exec $spot next
 bindsym XF86AudioPrev exec $spot previous
