@@ -30,3 +30,4 @@ source $ZDOTDIR/.p10k.zsh
 # Plugins
 source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh
+eval $(opam env --switch=default)
