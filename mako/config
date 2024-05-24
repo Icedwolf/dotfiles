@@ -2,13 +2,13 @@ max-history=10
 layer=overlay
 background-color=#111111cc
 border-radius=1
-border-color=#cccccccc
+border-color=#39FF14cc
 text-color=#ffffff
 anchor=bottom-left
-default-timeout=10000
+default-timeout=3500
 
 [urgency=low]
-border-color=#cccccccc
+border-color=#39FF14cc
 
 [urgency=normal]
 border-color=#800080cc
