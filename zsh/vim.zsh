@@ -3,6 +3,7 @@ bindkey "^k" atuin-up-search
 bindkey "^j" down-line-or-search
 bindkey -M vicmd "^k" atuin-up-search
 bindkey -M vicmd "^j" down-line-or-search
+bindkey "^l" autosuggest-accept
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 bindkey '^n' autosuggest-accept
