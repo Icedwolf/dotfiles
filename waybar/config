@@ -7,21 +7,22 @@
     "modules-right": ["keyboard-state", "custom/microphone", "wireplumber", "network", "cpu", "memory", "battery", "tray"],
     "sway/workspaces": {
       "disable-scroll": true,
-      "all-outputs": false,
+      "all-outputs": false
     },
     "tray": {
       "spacing": 5
     },
     "clock": {
       "interval": 1,
-      "format": "{:%H:%M:%S - %m-%d}",
+      "format": "{:%H:%M:%S - %m-%d}"
     },
     "cpu": {
       "format": "CPU:{usage}% ",
-      "interval": 1,
+      "interval": 3
     },
     "memory": {
-      "format": "RAM:{}% ", "interval": 1,
+      "format": "RAM:{}% ",
+      "interval": 3
     },
     "battery": {
       "bat": "BAT0",
@@ -42,18 +43,18 @@
       "format-muted": ",",
       "format-icons": {
         "default": [" ", " "]
-      },
+      }
     },
     "custom/spotify": {
       "format": " {}",
-      "interval": 1,
+      "interval": 2,
       "max-length": 50,
       "exec": "$DOTFILES/scripts/playing_status 2> /dev/null",
       "exec-if": "pgrep spotify"
     },
     "custom/microphone": {
       "format": "{} ",
-      "interval": 1,
+      "interval": 3,
       "exec": "amixer get Capture | awk -F'[][]' '/\\[off\\]/{print \"<span foreground=\\\"#FF0000\\\">Muted </span>\"} /\\[on\\]/{print $2\" \"}' | tail -n 1",
       "return-type": "custom/text",
       "tooltip": true
@@ -66,5 +67,5 @@
         "locked": "🔒 ",
         "unlocked": "🔓 "
       }
-    },
+    }
 }
