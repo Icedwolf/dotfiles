@@ -37,7 +37,7 @@ bindsym shift+Print exec sway-interactive-screenshot -s focused-window
 
 # Lockscreen
 set $wall $HOME/Pictures/walls
-set $lock swaylock --image $HOME/Pictures/walls/ggdc_wall.png -s fill 
+set $lock swaylock --image $HOME/Pictures/favs/ggdc_wall.png -s fill 
 bindsym $mod+Escape exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause && $lock
 
 # FZF KILL
