@@ -29,6 +29,8 @@ export _Z_DATA="$DOTFILES/z/z.data"
 # Devs
 export CARGO_HOME="$HOME/dev/cargo"
 export DOTNET_ROOT="$HOME/dev/dotnet"
+export NUGET_PACKAGES="$HOME/dev/nuget"
+export DOTNET_CLI_HOME="$HOME/dev/dotnet"
 export OPAMROOT="$HOME/dev/opam"
 export HEX_HOME="$HOME/dev/hex"
 export MIX_HOME="$HOME/dev/mix"
