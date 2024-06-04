@@ -22,10 +22,18 @@ export HISTSIZE=0
 export SAVEHIST=0
 export DISABLE_AUTO_TITLE=true
 export WORDCHARS=""
-#
+
 # Z jump
 export _Z_DATA="$DOTFILES/z/z.data"
 
+# Devs
+export CARGO_HOME="$HOME/dev/cargo"
+export DOTNET_ROOT="$HOME/dev/dotnet"
+export OPAMROOT="$HOME/dev/opam"
+export HEX_HOME="$HOME/dev/hex"
+export MIX_HOME="$HOME/dev/mix"
+export GOPATH="$HOME/dev/go"
+
 # PATHS
 export PNPM_HOME="$HOME/.local/share/pnpm"
-export PATH=$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$DOTFILES/scripts:$PNPM_HOME
+export PATH=$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:$HOME/dev/go/bin:$HOME/dev/cargo/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$DOTFILES/scripts:$PNPM_HOME

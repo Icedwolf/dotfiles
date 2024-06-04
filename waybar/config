@@ -50,7 +50,8 @@
       "interval": 2,
       "max-length": 50,
       "exec": "$DOTFILES/scripts/playing_status 2> /dev/null",
-      "exec-if": "pgrep spotify"
+      "exec-if": "pgrep spotify",
+      "escape": "true"
     },
     "custom/microphone": {
       "format": "{} ",
