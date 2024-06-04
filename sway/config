@@ -16,8 +16,7 @@ bindsym $mod+shift+p exec cliphist wipe | notify-send "Clipboard" "Cleared"
 
 # Wallpaper
 exec swww-daemon
-bindsym $mod+c exec waypaper
-bindsym $mod+r exec waypaper --restore --random
+bindsym $mod+r exec swww img "$(random_wllppr)" --transition-duration 1 --transition-type=random
 bindsym $mod+s exec notify-send "$(favwall)"
 
 # Media keys
@@ -142,7 +141,7 @@ exec --no-startup-id pgrep floorp || exec floorp
 workspace 1
 exec --no-startup-id pgrep spotify || exec spotify
 exec ferdium --enable-features=UseOzonePlatform --ozone-platform=wayland
-exec waypaper --restore --random
+exec swww restore
 exec 1password
 
 # Set default brightness

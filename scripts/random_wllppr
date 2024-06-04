@@ -1,0 +1,11 @@
+#!/bin/bash
+
+wallpaper_folder="$HOME/Pictures/walls/"
+
+mapfile -d '' wallpapers < <(find "$wallpaper_folder" -type f -print0)
+
+random_index=$((RANDOM % ${#wallpapers[@]}))
+
+random_wallpaper="${wallpapers[$random_index]}"
+
+echo "$random_wallpaper"
