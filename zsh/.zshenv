@@ -35,6 +35,7 @@ export OPAMROOT="$HOME/dev/opam"
 export HEX_HOME="$HOME/dev/hex"
 export MIX_HOME="$HOME/dev/mix"
 export GOPATH="$HOME/dev/go"
+export NPM_CONFIG_CACHE="$HOME/dev/npm"
 
 # PATHS
 export PNPM_HOME="$HOME/.local/share/pnpm"
