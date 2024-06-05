@@ -19,7 +19,6 @@ source $DOTFILES/zsh/completions.zsh
 source $DOTFILES/zsh/vim.zsh
 source $DOTFILES/zsh/functions.zsh
 source $DOTFILES/zsh/aliases.zsh
-source $DOTFILES/zsh/exports.zsh
 
 eval "$(atuin init zsh)"
 eval "$(zoxide init zsh)"
