@@ -6,6 +6,7 @@ export XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-/run/user/$(id -u)}
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+
 # Default apps
 export BROWSER="mercury-browser"
 export MOZ_ENABLE_WAYLAND=1
@@ -48,6 +49,7 @@ export FZF_DEFAULT_OPTS='--color=fg:#d0d0d0,hl:#5f87af --color=fg+:#d0d0d0,bg+:#
 export KB=$XDG_CONFIG_HOME/.kube
 export KUBECONFIG=$KB/credinet_prod:$KB/cred-hml:$KB/rancher01:$KB/rancher01-hml01:$KB/rancher-ggdc:$KB/minikube
 export KUBECACHEDIR=$XDG_CACHE_HOME/kube
+export KUBECOLOR_CONFIG="$DOTFILES/kubecolor/"
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
 export DOCKER_SOCK=$XDG_RUNTIME_DIR/podman/podman.sock
 
