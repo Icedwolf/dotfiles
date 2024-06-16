@@ -16,6 +16,7 @@ CONFIG_FOLDERS=(
   "mako"
   "sway"
   "sway-interactive-screenshot"
+  "paru"
   "tmux"
   "waybar"
 )
