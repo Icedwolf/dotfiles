@@ -13,6 +13,7 @@ CONFIG_FOLDERS=(
   "fuzzel"
   "git"
   "k9s"
+  "kubecolor"
   "mako"
   "sway"
   "sway-interactive-screenshot"
