@@ -1,6 +1,6 @@
 #!/bin/bash
 
-wallpaper_folder="$HOME/Pictures/favs/"
+wallpaper_folder="$HOME/Pictures/walls/"
 
 mapfile -d '' wallpapers < <(find "$wallpaper_folder" -type f -print0)
 

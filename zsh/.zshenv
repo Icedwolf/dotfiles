@@ -28,9 +28,6 @@ export ZSH_HIGHLIGHT_MAXLENGTH=100
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 export ZSH_AUTOSUGGEST_STRATEGY=(atuin_top completion)
 
-# Z jump
-export _Z_DATA="$DOTFILES/z/z.data"
-
 # Devs
 export CARGO_HOME="$XDG_CONFIG_HOME/cargo"
 export DOTNET_ROOT="$XDG_CONFIG_HOME/dotnet"
@@ -41,7 +38,6 @@ export HEX_HOME="$XDG_CONFIG_HOME/hex"
 export MIX_HOME="$XDG_CONFIG_HOME/mix"
 export GOPATH="$XDG_CONFIG_HOME/go"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
-export MOZ_PROFILE="$XDG_CONFIG_HOME/firefox"
 
 # Apps
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'

@@ -46,5 +46,5 @@ zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f
 
 ## For kubernetes
 zstyle ':completion:*:*:kubectl:*' list-grouped false
-
+compdef k='kubectl'
 compdef _get_kube_contexts ucontext

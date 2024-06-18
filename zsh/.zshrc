@@ -10,15 +10,15 @@ setopt EXTENDED_GLOB
 setopt MENU_COMPLETE
 setopt AUTOLIST
 setopt COMPLETE_IN_WORD
-setopt COMPLETE_ALIASES
 setopt AUTO_PARAM_SLASH
 setopt AUTO_MENU
 setopt LIST_AMBIGUOUS
+#setopt COMPLETE_ALIASES
 
-source $DOTFILES/zsh/completions.zsh
-source $DOTFILES/zsh/vim.zsh
-source $DOTFILES/zsh/functions.zsh
 source $DOTFILES/zsh/aliases.zsh
+source $DOTFILES/zsh/functions.zsh
+source $DOTFILES/zsh/vim.zsh
+source $DOTFILES/zsh/completions.zsh
 
 eval "$(atuin init zsh)"
 eval "$(zoxide init zsh)"
