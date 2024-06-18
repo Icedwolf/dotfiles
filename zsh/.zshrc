@@ -13,7 +13,7 @@ setopt COMPLETE_IN_WORD
 setopt AUTO_PARAM_SLASH
 setopt AUTO_MENU
 setopt LIST_AMBIGUOUS
-#setopt COMPLETE_ALIASES
+setopt COMPLETE_ALIASES
 
 source $DOTFILES/zsh/aliases.zsh
 source $DOTFILES/zsh/functions.zsh
