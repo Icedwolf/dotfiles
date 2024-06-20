@@ -80,7 +80,7 @@ save_to_clipboard = false
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [window]
-opacity = 0.1
+opacity = 0.05
 decorations = "Transparent"
 dynamic_padding = true
 # doesn't work on sway
