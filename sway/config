@@ -99,8 +99,6 @@ bindsym $mod+f fullscreen
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
 bindsym $mod+Control+Shift+l move workspace to output right
 bindsym $mod+Control+Shift+h move workspace to output left
 bindsym $mod+Control+Shift+j move workspace to output down
@@ -186,7 +184,7 @@ blur enable
 blur_passes 1
 blur_radius 1
 blur_noise 0
-blur_brightness 0.95
+blur_brightness 0.92
 blur_contrast 1.05
 blur_saturation 1.05
 layer_effects "waybar" "blur enable"; shadows enable
