@@ -8,7 +8,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 
 # Default apps
-export BROWSER="mercury-browser"
+export BROWSER="floorp"
 export MOZ_ENABLE_WAYLAND=1
 export EDITOR="nvim"
 export VISUAL="nvim"

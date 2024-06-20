@@ -171,6 +171,22 @@ input * {
     scroll_method two_finger
 }
 
+default_border none
+default_floating_border none
+font pango:monospace 0.01
+#titlebar_padding 1
+titlebar_border_thickness 0
+
+smart_corner_radius on
+corner_radius 10
+default_dim_inactive 0.3
+blur enable
+blur_passes 1
+blur_radius 1
+layer_effects "waybar" "blur enable"; shadows enable
+shadows on
+shadow_blur_radius 20
+
 # ETC default config removed from include to keep configs in one file
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
 exec hash dbus-update-activation-environment 2>/dev/null && \

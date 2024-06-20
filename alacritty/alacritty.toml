@@ -80,10 +80,11 @@ save_to_clipboard = false
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [window]
-opacity = 0.5
-decorations = "Full"
+opacity = 0.1
+decorations = "Transparent"
 dynamic_padding = true
-blur = false
+# doesn't work on sway
+# blur = true
 
 [window.padding]
 x = 1
