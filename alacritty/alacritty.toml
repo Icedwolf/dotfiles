@@ -81,11 +81,9 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [window]
 opacity = 0.05
-decorations = "Transparent"
+decorations = "none"
 dynamic_padding = true
-# doesn't work on sway
-# blur = true
 
 [window.padding]
-x = 1
-y = 1
+x = 0
+y = 0
