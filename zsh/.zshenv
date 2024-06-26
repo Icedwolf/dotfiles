@@ -9,13 +9,26 @@ export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 
 # Default apps
 export BROWSER="floorp"
-export MOZ_ENABLE_WAYLAND=1
 export EDITOR="nvim"
 export VISUAL="nvim"
 export TERMINAL="alacritty"
 export READER="zathura"
 export MANPAGER="sh -c 'bat --style=plain --color=always -l man -p'"
 export OBSIDIAN_VAULT="$HOME/Documents/vault/"
+
+# Wayland
+export WLR_NO_HARDWARE_CURSORS=1
+export WLR_RENDERER=vulkan
+export XDG_SESSION_TYPE=wayland
+export QT_QPA_PLATFORM=wayland
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export MOZ_ENABLE_WAYLAND=1
+export MOZ_USE_XINPUT2=1
+export GBM_BACKEND=nvidia-drm
+export __GL_GSYNC_ALLOWED=0
+export __GL_VRR_ALLOWED=0
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export XWAYLAND_NO_GLAMOR=1
 
 # ZSH envs
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
