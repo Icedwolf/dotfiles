@@ -7,12 +7,11 @@ _comp_options+=(globdots)
 BASE_CONFIG_PATH="$HOME/.config/"
 
 CONFIG_FOLDERS=(
-  "atuin"
+  "gnupg"
   "alacritty"
   "containers"
   "fuzzel"
   "git"
-  "gnupg"
   "k9s"
   "kubecolor"
   "mako"
