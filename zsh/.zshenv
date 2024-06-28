@@ -15,6 +15,10 @@ export VISUAL="nvim"
 export TERMINAL="alacritty"
 export READER="zathura"
 export MANPAGER="sh -c 'bat --style=plain --color=always -l man -p'"
+export PAGER="bat"
+export SYSTEMD_COLORS="false"
+export SYSTEMD_PAGERSECURE="true"
+export SYSTEMD_PAGER="bat -l syslog -p"
 export OBSIDIAN_VAULT="$HOME/Documents/vault/"
 
 # ZSH envs
