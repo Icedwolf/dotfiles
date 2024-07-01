@@ -184,9 +184,9 @@ blur enable
 blur_passes 1
 blur_radius 1
 blur_noise 0
-blur_brightness 1
-blur_contrast 0.9
-blur_saturation 0.9
+blur_brightness 0.935
+blur_contrast 1
+blur_saturation 1
 layer_effects "waybar" "blur enable"; shadows enable
 layer_effects "mako" "blur enable"; shadows enable
 shadows on
