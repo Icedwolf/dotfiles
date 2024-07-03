@@ -36,8 +36,8 @@ bindsym shift+Print exec sway-interactive-screenshot -s focused-window
 
 # Lockscreen
 set $wall $HOME/Pictures/walls
-set $lock swaylock --image $HOME/Pictures/favs/ggdc_wall.png -s fill 
-bindsym $mod+Escape exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause && $lock
+set $lock swaylock --image $HOME/Pictures/favs/ggdc_wall.png -s fill
+bindsym $mod+Escape exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause & $lock
 
 # FZF KILL
 bindsym $mod+delete exec kill_ps
@@ -184,7 +184,7 @@ blur enable
 blur_passes 1
 blur_radius 1
 blur_noise 0
-blur_brightness 0.935
+blur_brightness 0.9
 blur_contrast 1
 blur_saturation 1
 layer_effects "waybar" "blur enable"; shadows enable
