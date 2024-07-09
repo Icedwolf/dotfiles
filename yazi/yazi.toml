@@ -14,12 +14,12 @@ show_symlink = true
 scrolloff = 5
 
 [preview]
-tab_size = 2
-max_width = 600
-max_height = 900
+tab_size = 3
+max_width = 1200
+max_height = 800
 cache_dir = ""
 image_filter = "triangle"
-image_quality = 75
+image_quality = 85
 sixel_fraction = 15
 ueberzug_scale = 1
 ueberzug_offset = [0, 0, 0, 0]
@@ -110,7 +110,7 @@ suppress_preload = false
 
 [plugin]
 append_previewers = [
-  { name = "*", run = "hexyl" },
+  { name = "application/x-executable", run = "hexyl" },
   { mime = "text/csv", run = "miller" },
 ]
 

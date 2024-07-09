@@ -31,7 +31,7 @@ for folder in "${CONFIG_FOLDERS[@]}"; do
     echo $folder
   destination_path="$BASE_CONFIG_PATH$folder"
   mkdir -p "$destination_path"
-  ln -sf "$DOTFILES/$folder/"* "$destination_path/"
+  ln -sf "$DOTFILES/$folder/"* "$destination_path/" 2>/dev/null
   echo "Symlinked files in $folder to $destination_path"
 done
 

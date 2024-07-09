@@ -775,3 +775,14 @@ run = ['''
 	shell 'swww img "$@" --transition-duration 1 --transition-type=random'
 ''', "yank"]
 desc = "Set file as wallpaper"
+
+[[manager.prepend_keymap]]
+on = ["<C-c"]
+run = ['''
+  shell '
+  for path in "$@"; do
+    mime=$(file --mime-type -b "$path")
+    wl-copy --type $mime < "$path"
+  done
+  ' --confirm
+  ''']
