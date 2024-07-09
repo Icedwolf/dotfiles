@@ -41,3 +41,12 @@ _ensure_opam_env() {
 for _raw_ocaml_command in "${_lazy_opam_aliases[@]}"; do
     alias "$_raw_ocaml_command=_ensure_opam_env $_raw_ocaml_command"
 done
+
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}

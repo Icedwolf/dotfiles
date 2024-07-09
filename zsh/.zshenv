@@ -20,6 +20,7 @@ export SYSTEMD_COLORS="false"
 export SYSTEMD_PAGERSECURE="true"
 export SYSTEMD_PAGER="bat -l syslog -p"
 export OBSIDIAN_VAULT="$HOME/Documents/vault/"
+export YAZI_CONFIG_HOME=$XDG_CONFIG_HOME/yazi
 
 # ZSH envs
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"

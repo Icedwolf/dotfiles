@@ -17,7 +17,7 @@ bindsym $mod+shift+p exec cliphist wipe | notify-send "Clipboard" "Cleared"
 # Wallpaper
 exec swww-daemon
 bindsym $mod+r exec swww img "$(random_wllppr)" --transition-duration 1 --transition-type=random
-bindsym $mod+s exec notify-send "$(favwall)"
+bindsym $mod+s exec alacritty -e yazi ~/Pictures/favs
 
 # Media keys
 bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
