@@ -109,6 +109,10 @@ image_bound = [0, 0]
 suppress_preload = false
 
 [plugin]
+append_previewers = [
+  { name = "*", run = "hexyl" },
+  { mime = "text/csv", run = "miller" },
+]
 
 preloaders = [
   { name = "*", cond = "!mime", run = "mime", multi = true, prio = "high" },
