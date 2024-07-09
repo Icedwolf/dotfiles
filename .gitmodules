@@ -7,3 +7,12 @@
 [submodule "zsh/zsh-completions"]
 	path = zsh/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions
+[submodule "yazi/flavors/tokyo-night.yazi"]
+  path = yazi/flavors/tokyo-night.yazi
+  url = https://github.com/BennyOe/tokyo-night.yazi.git
+[submodule "yazi/plugins/hexyl.yazi"]
+  path = yazi/plugins/hexyl.yazi
+  url = https://github.com/Reledia/hexyl.yazi.git
+[submodule "yazi/plugins/miller.yazi"]
+  path = yazi/plugins/miller.yazi
+  url = https://github.com/Reledia/miller.yazi.git
