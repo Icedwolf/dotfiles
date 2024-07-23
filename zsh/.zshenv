@@ -48,7 +48,7 @@ export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_DEFAULT_OPTS='--color=fg:#d0d0d0,hl:#5f87af --color=fg+:#d0d0d0,bg+:#262626,hl+:#5fd7ff --color=info:#afaf87,prompt:#d7005f,pointer:#af5fff --color=marker:#87ff00,spinner:#af5fff,header:#87afaf'
 export KB=$XDG_CONFIG_HOME/.kube
-export KUBECONFIG=$KB/credinet_prod:$KB/cred-hml:$KB/rancher01:$KB/rancher01-hml01:$KB/rancher-ggdc:$KB/minikube
+export KUBECONFIG=$KB/credinet_prod:$KB/cred-hml:$KB/rancher01:$KB/rancher01-hml01:$KB/rancher-ggdc:$KB/minikube:$KB/producao2.yaml
 export KUBECACHEDIR=$XDG_CACHE_HOME/kube
 export KUBECOLOR_CONFIG="$DOTFILES/kubecolor/"
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
@@ -57,3 +57,4 @@ export DOCKER_SOCK=$XDG_RUNTIME_DIR/podman/podman.sock
 # PATHS
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH=$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:$XDG_CONFIG_HOME/go/bin:$XDG_CONFIG_HOME/cargo/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$DOTFILES/scripts:$PNPM_HOME
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"

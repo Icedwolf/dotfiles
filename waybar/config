@@ -42,7 +42,7 @@
       "format": "{volume}% {icon}",
       "format-muted": ",",
       "format-icons": {
-        "default": [" ", " "]
+        "default": [" ", "  "]
       }
     },
     "custom/spotify": {
