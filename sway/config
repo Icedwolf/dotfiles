@@ -109,6 +109,7 @@ exec waybar
 
 # Toggle bar
 bindsym $mod+o exec killall -SIGUSR1 waybar | notify-send "Waybar" "Toggle ($mod+o)"
+bindsym $mod+shift+o exec waybar
 
 # Gaps
 gaps inner 1
