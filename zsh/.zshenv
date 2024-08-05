@@ -48,7 +48,7 @@ export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_DEFAULT_OPTS='--color=fg:#d0d0d0,hl:#5f87af --color=fg+:#d0d0d0,bg+:#262626,hl+:#5fd7ff --color=info:#afaf87,prompt:#d7005f,pointer:#af5fff --color=marker:#87ff00,spinner:#af5fff,header:#87afaf'
 export KB=$XDG_CONFIG_HOME/.kube
-export KUBECONFIG=$KB/credinet_prod:$KB/cred-hml:$KB/rancher01:$KB/rancher01-hml01:$KB/rancher-ggdc:$KB/minikube:$KB/producao2.yaml
+export KUBECONFIG=$KB/cred-hml:$KB/rancher01:$KB/rancher01-hml01:$KB/rancher-ggdc:$KB/producao2
 export KUBECACHEDIR=$XDG_CACHE_HOME/kube
 export KUBECOLOR_CONFIG="$DOTFILES/kubecolor/"
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
