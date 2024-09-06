@@ -56,6 +56,4 @@ export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
 export DOCKER_SOCK=$XDG_RUNTIME_DIR/podman/podman.sock
 
 # PATHS
-export PNPM_HOME="$HOME/.local/share/pnpm"
-export PATH=$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:$XDG_CONFIG_HOME/go/bin:$XDG_CONFIG_HOME/cargo/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$DOTFILES/scripts:$PNPM_HOME
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH=$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:$XDG_CONFIG_HOME/go/bin:$XDG_CONFIG_HOME/cargo/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$DOTFILES/scripts:$HOME/.local/share/pnpm:${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.local/share/gem/ruby/3.2.0/bin
