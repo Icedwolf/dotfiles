@@ -1,0 +1,6 @@
+#!/bin/bash
+
+WALLPAPER_PATH="$HOME/Pictures/wllppr.png"
+
+curl -L 'https://picsum.photos/2560/1440' -o "$WALLPAPER_PATH"
+echo "$WALLPAPER_PATH"
