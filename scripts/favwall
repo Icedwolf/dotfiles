@@ -23,4 +23,4 @@ destination_folder="$HOME/Pictures/favs/"
 }
 
 # Copy the image to the destination folder
-mv "$image_path" "$destination_folder/$filename" && echo "Image copied" || echo "Error: Failed to copy image"
+mv "$image_path" "$destination_folder/$(uuidgen)_$filename" && echo "Image copied" || echo "Error: Failed to copy image"
