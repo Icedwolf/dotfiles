@@ -15,9 +15,8 @@ bindsym $mod+p exec $clipboard
 bindsym $mod+shift+p exec cliphist wipe | notify-send "Clipboard" "Cleared"
 
 # Wallpaper
-exec swww-daemon
-bindsym $mod+r exec swww img "$(random_wllppr)" --transition-duration 1 --transition-type=random
-bindsym $mod+shift+r exec swww img "$(get_wllppr)" --transition-duration 1 --transition-type=random
+bindsym $mod+r exec wbg "$(random_wllppr)"
+bindsym $mod+shift+r exec wbg "$(get_wllppr)"
 bindsym $mod+s exec notify-send "$(favwall)"
 bindsym $mod+shift+s exec alacritty -e yazi ~/Pictures/favs
 
@@ -142,7 +141,6 @@ exec --no-startup-id pgrep floorp || exec floorp
 workspace 1
 exec --no-startup-id pgrep spotify || exec spotify
 exec ferdium --enable-features=UseOzonePlatform --ozone-platform=wayland
-exec swww restore
 
 # Set default brightness
 exec brightnessctl set 100%
@@ -177,24 +175,6 @@ font pango:monospace 0.001
 titlebar_padding 1
 titlebar_border_thickness 0
 
-#swayfx
-# smart_corner_radius on
-# corner_radius 10
-# default_dim_inactive 0.05
-# blur_xray disable
-# blur enable
-# blur_passes 1
-# blur_radius 1
-# blur_noise 0
-# blur_brightness 0.9
-# blur_contrast 1
-# blur_saturation 1
-# layer_effects "waybar" "blur enable"; shadows enable
-# layer_effects "mako" "blur enable"; shadows enable
-# shadows on
-# shadow_blur_radius 40
-
-# ETC default config removed from include to keep configs in one file
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP

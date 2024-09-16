@@ -1,6 +1,6 @@
 #!/bin/bash
 
-wallpaper_folder="$HOME/Pictures/favs/"
+wallpaper_folder="$HOME/Pictures/upscaled/upscayl_png_realesrgan-x4plus-anime_4x/"
 
 mapfile -d '' wallpapers < <(find "$wallpaper_folder" -type f -print0)
 

@@ -771,12 +771,9 @@ desc = "Open shell here"
 
 [[manager.prepend_keymap]]
 on = ["<C-w>"]
-run = [
-  '''
-	shell --interactive 'swww img "$@" --transition-duration 1 --transition-type=random'
-''',
-  "yank",
-]
+run = ['''
+	shell --interactive 'wbg "$@"'
+''', "yank"]
 desc = "Set file as wallpaper"
 
 [[manager.prepend_keymap]]
