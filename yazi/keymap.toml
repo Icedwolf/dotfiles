@@ -772,7 +772,7 @@ desc = "Open shell here"
 [[manager.prepend_keymap]]
 on = ["<C-w>"]
 run = ['''
-	shell --interactive 'wbg "$@"'
+	shell --interactive 'pkill wbg && exec wbg "$@"'
 ''', "yank"]
 desc = "Set file as wallpaper"
 
