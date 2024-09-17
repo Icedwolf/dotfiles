@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Capture the image path into a variable
-image_path=$(swww query | awk '{print substr($0, index($0, $8))}' | uniq)
+image_path=~/Pictures/wllppr.png
 
 echo $image_path
 # Check if the variable is empty
