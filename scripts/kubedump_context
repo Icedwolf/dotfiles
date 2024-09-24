@@ -63,7 +63,7 @@ dump_resources() {
 		echo "Dumped ${r}"
 		dir="${context}/${namespace}/"
 		mkdir -p "${dir}"
-		kubectl --context ${context} -n ${namespace} get -o yaml ${resource} ${r} >"${dir}/${r}.yaml" &
+		kubectl --context ${context} -n ${namespace} get -o yaml ${resource} ${r} >"${dir}/${resource}_${r}.yaml" &
 	done
 	wait
 }
