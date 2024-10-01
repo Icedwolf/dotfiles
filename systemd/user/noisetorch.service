@@ -2,7 +2,8 @@
 Description=Noisetorch Noise Cancelling
 Requires=sys-devices-pci0000:00-0000:00:1f.3-skl_hda_dsp_generic-sound-card0-controlC0.device
 After=sys-devices-pci0000:00-0000:00:1f.3-skl_hda_dsp_generic-sound-card0-controlC0.device
-After=pipewire.service
+After=pipewire.service pipewire.socket wireplumber.service
+
 
 [Service]
 Type=simple
