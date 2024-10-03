@@ -156,8 +156,8 @@ output HDMI-A-1 {
 }
 
 input "type:keyboard" {
-  repeat_delay 400
-    repeat_rate 50
+  repeat_delay 250
+    repeat_rate 100
     xkb_numlock enabled
     xkb_layout "br"
 }
@@ -165,7 +165,7 @@ input "type:keyboard" {
 input * {
   tap enabled
   natural_scroll enabled
-  pointer_accel -0.45
+  pointer_accel -0.55
   accel_profile flat
   scroll_method two_finger
   dwt enabled
