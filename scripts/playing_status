@@ -1,15 +1,30 @@
 #!/bin/bash
 
-properties=$(qdbus6 org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.GetAll org.mpris.MediaPlayer2.Player)
-status=$(echo "$properties" | grep -m 1 "PlaybackStatus:" | cut -d ' ' -f 2-)
+# Get just the playback status
+status=$(gdbus call --session \
+	--dest org.mpris.MediaPlayer2.spotify \
+	--object-path /org/mpris/MediaPlayer2 \
+	--method org.freedesktop.DBus.Properties.Get \
+	org.mpris.MediaPlayer2.Player PlaybackStatus |
+	grep -o "'.*'" | tr -d "'")
 
-if [ "$status" == "Playing" ] || [ "$status" == "Paused" ]; then
-	artist=$(echo "$properties" | grep '^xesam:artist:' | cut -d ':' -f 2- | sed 's/^[[:space:]]*//' | cut -d ' ' -f 2-)
-	title=$(echo "$properties" | grep '^xesam:title:' | cut -d ':' -f 2- | sed 's/^[[:space:]]*//' | cut -d ' ' -f 2-)
+if [ "$status" = "Playing" ] || [ "$status" = "Paused" ]; then
+	# Get just the metadata
+	metadata=$(gdbus call --session \
+		--dest org.mpris.MediaPlayer2.spotify \
+		--object-path /org/mpris/MediaPlayer2 \
+		--method org.freedesktop.DBus.Properties.Get \
+		org.mpris.MediaPlayer2.Player Metadata)
 
-	if [ "$status" == "Paused" ]; then
-		echo "⏸ $artist - $title"
-	else
-		echo "▶ $artist - $title"
+	# Debug line (comment out in production)
+	# echo "metadata for debugging: $metadata"
+
+	# Extract artist and title with fixed patterns
+	artist=$(echo "$metadata" | grep -oP "'xesam:artist': <\[\'\K[^]\']+")
+
+	title=$(echo "$metadata" | sed -n "s/.*xesam:title': <'\([^']*\)'>.*/\1/p")
+
+	if [ -n "$artist" ] && [ -n "$title" ]; then
+		[ "$status" = "Playing" ] && echo "▶ $artist - $title" || echo "⏸ $artist - $title"
 	fi
 fi
