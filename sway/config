@@ -137,11 +137,11 @@ workspace_layout tabbed
 
 # Init apps
 workspace 2
-exec --no-startup-id pgrep alacritty || exec $term --class "terminal" -e tmux
-exec --no-startup-id pgrep zen-browser || exec zen-browser
-workspace 1
 exec --no-startup-id pgrep spotify || exec spotify
 exec ferdium --enable-features=UseOzonePlatform --ozone-platform=wayland
+workspace 1
+exec --no-startup-id pgrep alacritty || exec $term --class "terminal" -e tmux
+exec --no-startup-id pgrep zen-browser || exec zen-browser
 
 # Set default brightness
 exec brightnessctl set 100%
