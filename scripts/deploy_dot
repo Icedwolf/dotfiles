@@ -19,10 +19,6 @@ CONFIG_FOLDERS=(
   "sway"
   "sway-interactive-screenshot"
   "paru"
-  "yazi/flavors"
-  "systemd/user"
-  "yazi/plugins"
-  "yazi"
   "tmux"
   "waybar"
 )
