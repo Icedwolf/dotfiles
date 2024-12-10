@@ -160,7 +160,6 @@ input "type:keyboard" {
   repeat_rate 80
   xkb_numlock enabled
   xkb_layout "br"
-  xkb_options caps:ctrl_modifier
 }
 
 input * {
