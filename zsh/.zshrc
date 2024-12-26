@@ -26,6 +26,5 @@ eval "$(zoxide init zsh)"
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 source $ZDOTDIR/.p10k.zsh
 
-# Plugins
 source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh

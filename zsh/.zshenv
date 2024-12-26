@@ -11,7 +11,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 
 # Default apps
-export BROWSER="floorp"
+export BROWSER="zen-browser"
 export MOZ_ENABLE_WAYLAND=1
 export EDITOR="nvim"
 export VISUAL="nvim"
@@ -22,8 +22,6 @@ export PAGER="bat"
 export SYSTEMD_COLORS="false"
 export SYSTEMD_PAGERSECURE="true"
 export SYSTEMD_PAGER="bat -l syslog -p"
-export OBSIDIAN_VAULT="$HOME/Documents/vault/"
-export YAZI_CONFIG_HOME=$XDG_CONFIG_HOME/yazi
 
 # ZSH envs
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
@@ -58,4 +56,4 @@ export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
 export DOCKER_SOCK=$XDG_RUNTIME_DIR/podman/podman.sock
 
 # PATHS
-export PATH=$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:$XDG_CONFIG_HOME/go/bin:$XDG_CONFIG_HOME/cargo/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$DOTFILES/scripts:$HOME/.local/share/pnpm:${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.local/share/gem/ruby/3.2.0/bin
+export PATH=$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:$XDG_CONFIG_HOME/go/bin:$XDG_CONFIG_HOME/cargo/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$DOTFILES/scripts:$HOME/.local/share/pnpm:${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.local/share/gem/ruby/3.2.0/bin:$HOME/.local/share/gem/ruby/3.3.0/bin
