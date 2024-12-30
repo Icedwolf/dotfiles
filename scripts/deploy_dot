@@ -8,7 +8,7 @@ BASE_CONFIG_PATH="$HOME/.config/"
 
 CONFIG_FOLDERS=(
   "atuin"
-  "alacritty"
+  "ghostty"
   "containers"
   "fuzzel"
   "git"

@@ -4,7 +4,7 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term alacritty
+set $term ghostty
 set $menu fuzzel | xargs swaymsg exec --
 bindsym $mod+d exec $menu
 
@@ -18,7 +18,7 @@ bindsym $mod+shift+p exec cliphist wipe | notify-send "Clipboard" "Cleared"
 bindsym $mod+r exec pkill wbg && wbg "$(random_wllppr)"
 bindsym $mod+shift+r exec pkill wbg && wbg "$(get_wllppr)"
 bindsym $mod+s exec notify-send "$(favwall)"
-bindsym $mod+shift+s exec alacritty -e yazi ~/Pictures/favs
+bindsym $mod+shift+s exec ghostty -e yazi ~/Pictures/favs
 exec wbg "$(random_wllppr)"
 
 # Media keys
@@ -52,7 +52,7 @@ floating_modifier $mod normal
 
 bindsym $mod+Up exec makoctl restore
 bindsym $mod+Down exec makoctl dismiss -a
-bindsym $mod+Return exec $term --class "terminal" -e tmux
+bindsym $mod+Return exec $term -e tmux
 bindsym $mod+q kill
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit?' -B 'Yes' 'swaymsg exit'
@@ -140,7 +140,7 @@ workspace 2
 exec --no-startup-id pgrep spotify || exec spotify
 exec ferdium --enable-features=UseOzonePlatform --ozone-platform=wayland
 workspace 1
-exec --no-startup-id pgrep alacritty || exec $term --class "terminal" -e tmux
+exec --no-startup-id pgrep ghostty || exec $term -e tmux
 exec --no-startup-id pgrep zen-browser || exec zen-browser
 
 # Set default brightness
