@@ -6,7 +6,6 @@ font-family = CaskaydiaCove Nerd Font
 font-size = 10.5
 window-padding-x = 0
 window-padding-y = 0
-window-vsync = true
 cursor-style-blink = true
 font-family-bold = true
 minimum-contrast = 1.15
