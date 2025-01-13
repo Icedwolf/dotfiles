@@ -38,8 +38,6 @@ zcompile $ZDOTDIR/.zshrc
 ln -sf "$DOTFILES/zsh/.p10k.zsh" $ZDOTDIR
 zcompile $ZDOTDIR/.p10k.zsh
 ln -sf "$DOTFILES/zsh/.zshenv" $HOME/.zshenv
-zcompile $HOME/.zshenv
-zcompile $ZDOTDIR/.p10k.zsh
 zcompile $DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh
 zcompile $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 zcompile $DOTFILES/zsh/vim.zsh

@@ -5,6 +5,7 @@ fpath=($DOTFILES/zsh/completions $fpath)
 zstyle ':completion:*' completer _extensions _complete _approximate
 
 # Use cache for commands using cache
+zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "$ZDOTDIR/.zcompcache"
 

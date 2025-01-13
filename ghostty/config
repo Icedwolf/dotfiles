@@ -1,13 +1,13 @@
 gtk-titlebar = false
-background-opacity=0.6
+background-opacity=0.65
 keybind = global:unconsumed:alt+r=reload_config
-theme = deep
-font-family = CaskaydiaCove Nerd Font
+theme = Firefly Traditional
+font-family = CaskaydiaCove Nerd Font Propo
 font-size = 10.5
 window-padding-x = 0
 window-padding-y = 0
 cursor-style-blink = true
 font-family-bold = true
-minimum-contrast = 1.15
+minimum-contrast = 1.1
 adw-toolbar-style = raised
 bold-is-bright = true

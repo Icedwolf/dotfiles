@@ -44,6 +44,7 @@ export HEX_HOME="$XDG_CONFIG_HOME/hex"
 export MIX_HOME="$XDG_CONFIG_HOME/mix"
 export GOPATH="$XDG_CONFIG_HOME/go"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
+export GEM_HOME="$HOME/.local/share/gem/ruby/3.3.0"
 
 # Apps
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
@@ -56,4 +57,20 @@ export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
 export DOCKER_SOCK=$XDG_RUNTIME_DIR/podman/podman.sock
 
 # PATHS
-export PATH=$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:$XDG_CONFIG_HOME/go/bin:$XDG_CONFIG_HOME/cargo/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$DOTFILES/scripts:$HOME/.local/share/pnpm:${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.local/share/gem/ruby/3.2.0/bin:$HOME/.local/share/gem/ruby/3.3.0/bin
+typeset -U path  # Prevents duplicate entries
+path=(
+    "$HOME/.local/bin"
+    "/usr/local/sbin"
+    "/usr/local/bin"
+    "/usr/sbin"
+    "/usr/bin"
+    "$XDG_CONFIG_HOME/go/bin"
+    "$XDG_CONFIG_HOME/cargo/bin"
+    "$DOTFILES/scripts"
+    "$HOME/.local/share/pnpm"
+    "${KREW_ROOT:-$HOME/.krew}/bin"
+    "$GEM_HOME/bin"
+    $path
+)
+export PATH
+
