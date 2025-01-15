@@ -4,14 +4,6 @@ function zle-line-init zle-keymap-select {
     zle reset-prompt
 }
 
-function smart_cat() {
-    if [ -t 1 ]; then
-        bat --paging=never --theme="Monokai Extended" --style=full --color=always "$@"
-    else
-        command cat "$@"
-    fi
-}
-
 _zsh_autosuggest_strategy_atuin_top() {
     suggestion=$(atuin search --cmd-only --limit 1 --search-mode prefix $1)
 }
@@ -41,12 +33,3 @@ _ensure_opam_env() {
 for _raw_ocaml_command in "${_lazy_opam_aliases[@]}"; do
     alias "$_raw_ocaml_command=_ensure_opam_env $_raw_ocaml_command"
 done
-
-function yy() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
-}

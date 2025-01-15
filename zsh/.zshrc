@@ -21,7 +21,7 @@ source $DOTFILES/zsh/vim.zsh
 source $DOTFILES/zsh/completions.zsh
 
 eval "$(atuin init zsh)"
-eval "$(zoxide init zsh)"
+. $DOTFILES/z/z.sh
 
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 source $ZDOTDIR/.p10k.zsh
