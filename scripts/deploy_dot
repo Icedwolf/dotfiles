@@ -18,9 +18,9 @@ CONFIG_FOLDERS=(
   "mako"
   "sway"
   "sway-interactive-screenshot"
+  "i3status"
   "paru"
   "tmux"
-  "waybar"
 )
 
 # Create destination folders and symlinks for files in each folder

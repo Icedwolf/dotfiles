@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Pass through the version header
+echo '{"version":1}'
+echo '['
+
+# Process i3status output
+i3status | while read line; do
+	spotify_status=$("$HOME/dotfiles/scripts/playing_status")
+
+	# Skip empty lines
+	[ -z "$line" ] && continue
+
+	if [[ "$line" =~ ^\[.*\]$ ]]; then
+		# First status array
+		# Remove outer brackets and add spotify status
+		line="${line#[}"
+		line="${line%]}"
+		echo "[{\"full_text\":\"${spotify_status}\"}, $line]"
+	elif [[ "$line" =~ ^,\[.*\]$ ]]; then
+		# Update lines - keep the comma, remove brackets, add spotify
+		line="${line#,\[}"
+		line="${line%]}"
+		echo ",[{\"full_text\":\"${spotify_status}\"}, $line]"
+	fi
+done

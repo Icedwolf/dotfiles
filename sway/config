@@ -194,6 +194,24 @@ font pango:monospace 0.001
 titlebar_padding 1
 titlebar_border_thickness 0
 
+output HDMI-A-1
+bar {
+    position top
+    status_command ~/dotfiles/scripts/mi3status
+    font Caskadia cove:monospace 7
+    colors {
+        background #101010
+        statusline #ffffff
+        separator  #666666
+
+        focused_workspace    #00ff00   #101010     #00ff00
+        active_workspace     #101010   #101010     #00ff00
+        inactive_workspace   #101010   #101010     #666666
+        urgent_workspace     #ff0000   #101010     #ff0000
+        binding_mode        #ff0000   #101010     #ff0000
+    }
+}
+
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
 exec hash dbus-update-activation-environment 2>/dev/null && \
        dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
