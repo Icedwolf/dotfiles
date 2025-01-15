@@ -194,16 +194,17 @@ font pango:monospace 0.001
 titlebar_padding 1
 titlebar_border_thickness 0
 
-output HDMI-A-1
 bar {
+    output HDMI-A-1
     position top
     status_command ~/dotfiles/scripts/mi3status
-    font Caskadia cove:monospace 7
+    font CaskaydiaCove Nerd Font Propo:monospace 7
     colors {
         background #101010
         statusline #ffffff
         separator  #666666
 
+        # Workspace           border    background  text
         focused_workspace    #00ff00   #101010     #00ff00
         active_workspace     #101010   #101010     #00ff00
         inactive_workspace   #101010   #101010     #666666
