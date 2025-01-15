@@ -14,14 +14,10 @@ export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 export BROWSER="zen-browser"
 export MOZ_ENABLE_WAYLAND=1
 export EDITOR="nvim"
-export VISUAL="nvim"
 export TERMINAL="alacritty"
 export READER="zathura"
-export MANPAGER="sh -c 'bat --style=plain --color=always -l man -p'"
-export PAGER="bat"
 export SYSTEMD_COLORS="false"
 export SYSTEMD_PAGERSECURE="true"
-export SYSTEMD_PAGER="bat -l syslog -p"
 
 # ZSH envs
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
@@ -57,7 +53,6 @@ export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
 export DOCKER_SOCK=$XDG_RUNTIME_DIR/podman/podman.sock
 export _Z_DATA=$XDG_CONFIG_HOME/z/z
 export CLICOLOR=1
-export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
 
 # PATHS
 typeset -U path  # Prevents duplicate entries
@@ -71,7 +66,6 @@ path=(
     "$XDG_CONFIG_HOME/cargo/bin"
     "$DOTFILES/scripts"
     "$HOME/.local/share/pnpm"
-    "${KREW_ROOT:-$HOME/.krew}/bin"
     "$GEM_HOME/bin"
     $path
 )

@@ -19,6 +19,6 @@ alias t="tmux attach || tmux new"
 alias up="wg-quick up wg0"
 alias down="wg-quick down wg0"
 alias c="clear"
-alias ls="ls --color=auto"
 alias l="ls -lna"
+alias ls='ls --color=auto'
 alias cl="c;l"
