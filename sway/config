@@ -195,10 +195,10 @@ titlebar_padding 1
 titlebar_border_thickness 0
 
 bar {
-    output HDMI-A-1
+    #output HDMI-A-1
     position top
     status_command ~/dotfiles/scripts/mi3status
-    font CaskaydiaCove Nerd Font Propo:monospace 7
+    font CaskaydiaCove Nerd Font Propo:monospace 9
     colors {
         background #101010
         statusline #ffffff
