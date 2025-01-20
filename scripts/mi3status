@@ -1,36 +1,32 @@
 #!/bin/bash
-
-# Function to get current kubernetes context
 get_kube_context() {
-	if command -v kubectl >/dev/null 2>&1; then
-		kubectl config current-context 2>/dev/null || echo "no context"
-	else
-		echo "kubectl not found"
-	fi
+	kubectl config current-context 2>/dev/null || echo "no context"
 }
 
-# Pass through the version header
+format_status() {
+	local kube_context=$1
+	local spotify=$2
+	local base_status=$3
+
+	base_status="${base_status#,\[}"
+	base_status="${base_status#\[}"
+	base_status="${base_status%\]}"
+
+	echo "[{\"full_text\":\"☸ ${kube_context}\", \"color\":\"#A020F0\"}, {\"full_text\":\"${spotify}\", \"color\":\"#1DB954\"}, ${base_status}]"
+}
+
 echo '{"version":1}'
 echo '['
-
-# Process i3status output
 i3status | while read line; do
+	[ -z "$line" ] && continue
+	[[ "$line" =~ ^\[.*\]$ ]] || [[ "$line" =~ ^,\[.*\]$ ]] || continue
+
 	spotify_status=$("$HOME/dotfiles/scripts/playing_status")
 	kube_context=$(get_kube_context)
+	cleaned=${spotify_status//[\'\"]/}
 
-	# Skip empty lines
-	[ -z "$line" ] && continue
+	prefix=""
+	[[ "$line" =~ ^,.*$ ]] && prefix=","
 
-	if [[ "$line" =~ ^\[.*\]$ ]]; then
-		# First status array
-		# Remove outer brackets and add spotify and kubernetes status
-		line="${line#[}"
-		line="${line%]}"
-		echo "[{\"full_text\":\"☸ ${kube_context}\", \"color\":\"#A020F0\"}, {\"full_text\":\"${spotify_status}\"}, $line]"
-	elif [[ "$line" =~ ^,\[.*\]$ ]]; then
-		# Update lines - keep the comma, remove brackets, add spotify and kubernetes
-		line="${line#,\[}"
-		line="${line%]}"
-		echo ",[{\"full_text\":\"☸ ${kube_context}\", \"color\":\"#A020F0\"}, {\"full_text\":\"${spotify_status}\"}, $line]"
-	fi
+	echo "${prefix}$(format_status "$kube_context" "$cleaned" "$line")"
 done

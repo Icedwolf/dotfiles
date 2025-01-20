@@ -1,23 +1,23 @@
 #!/bin/bash
-# Get just the playback status
+
 status=$(gdbus call --session \
 	--dest org.mpris.MediaPlayer2.spotify \
 	--object-path /org/mpris/MediaPlayer2 \
 	--method org.freedesktop.DBus.Properties.Get \
 	org.mpris.MediaPlayer2.Player PlaybackStatus |
 	grep -o "'.*'" | tr -d "'")
+
 if [ "$status" = "Playing" ] || [ "$status" = "Paused" ]; then
-	# Get just the metadata
 	metadata=$(gdbus call --session \
 		--dest org.mpris.MediaPlayer2.spotify \
 		--object-path /org/mpris/MediaPlayer2 \
 		--method org.freedesktop.DBus.Properties.Get \
 		org.mpris.MediaPlayer2.Player Metadata)
-	# Extract artist and title using the same pattern style for both
+
 	artist=$(echo "$metadata" | grep -oP "'xesam:artist': <\[\'\K.*?(?=\'\])")
 	title=$(echo "$metadata" | grep -oP "xesam:title': <['\"]?\K.*?(?=['\"]?>)")
 
 	if [ -n "$artist" ] && [ -n "$title" ]; then
-		[ "$status" = "Playing" ] && echo "▶  $artist - $title" || echo "⏸ $artist - $title"
+		[ "$status" = "Playing" ] && echo " ▶  $artist - $title " || echo " ⏸ $artist - $title "
 	fi
 fi
