@@ -30,6 +30,13 @@ _ensure_opam_env() {
     fi >/dev/null 2>&1
     "$@"
 }
+
 for _raw_ocaml_command in "${_lazy_opam_aliases[@]}"; do
     alias "$_raw_ocaml_command=_ensure_opam_env $_raw_ocaml_command"
 done
+
+unalias z 2> /dev/null
+z() {
+    [ $# -gt 0 ] && zshz "$*" && return
+    cd "$(zshz -l 2>&1 | fzf --height 40% --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//')"
+}
