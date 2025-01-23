@@ -147,19 +147,30 @@ seat seat0 hide_cursor 1000
 
 bindsym $mod+m mode "mouse"
 mode "mouse" {
-    bindsym KP_1 seat * cursor move -10 10
-    bindsym KP_2 seat * cursor move 0 10
-    bindsym KP_3 seat * cursor move 10 10
-    bindsym KP_4 seat * cursor move -10 0
-    bindsym KP_5 seat * cursor press button1
-    bindsym KP_6 seat * cursor move 10 0
-    bindsym KP_7 seat * cursor move -10 -10
-    bindsym KP_8 seat * cursor move 0 -10
-    bindsym KP_9 seat * cursor move 10 -10
-    bindsym --release KP_0 seat * cursor release button1
-    bindsym KP_0 seat * cursor press button1
-    bindsym KP_Enter seat * cursor press button3
     bindsym Escape mode "default"
+    bindsym $mod+Shift+Space mode "default"
+
+    bindsym f seat - cursor press button1; seat - cursor release button1
+    bindsym d seat - cursor press button2; seat - cursor release button2
+    bindsym s seat - cursor press button3; seat - cursor release button3
+    bindsym a seat - cursor press button1
+    bindsym --release a seat - cursor release button1
+
+    bindsym h seat - cursor move -10 0
+    bindsym j seat - cursor move 0 10
+    bindsym k seat - cursor move 0 -10
+    bindsym l seat - cursor move 10 0
+
+    bindsym Shift+h seat - cursor move -50 0
+    bindsym Shift+j seat - cursor move 0 50
+    bindsym Shift+k seat - cursor move 0 -50
+    bindsym Shift+l seat - cursor move 50 0
+
+    bindsym Shift+u seat - cursor scroll left
+    bindsym Shift+d seat - cursor scroll right
+
+    bindsym equal seat - cursor speed 2
+    bindsym minus seat - cursor speed 0.5
 }
 
 default_border none
@@ -201,4 +212,3 @@ assign [app_id="ghostty"] workspace 1
 assign [class="zen-browser"] workspace 2
 assign [class="Ferdium"] workspace 3
 assign [class="Spotify"] workspace 4
-
