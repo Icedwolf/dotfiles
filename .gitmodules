@@ -16,6 +16,6 @@
 [submodule "yazi/plugins/miller.yazi"]
   path = yazi/plugins/miller.yazi
   url = https://github.com/Reledia/miller.yazi.git
-[submodule "z"]
-	path = z
-	url = git@github.com:rupa/z.git
+[submodule "zsh/zsh-z"]
+	path = zsh/zsh-z
+	url = https://github.com/agkozak/zsh-z.git
