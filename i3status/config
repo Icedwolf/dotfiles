@@ -7,8 +7,8 @@ general {
 order += "wireless _first_"
 order += "cpu_usage"
 order += "memory"
-order += "time"
 order += "battery 0"
+order += "time"
 
 wireless _first_ {
   format_up = "%essid %ip %quality"
@@ -21,14 +21,12 @@ cpu_usage {
 
 battery 0 {
   format = "%status %percentage"
-  format_down = "No battery"
   status_chr = "⚡ "
   status_bat = "🔋 "
-  status_unk = "? "
   status_full = "☻ "
   status_idle = "☻ "
   path = "/sys/class/power_supply/BAT%d/uevent"
-  low_threshold = 10
+  low_threshold = 20
 }
 
 memory {

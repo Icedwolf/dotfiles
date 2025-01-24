@@ -201,14 +201,6 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 
 workspace 1
 exec --no-startup-id pgrep ghostty || exec $term -e tmux
-workspace 2
 exec --no-startup-id pgrep zen-browser || exec zen-browser
-workspace 3
 exec ferdium --enable-features=UseOzonePlatform --ozone-platform=wayland
-workspace 4
 exec --no-startup-id pgrep spotify || exec spotify
-
-assign [app_id="ghostty"] workspace 1
-assign [class="zen-browser"] workspace 2
-assign [class="Ferdium"] workspace 3
-assign [class="Spotify"] workspace 4
