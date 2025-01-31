@@ -1,5 +1,12 @@
 # Skip global init
 skip_global_compinit=1
+
+# Nvidia related
+#export WLR_DRM_DEVICES=/dev/dri/card1
+export WLR_NO_HARDWARE_CURSORS=1
+export GBM_BACKEND=nvidia-drm
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export LIBVA_DRIVER_NAME=nvidia
 # XDG
 export XDG_SESSION_TYPE="wayland"
 export XDG_CURRENT_DESKTOP="sway"
