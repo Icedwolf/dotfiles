@@ -18,6 +18,6 @@ if [ "$status" = "Playing" ] || [ "$status" = "Paused" ]; then
 	title=$(echo "$metadata" | grep -oP "xesam:title': <['\"]?\K.*?(?=['\"]?>)")
 
 	if [ -n "$artist" ] && [ -n "$title" ]; then
-		[ "$status" = "Playing" ] && echo " ▶  $artist - $title " || echo " ⏸ $artist - $title "
+		[ "$status" = "Playing" ] && echo " ▶  $artist - $title " || echo "$artist - $title "
 	fi
 fi

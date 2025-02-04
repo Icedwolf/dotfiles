@@ -1,13 +1,11 @@
-gtk-titlebar = false
-background-opacity=0.6
+background-opacity=0.55
 keybind = global:unconsumed:alt+r=reload_config
 theme = synthwave
-font-family = CaskaydiaCove Nerd Font Propo
+font-family = CaskaydiaCove Nerd Font
 font-size = 10.5
 window-padding-x = 0
 window-padding-y = 0
 cursor-style-blink = true
-font-family-bold = true
 minimum-contrast = 1.1
 adw-toolbar-style = raised
 bold-is-bright = true

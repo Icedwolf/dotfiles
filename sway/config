@@ -182,7 +182,7 @@ titlebar_border_thickness 0
 bar {
     position top
     status_command ~/dotfiles/scripts/mi3status
-    font CaskaydiaCove Nerd Font Propo:monospace 9
+    font CaskaydiaCove Nerd Font Mono:monospace 8
     colors {
         background #101010
         statusline #ffffff
