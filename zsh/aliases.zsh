@@ -1,6 +1,6 @@
 alias vim="nvim"
 alias att="paru -Syyuu --noconfirm --noupgrademenu --removemake --skipreview --nouseask --failfast --norebuild --noredownload --cleanafter --sudoloop;git -C $DOTFILES submodule update --remote;pipx upgrade-all;$HOME/.config/tmux/plugins/tpm/bin/update_plugins all;helm repo update;go-global-update; deploy_dot; notify-send att-done"
-alias update="source $ZDOTDIR/.zshrc"
+alias update="source $HOME/.zshenv && source $ZDOTDIR/.zshrc"
 alias lcontext="kubectl config get-contexts"
 alias ucontext="kubectl config use-context"
 alias cleancache="rm -rf ~/.cache"
