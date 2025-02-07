@@ -1,0 +1,5 @@
+.main-nowPlayingView-videoPip,
+.main-nowPlayingView-upperPanel,
+.main-coverSlotExpanded-container {
+ display: none !important;
+}
