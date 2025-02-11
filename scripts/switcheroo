@@ -30,3 +30,4 @@ selected_ws=$(echo "$selected_line" | awk '{print $2}')
 
 swaymsg "[con_id=$current_id] move container to workspace $selected_ws"
 swaymsg "[con_id=$selected_id] move container to workspace $current_ws"
+swaymsg "[con_id=$selected_id] focus"
