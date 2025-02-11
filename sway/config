@@ -38,6 +38,7 @@ bindsym $mod+Escape exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.s
 
 bindsym $mod+delete exec kill_ps
 bindsym $mod+tab exec window_selector
+bindsym $mod+shift+tab exec switcheroo
 
 bindsym $mod+apostrophe exec passotp
 

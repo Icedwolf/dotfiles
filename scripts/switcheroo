@@ -1,0 +1,32 @@
+#!/bin/sh
+
+current_id=$(swaymsg -t get_tree | jq -r '.. | select(.focused? == true) | .id' | tail -n1)
+
+windows=$(swaymsg -t get_tree | jq -r '
+    recurse(.nodes[]?, .floating_nodes[]?) |
+    if .type == "workspace" then
+        .name as $ws |
+        ( .nodes[], .floating_nodes[] ) |
+            recurse(.nodes[]?, .floating_nodes[]?) |
+            select(.type == "con" or .type == "floating_con") |
+            select(.name != null) |
+            "\(.id|tostring)|\($ws)|\(.app_id // "none"): \(.name) (\($ws))"
+    else
+        empty
+    end')
+
+current_line=$(echo "$windows" | grep "^$current_id|")
+current_ws=$(echo "$current_line" | awk -F'|' '{print $2}')
+
+other_windows=$(echo "$windows" | grep -v "^$current_id|")
+
+selected_line=$(echo "$other_windows" | fuzzel -d | awk -F'|' '{print $1, $2}')
+if [ -z "$selected_line" ]; then
+  exit 0
+fi
+
+selected_id=$(echo "$selected_line" | awk '{print $1}')
+selected_ws=$(echo "$selected_line" | awk '{print $2}')
+
+swaymsg "[con_id=$current_id] move container to workspace $selected_ws"
+swaymsg "[con_id=$selected_id] move container to workspace $current_ws"
