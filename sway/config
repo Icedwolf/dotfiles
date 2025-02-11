@@ -201,6 +201,5 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 
 workspace 1
 exec --no-startup-id pgrep ghostty || exec $term -e tmux
-#exec --no-startup-id pgrep zen-browser || exec zen-browser
-#exec ferdium --enable-features=UseOzonePlatform --ozone-platform=wayland
+exec --no-startup-id pgrep waterfox || exec waterfox
 exec --no-startup-id pgrep spotify || exec spotify --enable-features=UseOzonePlatform --ozone-platform=wayland
