@@ -18,8 +18,7 @@ bindsym $mod+shift+r exec pkill wbg && wbg "$(get_wllppr)"
 bindsym $mod+s exec notify-send "$(favwall)"
 exec wbg "$(random_wllppr)"
 
-set $player org.mpris.MediaPlayer2.psst
-#set $player org.mpris.MediaPlayer2.spotify
+set $player org.mpris.MediaPlayer2.spotify
 bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
 bindsym XF86AudioLowerVolume exec amixer sset Master 5%-
 bindsym Shift+XF86AudioRaiseVolume exec amixer sset Capture 5%+

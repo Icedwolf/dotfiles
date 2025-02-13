@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# player=spotify
-player=psst
+player=spotify
 status=$(gdbus call --session \
   --dest org.mpris.MediaPlayer2.$player \
   --object-path /org/mpris/MediaPlayer2 \
