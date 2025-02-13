@@ -1,23 +1,25 @@
 #!/bin/bash
 
+# player=spotify
+player=psst
 status=$(gdbus call --session \
-	--dest org.mpris.MediaPlayer2.spotify \
-	--object-path /org/mpris/MediaPlayer2 \
-	--method org.freedesktop.DBus.Properties.Get \
-	org.mpris.MediaPlayer2.Player PlaybackStatus |
-	grep -o "'.*'" | tr -d "'")
+  --dest org.mpris.MediaPlayer2.$player \
+  --object-path /org/mpris/MediaPlayer2 \
+  --method org.freedesktop.DBus.Properties.Get \
+  org.mpris.MediaPlayer2.Player PlaybackStatus |
+  grep -o "'.*'" | tr -d "'")
 
 if [ "$status" = "Playing" ] || [ "$status" = "Paused" ]; then
-	metadata=$(gdbus call --session \
-		--dest org.mpris.MediaPlayer2.spotify \
-		--object-path /org/mpris/MediaPlayer2 \
-		--method org.freedesktop.DBus.Properties.Get \
-		org.mpris.MediaPlayer2.Player Metadata)
+  metadata=$(gdbus call --session \
+    --dest org.mpris.MediaPlayer2.$player \
+    --object-path /org/mpris/MediaPlayer2 \
+    --method org.freedesktop.DBus.Properties.Get \
+    org.mpris.MediaPlayer2.Player Metadata)
 
-	artist=$(echo "$metadata" | grep -oP "'xesam:artist': <\[\'\K.*?(?=\'\])")
-	title=$(echo "$metadata" | grep -oP "xesam:title': <['\"]?\K.*?(?=['\"]?>)")
+  artist=$(echo "$metadata" | grep -oP "'xesam:artist': <\[\'\K.*?(?=\'\])")
+  title=$(echo "$metadata" | grep -oP "xesam:title': <['\"]?\K.*?(?=['\"]?>)")
 
-	if [ -n "$artist" ] && [ -n "$title" ]; then
-		[ "$status" = "Playing" ] && echo " ▶  $artist - $title " || echo "$artist - $title "
-	fi
+  if [ -n "$artist" ] && [ -n "$title" ]; then
+    [ "$status" = "Playing" ] && echo " ▶  $artist - $title " || echo "$artist - $title "
+  fi
 fi

@@ -18,6 +18,8 @@ bindsym $mod+shift+r exec pkill wbg && wbg "$(get_wllppr)"
 bindsym $mod+s exec notify-send "$(favwall)"
 exec wbg "$(random_wllppr)"
 
+set $player org.mpris.MediaPlayer2.psst
+#set $player org.mpris.MediaPlayer2.spotify
 bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
 bindsym XF86AudioLowerVolume exec amixer sset Master 5%-
 bindsym Shift+XF86AudioRaiseVolume exec amixer sset Capture 5%+
@@ -26,15 +28,15 @@ bindsym Shift+XF86AudioMute exec amixer sset Capture toggle
 bindsym XF86AudioMute exec amixer sset Master toggle
 bindsym XF86MonBrightnessDown exec brightnessctl set 15%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +15%
-bindsym --locked XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
-bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
-bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+bindsym --locked XF86AudioPlay exec dbus-send --print-reply --dest=$player /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+bindsym XF86AudioNext exec dbus-send --print-reply --dest=player /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+bindsym XF86AudioPrev exec dbus-send --print-reply --dest=player /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 bindsym Print exec sway-interactive-screenshot
 bindsym shift+Print exec sway-interactive-screenshot -s focused-window
 
 set $wall $HOME/Pictures/walls
 set $lock swaylock --image $HOME/Pictures/favs/0d3c6jon7mw11.jpg -s fill
-bindsym $mod+Escape exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause & $lock
+bindsym $mod+Escape exec dbus-send --print-reply --dest=player /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause & $lock
 
 bindsym $mod+delete exec kill_ps
 bindsym $mod+tab exec switcheroo
