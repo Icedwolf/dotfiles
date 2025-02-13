@@ -22,3 +22,4 @@ alias c="clear"
 alias l="ls -lna"
 alias ls='ls --color=auto'
 alias cl="c;l"
+alias grep="grep --color=auto"

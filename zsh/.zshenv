@@ -21,7 +21,7 @@ export MOZ_ENABLE_WAYLAND=1
 export EDITOR="nvim"
 export TERMINAL="alacritty"
 export READER="zathura"
-export SYSTEMD_COLORS="false"
+export SYSTEMD_COLORS="true"
 export SYSTEMD_PAGERSECURE="true"
 
 # ZSH envs
@@ -58,6 +58,7 @@ export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
 export DOCKER_SOCK=$XDG_RUNTIME_DIR/podman/podman.sock
 export _Z_DATA=$XDG_CONFIG_HOME/z/z
 export CLICOLOR=1
+export LESS="-R"
 
 # PATHS
 typeset -U path  # Prevents duplicate entries
