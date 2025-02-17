@@ -35,7 +35,7 @@ bindsym shift+Print exec sway-interactive-screenshot -s focused-window
 
 set $wall $HOME/Pictures/walls
 set $lock swaylock --image $HOME/Pictures/favs/0d3c6jon7mw11.jpg -s fill
-bindsym $mod+Escape exec dbus-send --print-reply --dest=player /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause & $lock
+bindsym $mod+Escape exec dbus-send --print-reply --dest=$player /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause & $lock
 
 bindsym $mod+delete exec kill_ps
 bindsym $mod+tab exec switcheroo
