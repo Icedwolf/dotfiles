@@ -51,7 +51,7 @@ export GEM_HOME="$HOME/.local/share/gem/ruby/3.3.0"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_DEFAULT_OPTS='--color=fg:#d0d0d0,hl:#5f87af --color=fg+:#d0d0d0,bg+:#262626,hl+:#5fd7ff --color=info:#afaf87,prompt:#d7005f,pointer:#af5fff --color=marker:#87ff00,spinner:#af5fff,header:#87afaf'
 export KB="${XDG_CONFIG_HOME:-$HOME/.config}/.kube"
-export KUBECONFIG=$(ls $KB/*.yaml | tr '\n' ':' | sed 's/:$//')
+export KUBECONFIG=$(find $KB -name "*.yaml" 2>/dev/null | tr '\n' ':' | sed 's/:$//')
 export KUBECACHEDIR=$XDG_CACHE_HOME/kube
 export KUBECOLOR_CONFIG="$DOTFILES/kubecolor/color.yaml"
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
