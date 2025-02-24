@@ -2,8 +2,10 @@ general {
   output_format = "i3bar"
   colors = true
   interval = 1
+  markup = "pango"
 }
 
+order += "volume master"
 order += "wireless _first_"
 order += "cpu_usage"
 order += "memory"
@@ -16,11 +18,11 @@ wireless _first_ {
 }
 
 cpu_usage {
-  format = "CPU: %usage"
+  format = "<span color='#FF00FF'>CPU: %usage</span>"
 }
 
 battery 0 {
-  format = "%status %percentage"
+  format = "<span color='#00FF00'>%status %percentage</span>"
   status_chr = "⚡ "
   status_bat = "🔋 "
   status_full = "☻ "
@@ -29,12 +31,18 @@ battery 0 {
   low_threshold = 20
 }
 
+volume master {
+        format = "<span color='#4287f5'>♪: %volume</span>"
+        format_muted = "<span color='#4287f5'>♪: muted (%volume)</span>"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+
 memory {
-  format = "RAM: %percentage_used"
-  threshold_degraded = "20%"
-  threshold_critical = "5%"
+  format = "<span color='#00FFFF'>RAM: %percentage_used</span>"
 }
 
 time {
-  format = "%d-%m %H:%M:%S"
+  format = "<span color='#FF5F5F'>%d-%m %H:%M:%S</span>"
 }
