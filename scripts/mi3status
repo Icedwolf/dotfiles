@@ -7,15 +7,30 @@ get_mic_volume() {
   amixer get Capture | grep -o "\[.*%\]" | head -n1 | tr -d '[]'
 }
 
+get_noisetorch_status() {
+  if pactl list sources | grep -q "NoiseTorch Microphone"; then
+    echo "ON"
+  else
+    echo "OFF"
+  fi
+}
+
 format_status() {
   local kube_context=$1
   local spotify=$2
   local mic_volume=$3
-  local base_status=$4
+  local noisetorch_status=$4
+  local base_status=$5
   base_status="${base_status#,\[}"
   base_status="${base_status#\[}"
   base_status="${base_status%\]}"
-  echo "[{\"full_text\":\"${spotify}\", \"color\":\"#1DB954\"}, {\"full_text\":\"☸ ${kube_context}\", \"color\":\"#A020F0\"}, {\"full_text\":\"🎤 ${mic_volume}\", \"color\":\"#FF69B4\"}, ${base_status}]"
+  echo "
+  [{\"full_text\":\"${spotify}\", \"color\":\"#1DB954\"},
+  {\"full_text\":\"☸ ${kube_context}\", \"color\":\"#A020F0\"},
+  {\"full_text\":\"🎧 ${noisetorch_status}\", \"color\":\"#00FFFF\"},
+  {\"full_text\":\"🎤 ${mic_volume}\", \"color\":\"#FF69B4\"},
+  ${base_status}]
+  "
 }
 
 echo '{"version":1}'
@@ -26,8 +41,9 @@ i3status | while read line; do
   spotify_status=$("$HOME/dotfiles/scripts/playing_status")
   kube_context=$(get_kube_context)
   mic_volume=$(get_mic_volume)
+  noisetorch_status=$(get_noisetorch_status)
   cleaned=${spotify_status//[\'\"]/}
   prefix=""
   [[ "$line" =~ ^,.*$ ]] && prefix=","
-  echo "${prefix}$(format_status "$kube_context" "$cleaned" "$mic_volume" "$line")"
+  echo "${prefix}$(format_status "$kube_context" "$cleaned" "$mic_volume" "$noisetorch_status" "$line")"
 done

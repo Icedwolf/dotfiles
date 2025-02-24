@@ -30,6 +30,8 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +15%
 bindsym --locked XF86AudioPlay exec dbus-send --print-reply --dest=$player /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 bindsym XF86AudioNext exec dbus-send --print-reply --dest=$player /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 bindsym XF86AudioPrev exec dbus-send --print-reply --dest=$player /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+bindsym $mod+n exec noisetorch -i -t 90
+bindsym $mod+u exec noisetorch -u
 bindsym Print exec sway-interactive-screenshot
 bindsym shift+Print exec sway-interactive-screenshot -s focused-window
 
