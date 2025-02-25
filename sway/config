@@ -210,6 +210,9 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
        dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
 
 workspace 1
-exec --no-startup-id pgrep ghostty || exec $term -e tmux
 exec --no-startup-id pgrep waterfox || exec waterfox
-exec --no-startup-id pgrep spotify || exec spotify --enable-features=UseOzonePlatform --ozone-platform=wayland
+workspace 2
+exec --no-startup-id pgrep ghostty || exec $term -e tmux
+exec --no-startup-id pgrep spotify || exec spotify
+workspace 3
+exec --no-startup-id pgrep ferdium || exec ferdium

@@ -14,6 +14,7 @@ export XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-/run/user/$(id -u)}
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+export GTK_THEME=Adwaita:dark
 
 # Default apps
 export BROWSER="zen-browser"
