@@ -21,6 +21,7 @@ CONFIG_FOLDERS=(
   "i3status"
   "paru"
   "tmux"
+  "bottom"
 )
 
 # Create destination folders and symlinks for files in each folder
