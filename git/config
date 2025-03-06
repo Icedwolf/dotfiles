@@ -5,8 +5,6 @@ name = icedwolf
 helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 helper = !/usr/bin/gh auth git-credential
-[init]
-defaultBranch = main
 [core]
 pager = diff-so-fancy | less --tabs=4 -RF
 [interactive]
