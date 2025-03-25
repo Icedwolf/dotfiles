@@ -28,6 +28,7 @@ bindsym XF86AudioMute exec amixer sset Master toggle
 bindsym XF86MonBrightnessDown exec brightnessctl set 15%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +15%
 bindsym --locked XF86AudioPlay exec $dbus_send.PlayPause
+bindsym --locked $mod+space exec $dbus_send.PlayPause
 bindsym XF86AudioNext exec $dbus_send.Next
 bindsym $mod+s exec $dbus_send.Next
 bindsym XF86AudioPrev exec $dbus_send.Previous
