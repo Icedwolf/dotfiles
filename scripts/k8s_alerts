@@ -1,0 +1,8 @@
+#!/bin/bash
+MONITORING_INFO=$(kubectl get deploy -A | grep -E 'monitoring|prometheus|alertmanager' | grep operator | head -1)
+NAMESPACE=$(echo $MONITORING_INFO | awk '{print $1}')
+DEPLOYMENT=$(echo $MONITORING_INFO | awk '{print $2}')
+
+echo "Using namespace: $NAMESPACE, deployment: $DEPLOYMENT"
+
+kubectl exec -n $NAMESPACE deploy/$DEPLOYMENT -- wget -qO- http://alertmanager-operated:9093/api/v2/alerts | jq '.[] | select(.status.state == "active") | {name: .labels.alertname, pod: (.labels.pod // "-"), namespace: (.labels.namespace // "-"), started: (.startsAt | sub("\\.[0-9]+Z$"; "Z") | fromdateiso8601 | strftime("%Y-%m-%d %H:%M:%S"))}'
