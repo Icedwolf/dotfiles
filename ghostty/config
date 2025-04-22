@@ -1,5 +1,5 @@
 background-opacity=0.55
-keybind = global:unconsumed:alt+r=reload_config
+keybind = global:unconsumed:alt+shift+r=reload_config
 theme = synthwave
 font-family = CaskaydiaCove Nerd Font
 font-size = 10.7

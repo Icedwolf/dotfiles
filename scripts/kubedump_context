@@ -4,68 +4,68 @@ set -e
 
 # Function to print usage
 print_usage() {
-	echo "Usage: $0 -c KUBE-CONTEXT [--namespace NAMESPACE] [--resource RESOURCE_TYPE]"
-	echo "-c, --context KUBE-CONTEXT  (Required) The Kubernetes context to use."
-	echo "  --namespace NAMESPACE       (Optional) The namespace to target. If not provided, all namespaces will be dumped."
-	echo "  --resource RESOURCE_TYPE    (Optional) The type of resource to dump. If not provided, all resource types will be dumped."
-	echo "Valid resource types: configmap, secret, daemonset, deployment, service, hpa, statefulset, ingress"
+  echo "Usage: $0 -c KUBE-CONTEXT [-n NAMESPACE] [-r RESOURCE_TYPE]"
+  echo "-c KUBE-CONTEXT  (Required) The Kubernetes context to use."
+  echo "-n NAMESPACE       (Optional) The namespace to target. If not provided, all namespaces will be dumped."
+  echo "-r RESOURCE_TYPE    (Optional) The type of resource to dump. If not provided, all resource types will be dumped."
+  echo "Valid resource types: configmap, secret, daemonset, deployment, service, hpa, statefulset, ingress"
 }
 
 # Parse command-line arguments
 while getopts ":c:n:r:" opt; do
-	case ${opt} in
-	c) CONTEXT=${OPTARG} ;;
-	n) NAMESPACE=${OPTARG} ;;
-	r) RESOURCE_TYPE=${OPTARG} ;;
-	*)
-		print_usage
-		exit 1
-		;;
-	esac
+  case ${opt} in
+  c) CONTEXT=${OPTARG} ;;
+  n) NAMESPACE=${OPTARG} ;;
+  r) RESOURCE_TYPE=${OPTARG} ;;
+  *)
+    print_usage
+    exit 1
+    ;;
+  esac
 done
 
 echo "CONTEXT: ${CONTEXT}, NAMESPACE: ${NAMESPACE}, RESOURCE_TYPE: ${RESOURCE_TYPE}"
 
 # Validate required argument
 if [[ -z ${CONTEXT} ]]; then
-	echo "Error: Missing required argument '-c' or '--context'"
-	print_usage
-	exit 1
+  echo "Error: Missing required argument '-c' or '--context'"
+  print_usage
+  exit 1
 fi
 
 # Function to validate namespace (and resource type)
 validate_input() {
-	echo "Validating input: ${CONTEXT}, ${NAMESPACE}, ${RESOURCE_TYPE}"
+  echo "Validating input: ${CONTEXT}, ${NAMESPACE}, ${RESOURCE_TYPE}"
 
-	# Validate namespace (only if provided and not empty)
-	if [[ -n "${NAMESPACE}" && -z $(kubectl --context ${CONTEXT} get namespace "${NAMESPACE}" --ignore-not-found) ]]; then
-		echo "Invalid namespace: ${NAMESPACE}"
-		exit 1
-	fi
+  # Validate namespace (only if provided and not empty)
+  if [[ -n "${NAMESPACE}" && -z $(kubectl --context ${CONTEXT} get namespace "${NAMESPACE}" --ignore-not-found) ]]; then
+    echo "Invalid namespace: ${NAMESPACE}"
+    exit 1
+  fi
 
-	# Validate resource type (only if provided)
-	if [[ -n "${RESOURCE_TYPE}" && ! (${RESOURCE_TYPE} =~ ^(configmap|secret|daemonset|deployment|service|hpa|statefulset|ingress)$) ]]; then
-		echo "Invalid resource type: ${RESOURCE_TYPE}"
-		echo "Valid resource types: configmap, secret, daemonset, deployment, service, hpa, statefulset, ingress"
-		exit 1
-	fi
+  # Validate resource type (only if provided)
+  if [[ -n "${RESOURCE_TYPE}" && ! (${RESOURCE_TYPE} =~ ^(configmap|secret|daemonset|deployment|service|hpa|statefulset|ingress)$) ]]; then
+    echo "Invalid resource type: ${RESOURCE_TYPE}"
+    echo "Valid resource types: configmap, secret, daemonset, deployment, service, hpa, statefulset, ingress"
+    exit 1
+  fi
 }
 
 # Function to dump resources
 dump_resources() {
-	local context=$1
-	local namespace=$2
-	local resource=$3
+  local context=$1
+  local namespace=$2
+  local resource=$3
 
-	echo "Dumping resource: ${resource} from namespace: ${namespace}"
-	rsrcs=$(kubectl --context ${context} -n ${namespace} get -o json ${resource} | jq -r ".items[].metadata.name")
-	for r in ${rsrcs}; do
-		echo "Dumped ${r}"
-		dir="${context}/${namespace}/"
-		mkdir -p "${dir}"
-		kubectl --context ${context} -n ${namespace} get -o yaml ${resource} ${r} >"${dir}/${resource}_${r}.yaml" &
-	done
-	wait
+  echo "Dumping resource: ${resource} from namespace: ${namespace}"
+  rsrcs=$(kubectl --context ${context} -n ${namespace} get -o json ${resource} | jq -r ".items[].metadata.name")
+  for r in ${rsrcs}; do
+    echo "Dumped ${r}"
+    dir="${context}/${namespace}/"
+    mkdir -p "${dir}"
+    kubectl --context ${context} -n ${namespace} get -o yaml ${resource} ${r} >"${dir}/${resource}_${r}.yaml" &
+  done
+  wait
 }
 
 # Validate input (using parsed arguments)
@@ -73,18 +73,18 @@ validate_input "${CONTEXT}" "${NAMESPACE}" "${RESOURCE_TYPE}"
 
 RESOURCES="configmap secret daemonset deployment service hpa statefulset ingress"
 if [[ -z ${RESOURCE_TYPE} ]]; then
-	RESOURCE_TYPE=${RESOURCES}
+  RESOURCE_TYPE=${RESOURCES}
 fi
 
 # Set namespace to all namespaces if not provided
 if [[ -z ${NAMESPACE} ]]; then
-	NAMESPACE=$(kubectl --context ${CONTEXT} get -o json namespace | jq -r ".items[].metadata.name")
+  NAMESPACE=$(kubectl --context ${CONTEXT} get -o json namespace | jq -r ".items[].metadata.name")
 fi
 
 echo "namespace: ${NAMESPACE} | resource: ${RESOURCE_TYPE}"
 
 for namespace in ${NAMESPACE}; do
-	for resource in ${RESOURCE_TYPE}; do
-		dump_resources ${CONTEXT} $namespace $resource
-	done
+  for resource in ${RESOURCE_TYPE}; do
+    dump_resources ${CONTEXT} $namespace $resource
+  done
 done
