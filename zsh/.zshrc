@@ -28,5 +28,3 @@ source $ZDOTDIR/.p10k.zsh
 
 source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh
-
-export PATH=$PATH:/home/icedwolf/.spicetify

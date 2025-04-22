@@ -39,7 +39,7 @@ bindsym Print exec sway-interactive-screenshot
 bindsym shift+Print exec sway-interactive-screenshot -s focused-window
 
 set $wall $HOME/Pictures/walls
-set $lock swaylock --image $HOME/Pictures/favs/0d3c6jon7mw11.jpg -s fill
+set $lock swaylock --image "$(random_wllppr)" -s fill
 bindsym $mod+Escape exec $dbus_send.Pause & $lock
 
 bindsym $mod+delete exec kill_ps
