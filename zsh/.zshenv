@@ -21,6 +21,7 @@ export TERMINAL="alacritty"
 export READER="zathura"
 export SYSTEMD_COLORS="true"
 export SYSTEMD_PAGERSECURE="true"
+export SYSTEMD_EDITOR="nvim"
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export DOTFILES="$HOME/dotfiles"
