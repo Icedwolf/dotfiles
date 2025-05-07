@@ -34,6 +34,7 @@ export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 export ZSH_AUTOSUGGEST_STRATEGY=(atuin_top completion)
 
 export CARGO_HOME="$XDG_CONFIG_HOME/cargo"
+export RUSTUP_HOME="$XDG_CONFIG_HOME/rustup"
 export DOTNET_ROOT="$XDG_CONFIG_HOME/dotnet"
 export NUGET_PACKAGES="$XDG_CONFIG_HOME/nuget"
 export DOTNET_CLI_HOME="$XDG_CONFIG_HOME/dotnet"
