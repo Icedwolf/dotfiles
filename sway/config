@@ -153,7 +153,7 @@ input * {
   dwt enabled
 }
 
-seat seat0 hide_cursor 10000
+seat seat0 hide_cursor 6000
 
 bindsym $mod+m mode "mouse"
 mode "mouse" {
