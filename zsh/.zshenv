@@ -56,6 +56,7 @@ export DOCKER_SOCK=$XDG_RUNTIME_DIR/podman/podman.sock
 export _Z_DATA=$XDG_CONFIG_HOME/z/z
 export CLICOLOR=1
 export LESS="-R"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) 
 
 typeset -U path
 path=(
