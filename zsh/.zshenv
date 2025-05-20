@@ -51,6 +51,7 @@ export KB="${XDG_CONFIG_HOME:-$HOME/.config}/.kube"
 export KUBECONFIG=$(find $KB -name "*.yaml" 2>/dev/null | tr '\n' ':' | sed 's/:$//')
 export KUBECACHEDIR=$XDG_CACHE_HOME/kube
 export KUBECOLOR_CONFIG="$DOTFILES/kubecolor/color.yaml"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
 export DOCKER_SOCK=$XDG_RUNTIME_DIR/podman/podman.sock
 export _Z_DATA=$XDG_CONFIG_HOME/z/z
