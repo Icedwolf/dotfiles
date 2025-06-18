@@ -1,9 +1,8 @@
 #!/bin/zsh
+source ../zsh/.zshenv
 source $DOTFILES/zsh/.zshrc
 _comp_options+=(globdots)
-# This script is used to deploy this folder dotfiles config to the right directories
 
-# Define the base path for all configurations
 BASE_CONFIG_PATH="$HOME/.config/"
 
 CONFIG_FOLDERS=(
@@ -24,7 +23,6 @@ CONFIG_FOLDERS=(
   "bottom"
 )
 
-# Create destination folders and symlinks for files in each folder
 for folder in "${CONFIG_FOLDERS[@]}"; do
     echo $folder
   destination_path="$BASE_CONFIG_PATH$folder"
@@ -33,7 +31,6 @@ for folder in "${CONFIG_FOLDERS[@]}"; do
   echo "Symlinked files in $folder to $destination_path"
 done
 
-# FILES
 ln -sf "$DOTFILES/zsh/.zshrc" $ZDOTDIR
 zcompile $ZDOTDIR/.zshrc
 ln -sf "$DOTFILES/zsh/.p10k.zsh" $ZDOTDIR

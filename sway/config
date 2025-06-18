@@ -33,8 +33,6 @@ bindsym XF86AudioNext exec $dbus_send.Next
 bindsym $mod+s exec $dbus_send.Next
 bindsym XF86AudioPrev exec $dbus_send.Previous
 bindsym $mod+a exec $dbus_send.Previous
-bindsym $mod+n exec noisetorch -i -t 90
-bindsym $mod+i exec noisetorch -u
 bindsym Print exec sway-interactive-screenshot
 bindsym shift+Print exec sway-interactive-screenshot -s focused-window
 
