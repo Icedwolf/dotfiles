@@ -1,47 +1,62 @@
 #!/bin/zsh
 source ../zsh/.zshenv
-source $DOTFILES/zsh/.zshrc
+source "$DOTFILES/zsh/.zshrc"
 _comp_options+=(globdots)
 
-BASE_CONFIG_PATH="$HOME/.config/"
+BASE_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/"
+SOURCE_CONFIGS_DIR="$DOTFILES/configs"
 
-CONFIG_FOLDERS=(
-  "atuin"
-  "ghostty"
-  "containers"
-  "fuzzel"
-  "git"
-  "gnupg"
-  "k9s"
-  "kubecolor"
-  "mako"
-  "sway"
-  "sway-interactive-screenshot"
-  "i3status"
-  "paru"
-  "tmux"
-  "bottom"
-)
+if [ ! -d "$SOURCE_CONFIGS_DIR" ]; then
+    echo "Error: Source configs directory '$SOURCE_CONFIGS_DIR' not found."
+    echo "Please ensure all configuration folders are moved into this directory."
+    exit 1
+fi
 
-for folder in "${CONFIG_FOLDERS[@]}"; do
-    echo $folder
-  destination_path="$BASE_CONFIG_PATH$folder"
-  mkdir -p "$destination_path"
-  ln -sf "$DOTFILES/$folder/"* "$destination_path/" 2>/dev/null
-  echo "Symlinked files in $folder to $destination_path"
+for folder_path in "$SOURCE_CONFIGS_DIR"/*; do
+    if [ -d "$folder_path" ]; then
+        folder_name=$(basename "$folder_path")
+        echo "Processing $folder_name..."
+        destination_dir="$BASE_CONFIG_PATH$folder_name"
+        source_dir="$folder_path"
+
+        mkdir -p "$destination_dir"
+
+        for item in "$source_dir"/*; do
+            item_name=$(basename "$item")
+            destination_path="$destination_dir/$item_name"
+
+            if [ -e "$destination_path" ] && ! [ -L "$destination_path" ]; then
+                echo "  Warning: $destination_path exists and is not a symlink. Skipping to avoid data loss."
+                continue
+            elif [ -L "$destination_path" ]; then
+                rm "$destination_path"
+            fi
+
+            ln -s "$item" "$destination_path"
+            echo "  Symlinked $item_name to $destination_path"
+        done
+    fi
 done
 
-ln -sf "$DOTFILES/zsh/.zshrc" $ZDOTDIR
-zcompile $ZDOTDIR/.zshrc
-ln -sf "$DOTFILES/zsh/.p10k.zsh" $ZDOTDIR
-zcompile $ZDOTDIR/.p10k.zsh
-ln -sf "$DOTFILES/zsh/.zshenv" $HOME/.zshenv
-zcompile $DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh
-zcompile $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-zcompile $DOTFILES/zsh/vim.zsh
-zcompile $DOTFILES/zsh/functions.zsh
-zcompile $DOTFILES/zsh/aliases.zsh
-zcompile $DOTFILES/zsh/completions.zsh
-rm -f $ZDOTDIR/.zcompdump $ZDOTDIR/.zcompdump.zwc
+echo "Symlinking Zsh core configurations..."
+ln -sf "$DOTFILES/zsh/.zshrc" "$ZDOTDIR/.zshrc"
+ln -sf "$DOTFILES/zsh/.p10k.zsh" "$ZDOTDIR/.p10k.zsh"
+ln -sf "$DOTFILES/zsh/.zshenv" "$HOME/.zshenv"
+
+echo "Compiling Zsh files..."
+zcompile "$ZDOTDIR/.zshrc"
+zcompile "$ZDOTDIR/.p10k.zsh"
+zcompile "$HOME/.zshenv"
+zcompile "$DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh"
+zcompile "$DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
+zcompile "$DOTFILES/zsh/vim.zsh"
+zcompile "$DOTFILES/zsh/functions.zsh"
+zcompile "$DOTFILES/zsh/aliases.zsh"
+zcompile "$DOTFILES/zsh/completions.zsh"
+
+echo "Rebuilding Zsh completion dump..."
+rm -f "$ZDOTDIR/.zcompdump" "$ZDOTDIR/.zcompdump.zwc"
 compinit
-zcompile $ZDOTDIR/.zcompdump
+zcompile "$ZDOTDIR/.zcompdump"
+
+echo "Dotfile deployment complete."
