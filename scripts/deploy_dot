@@ -1,5 +1,5 @@
 #!/bin/zsh
-source ../zsh/.zshenv
+source $HOME/dotfiles/zsh/.zshenv
 source "$DOTFILES/zsh/.zshrc"
 _comp_options+=(globdots)
 
