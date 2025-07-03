@@ -37,12 +37,14 @@ for folder_path in "$SOURCE_CONFIGS_DIR"/*; do
 done
 
 echo "Symlinking Zsh core configurations..."
+ln -sf "$DOTFILES/zsh/.zprofile" "$ZDOTDIR/.zprofile"
 ln -sf "$DOTFILES/zsh/.zshrc" "$ZDOTDIR/.zshrc"
 ln -sf "$DOTFILES/zsh/.p10k.zsh" "$ZDOTDIR/.p10k.zsh"
 ln -sf "$DOTFILES/zsh/.zshenv" "$HOME/.zshenv"
 
 echo "Compiling Zsh files..."
 zcompile "$ZDOTDIR/.zshrc"
+zcompile "$ZDOTDIR/.zprofile"
 zcompile "$ZDOTDIR/.p10k.zsh"
 zcompile "$HOME/.zshenv"
 zcompile "$DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh"

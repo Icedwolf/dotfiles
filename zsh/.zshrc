@@ -1,3 +1,4 @@
+unset HISTFILE
 source $DOTFILES/zsh/zsh-z/zsh-z.plugin.zsh
 autoload -z compinit
 compinit -C
