@@ -1,3 +1,36 @@
+# Color Variables
+set $fg_color #c5c8c6
+set $bg_color #1d1f21
+set $accent_color #00ff00
+set $white_color #ffffff
+set $black_color #000000
+set $grey_color #666666
+set $red_color #ff0000
+set $bar_bg_color #101010
+
+# Path/Command Variables
+set $random_wallpaper_cmd random_wllppr
+set $get_wallpaper_cmd get_wllppr
+set $lock_cmd swaylock --image "$($random_wallpaper_cmd)" -s fill
+set $wallpaper_dir $HOME/Pictures/walls
+set $status_command ~/dotfiles/scripts/mi3status
+set $browser waterfox
+set $terminal_app ghostty
+set $music_app spotify
+set $messaging_app ferdium
+
+# Numerical Variables
+set $gap_size 1
+set $titlebar_padding_size 3
+set $font_size_small 0.001
+set $font_size_bar 9
+set $hide_cursor_timeout 6000
+set $pointer_accel_value -0.40
+set $mouse_move_small 10
+set $mouse_move_large 50
+set $mouse_speed_fast 2
+set $mouse_speed_slow 0.5
+
 exec mako
 set $mod Mod4
 set $left h
@@ -13,9 +46,9 @@ set $clipboard cliphist list | fuzzel -I -d | cliphist decode | wl-copy
 bindsym $mod+p exec $clipboard
 bindsym $mod+shift+p exec cliphist wipe | notify-send "Clipboard" "Cleared"
 
-bindsym $mod+r exec pkill wbg && wbg "$(random_wllppr)"
-bindsym $mod+shift+r exec pkill wbg && wbg "$(get_wllppr)"
-exec wbg "$(random_wllppr)"
+bindsym $mod+r exec pkill wbg && wbg "$($random_wallpaper_cmd)"
+bindsym $mod+shift+r exec pkill wbg && wbg "$($get_wallpaper_cmd)"
+exec wbg "$($random_wallpaper_cmd)"
 
 set $player org.mpris.MediaPlayer2.spotify
 set $dbus_send dbus-send --print-reply --dest=$player /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player
@@ -101,21 +134,21 @@ bindsym $mod+Control+Shift+j move workspace to output down
 bindsym $mod+Control+Shift+k move workspace to output up
 
 # Gaps
-gaps inner 1
-gaps outer 1
-gaps horizontal 1
-gaps vertical 1
+gaps inner $gap_size
+gaps outer $gap_size
+gaps horizontal $gap_size
+gaps vertical $gap_size
 smart_gaps on
 hide_edge_borders smart_no_gaps
 
-for_window [class=".*"] border pixel 1
+for_window [class=".*"] border pixel $gap_size
 
-titlebar_border_thickness 1
-titlebar_padding 3 1
+titlebar_border_thickness $gap_size
+titlebar_padding $titlebar_padding_size 1
 
-client.focused            #c5c8c6   #1d1f21   #00ff00    #ffffff    #00ff00
-client.unfocused          #1d1f21   #1d1f21   #ffffff    #000000    #1d1f21
-client.focused_inactive   #c5c8c6   #1d1f21   #ffffff    #ffffff    #c5c8c6
+client.focused            $fg_color $bg_color $accent_color $white_color $accent_color
+client.unfocused          $bg_color $bg_color $white_color $black_color $bg_color
+client.focused_inactive   $fg_color $bg_color $white_color $white_color $fg_color
 
 workspace_layout tabbed
 
@@ -145,13 +178,13 @@ input "type:keyboard" {
 input * {
   tap enabled
   natural_scroll enabled
-  pointer_accel -0.40
+  pointer_accel $pointer_accel_value
   accel_profile flat
   scroll_method two_finger
   dwt enabled
 }
 
-seat seat0 hide_cursor 6000
+seat seat0 hide_cursor $hide_cursor_timeout
 
 bindsym $mod+m mode "mouse"
 mode "mouse" {
@@ -164,42 +197,42 @@ mode "mouse" {
     bindsym a seat - cursor press button1
     bindsym --release a seat - cursor release button1
 
-    bindsym h seat - cursor move -10 0
-    bindsym j seat - cursor move 0 10
-    bindsym k seat - cursor move 0 -10
-    bindsym l seat - cursor move 10 0
+    bindsym h seat - cursor move -$mouse_move_small 0
+    bindsym j seat - cursor move 0 $mouse_move_small
+    bindsym k seat - cursor move 0 -$mouse_move_small
+    bindsym l seat - cursor move $mouse_move_small 0
 
-    bindsym Shift+h seat - cursor move -50 0
-    bindsym Shift+j seat - cursor move 0 50
-    bindsym Shift+k seat - cursor move 0 -50
-    bindsym Shift+l seat - cursor move 50 0
+    bindsym Shift+h seat - cursor move -$mouse_move_large 0
+    bindsym Shift+j seat - cursor move 0 $mouse_move_large
+    bindsym Shift+k seat - cursor move 0 -$mouse_move_large
+    bindsym Shift+l seat - cursor move $mouse_move_large 0
 
     bindsym Shift+u seat - cursor scroll left
     bindsym Shift+d seat - cursor scroll right
 
-    bindsym equal seat - cursor speed 2
-    bindsym minus seat - cursor speed 0.5
+    bindsym equal seat - cursor speed $mouse_speed_fast
+    bindsym minus seat - cursor speed $mouse_speed_slow
 }
 
 default_border none
 default_floating_border none
-font pango:monospace 0.001
+font pango:monospace $font_size_small
 titlebar_padding 1
 titlebar_border_thickness 0
 
 bar {
     position top
-    status_command ~/dotfiles/scripts/mi3status
-    font CaskaydiaCove Nerd Font Mono:monospace 9
+    status_command $status_command
+    font CaskaydiaCove Nerd Font Mono:monospace $font_size_bar
     colors {
-        background #101010
-        statusline #ffffff
-        separator  #666666
-        focused_workspace    #00ff00   #101010     #00ff00
-        active_workspace     #101010   #101010     #00ff00
-        inactive_workspace   #101010   #101010     #666666
-        urgent_workspace     #ff0000   #101010     #ff0000
-        binding_mode        #ff0000   #101010     #ff0000
+        background $bar_bg_color
+        statusline $white_color
+        separator  $grey_color
+        focused_workspace    $accent_color   $bar_bg_color     $accent_color
+        active_workspace     $bar_bg_color   $bar_bg_color     $accent_color
+        inactive_workspace   $bar_bg_color   $bar_bg_color     $grey_color
+        urgent_workspace     $red_color   $bar_bg_color     $red_color
+        binding_mode        $red_color   $bar_bg_color     $red_color
     }
 }
 

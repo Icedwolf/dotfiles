@@ -2,3 +2,4 @@ tags
 z/**
 !z/z.sh
 *.zwc
+secrets/
