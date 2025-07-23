@@ -10,7 +10,6 @@ set $bar_bg_color #101010
 
 # Path/Command Variables
 set $random_wallpaper_cmd random_wllppr
-set $get_wallpaper_cmd get_wllppr
 set $lock_cmd swaylock --image "$($random_wallpaper_cmd)" -s fill
 set $wallpaper_dir $HOME/Pictures/walls
 set $status_command ~/dotfiles/scripts/mi3status
@@ -46,9 +45,8 @@ set $clipboard cliphist list | fuzzel -I -d | cliphist decode | wl-copy
 bindsym $mod+p exec $clipboard
 bindsym $mod+shift+p exec cliphist wipe | notify-send "Clipboard" "Cleared"
 
-bindsym $mod+r exec pkill wbg && wbg "$($random_wallpaper_cmd)"
-bindsym $mod+shift+r exec pkill wbg && wbg "$($get_wallpaper_cmd)"
-exec wbg "$($random_wallpaper_cmd)"
+bindsym $mod+r exec pkill wbg && wbg -s "$($random_wallpaper_cmd)"
+exec wbg -s "$($random_wallpaper_cmd)"
 
 set $player org.mpris.MediaPlayer2.spotify
 set $dbus_send dbus-send --print-reply --dest=$player /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player
