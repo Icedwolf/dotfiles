@@ -51,6 +51,7 @@ zcompile "$DOTFILES/zsh/vim.zsh"
 zcompile "$DOTFILES/zsh/functions.zsh"
 zcompile "$DOTFILES/zsh/aliases.zsh"
 zcompile "$DOTFILES/zsh/completions.zsh"
+zcompile "$DOTFILES/zsh/prompt.zsh"
 
 echo "Rebuilding Zsh completion dump..."
 rm -f "$ZDOTDIR/.zcompdump" "$ZDOTDIR/.zcompdump.zwc"

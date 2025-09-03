@@ -27,11 +27,8 @@ bindkey -M vicmd cs change-surround
 bindkey -M vicmd ds delete-surround
 bindkey -M vicmd ys add-surround
 bindkey -M visual S add-surround
-
-# EDIT COMMAND LINE
 zle -N zle-line-init
 zle -N zle-keymap-select
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
-# Enable Shift+Tab for backward completion cycling
 bindkey "\e[Z" reverse-menu-complete

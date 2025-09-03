@@ -1,6 +1,3 @@
-fpath+=($HOME/.config/zsh/pure)
-autoload -Uz promptinit; promptinit
-prompt pure
 unset HISTFILE
 autoload -z compinit
 compinit -C
@@ -29,3 +26,4 @@ eval "$(atuin init zsh)"
 source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh
 source $DOTFILES/zsh/zsh-z/zsh-z.plugin.zsh
+source $DOTFILES/zsh/prompt.zsh
