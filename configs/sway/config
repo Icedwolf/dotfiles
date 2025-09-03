@@ -42,8 +42,8 @@ exec wl-paste --watch cliphist store
 bindsym $mod+p exec $clipboard
 bindsym $mod+shift+p exec cliphist wipe | fyi "Clipboard" "Cleared"
 
-bindsym $mod+r exec swaymsg output "*" bg "$(random_wllppr)" fit
-output "*" bg "$(random_wllppr)" fit
+bindsym $mod+r exec swaymsg output "*" bg "$(random_wllppr)" fill
+output "*" bg "$(random_wllppr)" fill
 
 set $player org.mpris.MediaPlayer2.spotify
 set $dbus_send dbus-send --print-reply --dest=$player /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player
