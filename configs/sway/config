@@ -5,7 +5,7 @@ set $white_color #ffffff
 set $black_color #000000
 set $grey_color #666666
 set $red_color #ff0000
-set $bar_bg_color #101010CF
+set $bar_bg_color #101010DF
 
 set $lock_cmd swaylock --image "$(random_wllppr)" -s fill
 set $status_command ~/dotfiles/scripts/mi3status
