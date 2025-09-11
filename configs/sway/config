@@ -5,12 +5,12 @@ set $white_color #ffffff
 set $black_color #000000
 set $grey_color #666666
 set $red_color #ff0000
-set $bar_bg_color #101010DF
+set $bar_bg_color #101010BA
 
 set $lock_cmd swaylock --image "$(random_wllppr)" -s fill
 set $status_command ~/dotfiles/scripts/mi3status
 set $browser waterfox
-set $terminal_app ghostty
+set $terminal_app st
 set $music_app spotify
 set $messaging_app ferdium
 
@@ -31,7 +31,7 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term ghostty
+set $term st
 set $menu fuzzel | xargs swaymsg exec --
 bindsym $mod+d exec $menu
 
@@ -234,7 +234,7 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 workspace 1
 exec --no-startup-id pgrep waterfox || exec waterfox
 workspace 2
-exec --no-startup-id pgrep ghostty || exec $term -e tmux
+exec --no-startup-id pgrep st || exec $term -e tmux
 exec --no-startup-id pgrep spotify || exec spotify
 workspace 3
 exec --no-startup-id pgrep ferdium || exec ferdium
