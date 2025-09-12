@@ -1,38 +1,45 @@
 #!/bin/bash
+
 get_kube_context() {
-	kubectl config current-context 2>/dev/null || echo "no context"
+  kubectl config current-context 2>/dev/null || echo "no context"
 }
 
 get_mic_volume() {
-	amixer get Capture | grep -o "\[.*%\]" | head -n1 | tr -d '[]'
+  amixer get Capture | grep -o "\[.*%\]" | head -n1 | tr -d '[]'
 }
 
 format_status() {
-	local kube_context=$1
-	local spotify=$2
-	local mic_volume=$3
-	local base_status=$4
-	base_status="${base_status#,\[}"
-	base_status="${base_status#\[}"
-	base_status="${base_status%\]}"
-	echo "
-  [{\"full_text\":\"${spotify}\", \"color\":\"#1DB954\"},
-  {\"full_text\":\"☸ ${kube_context}\", \"color\":\"#A020F0\"},
-  {\"full_text\":\"🎤 ${mic_volume}\", \"color\":\"#FF69B4\"},
+  local kube_context=$1
+  local spotify=$2
+  local mic_volume=$3
+  local base_status=$4
+
+  base_status="${base_status#,\[}"
+  base_status="${base_status#\[}"
+  base_status="${base_status%\]}"
+
+  echo "
+  [{\"full_text\":\"${spotify}\", \"color\":\"#bb9af7\"},
+  {\"full_text\":\"☸️ ${kube_context}\", \"color\":\"#7aa2f7\"},
+  {\"full_text\":\"🎤 ${mic_volume}\", \"color\":\"#ff9e64\"},
   ${base_status}]
   "
 }
 
 echo '{"version":1}'
 echo '['
+
 i3status | while read line; do
-	[ -z "$line" ] && continue
-	[[ "$line" =~ ^\[.*\]$ ]] || [[ "$line" =~ ^,\[.*\]$ ]] || continue
-	spotify_status=$("$HOME/dotfiles/scripts/playing_status")
-	kube_context=$(get_kube_context)
-	mic_volume=$(get_mic_volume)
-	cleaned=${spotify_status//[\'\"]/}
-	prefix=""
-	[[ "$line" =~ ^,.*$ ]] && prefix=","
-	echo "${prefix}$(format_status "$kube_context" "$cleaned" "$mic_volume" "$line")"
+  [ -z "$line" ] && continue
+  [[ "$line" =~ ^\[.*\]$ ]] || [[ "$line" =~ ^,\[.*\]$ ]] || continue
+
+  spotify_status=$("$HOME/dotfiles/scripts/playing_status")
+  kube_context=$(get_kube_context)
+  mic_volume=$(get_mic_volume)
+  cleaned=${spotify_status//[\'\"]/}
+
+  prefix=""
+  [[ "$line" =~ ^,.*$ ]] && prefix=","
+
+  echo "${prefix}$(format_status "$kube_context" "$cleaned" "$mic_volume" "$line")"
 done

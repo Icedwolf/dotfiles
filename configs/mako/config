@@ -1,19 +1,19 @@
 font=CaskaydiaCove Nerd Font 10
 max-history=10
 layer=overlay
-background-color=#111111cc
+background-color=#1a1b26dd
 border-radius=1
-border-color=#39FF14cc
-text-color=#ffffff
+border-color=#7aa2f7cc
+text-color=#c0caf5
 anchor=bottom-left
 default-timeout=3500
 
 [urgency=low]
-border-color=#39FF14cc
+border-color=#9ece6acc
 
 [urgency=normal]
-border-color=#800080cc
+border-color=#bb9af7cc
 
 [urgency=high]
-border-color=#ff0000cc
+border-color=#f7768ecc
 default-timeout=0

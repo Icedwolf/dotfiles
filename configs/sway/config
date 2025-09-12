@@ -1,11 +1,20 @@
-set $fg_color #c5c8c6
-set $bg_color #1d1f21
-set $accent_color #00ff00
+# Tokyo Night color scheme
+set $fg_color #c0caf5
+set $bg_color #1a1b26
+set $accent_color #7aa2f7
 set $white_color #ffffff
-set $black_color #000000
-set $grey_color #666666
-set $red_color #ff0000
-set $bar_bg_color #101010BA
+set $black_color #15161e
+set $grey_color #565f89
+set $red_color #f7768e
+set $bar_bg_color #000000A3
+
+# Tokyo Night additional colors
+set $blue_color #7aa2f7
+set $cyan_color #7dcfff
+set $green_color #9ece6a
+set $yellow_color #e0af68
+set $orange_color #ff9e64
+set $purple_color #bb9af7
 
 set $lock_cmd swaylock --image "$(random_wllppr)" -s fill
 set $status_command ~/dotfiles/scripts/mi3status
@@ -137,9 +146,10 @@ for_window [class=".*"] border pixel $gap_size
 titlebar_border_thickness $gap_size
 titlebar_padding $titlebar_padding_size 1
 
-client.focused            $fg_color $bg_color $accent_color $white_color $accent_color
-client.unfocused          $bg_color $bg_color $white_color $black_color $bg_color
-client.focused_inactive   $fg_color $bg_color $white_color $white_color $fg_color
+# Tokyo Night client colors
+client.focused            $accent_color $bg_color $fg_color $cyan_color $accent_color
+client.unfocused          $bg_color $bg_color $grey_color $black_color $bg_color
+client.focused_inactive   $grey_color $bg_color $fg_color $grey_color $grey_color
 
 workspace_layout tabbed
 
@@ -211,19 +221,20 @@ font pango:monospace $font_size_small
 titlebar_padding 1
 titlebar_border_thickness 0
 
+# Tokyo Night bar colors
 bar {
     position top
     status_command $status_command
-    font CaskaydiaCove Nerd Font Mono:monospace $font_size_bar
+    font CaskaydiaCove Nerd Font Propo: $font_size_bar
     colors {
         background $bar_bg_color
-        statusline $white_color
+        statusline $fg_color
         separator  $grey_color
         focused_workspace    $accent_color   $bar_bg_color     $accent_color
         active_workspace     $bar_bg_color   $bar_bg_color     $accent_color
         inactive_workspace   $bar_bg_color   $bar_bg_color     $grey_color
-        urgent_workspace     $red_color   $bar_bg_color     $red_color
-        binding_mode        $red_color   $bar_bg_color     $red_color
+        urgent_workspace     $red_color      $bar_bg_color     $red_color
+        binding_mode        $yellow_color   $bar_bg_color     $yellow_color
     }
 }
 
