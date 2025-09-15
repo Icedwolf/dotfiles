@@ -6,23 +6,17 @@ general {
 }
 
 order += "volume master"
-order += "wireless *first*"
 order += "cpu_usage"
 order += "memory"
 order += "battery 0"
 order += "time"
 
-wireless *first* {
-  format_up = "📶 <span color='#7aa2f7'>%essid %quality</span>"
-  format_down = "📶 <span color='#f7768e'>down</span>"
-}
-
 cpu_usage {
-  format = "🖥️ <span color='#7aa2f7'>%usage</span>"
+  format = "🖥️ <span color='#5599ff'>%usage</span>"
 }
 
 battery 0 {
-  format = "🔋 <span color='#9ece6a'>%percentage</span>"
+  format = "🔋 <span color='#66ff33'>%percentage</span>"
   status_chr = "⚡ "
   status_bat = "🔋 "
   status_full = "✅ "
@@ -40,9 +34,9 @@ volume master {
 }
 
 memory {
-  format = "💾 <span color='#e0af68'>%percentage_used</span>"
+  format = "💾 <span color='#ffdd00'>%percentage_used</span>"
 }
 
 time {
-  format = "🕐 <span color='#7dcfff'>%d-%m %H:%M:%S</span>"
+  format = "🕐 <span color='#00ccff'>%d-%m %H:%M:%S</span>"
 }

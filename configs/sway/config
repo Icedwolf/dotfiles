@@ -1,20 +1,20 @@
 # Tokyo Night color scheme
 set $fg_color #c0caf5
 set $bg_color #1a1b26
-set $accent_color #7aa2f7
+set $accent_color #5599ff
 set $white_color #ffffff
 set $black_color #15161e
 set $grey_color #565f89
-set $red_color #f7768e
-set $bar_bg_color #000000A3
+set $red_color #ff5f87
+set $bar_bg_color #000A0A9F
 
 # Tokyo Night additional colors
-set $blue_color #7aa2f7
-set $cyan_color #7dcfff
-set $green_color #9ece6a
-set $yellow_color #e0af68
+set $blue_color #3388ff
+set $cyan_color #00ccff
+set $green_color #66ff33
+set $yellow_color #ffdd00
 set $orange_color #ff9e64
-set $purple_color #bb9af7
+set $purple_color #dd77ff
 
 set $lock_cmd swaylock --image "$(random_wllppr)" -s fill
 set $status_command ~/dotfiles/scripts/mi3status
@@ -146,7 +146,6 @@ for_window [class=".*"] border pixel $gap_size
 titlebar_border_thickness $gap_size
 titlebar_padding $titlebar_padding_size 1
 
-# Tokyo Night client colors
 client.focused            $accent_color $bg_color $fg_color $cyan_color $accent_color
 client.unfocused          $bg_color $bg_color $grey_color $black_color $bg_color
 client.focused_inactive   $grey_color $bg_color $fg_color $grey_color $grey_color
@@ -221,7 +220,6 @@ font pango:monospace $font_size_small
 titlebar_padding 1
 titlebar_border_thickness 0
 
-# Tokyo Night bar colors
 bar {
     position top
     status_command $status_command

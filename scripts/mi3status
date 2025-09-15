@@ -19,8 +19,8 @@ format_status() {
   base_status="${base_status%\]}"
 
   echo "
-  [{\"full_text\":\"${spotify}\", \"color\":\"#bb9af7\"},
-  {\"full_text\":\"☸️ ${kube_context}\", \"color\":\"#7aa2f7\"},
+  [{\"full_text\":\"${spotify}\", \"color\":\"#dd77ff\"},
+  {\"full_text\":\"☸️ ${kube_context}\", \"color\":\"#5599ff\"},
   {\"full_text\":\"🎤 ${mic_volume}\", \"color\":\"#ff9e64\"},
   ${base_status}]
   "
