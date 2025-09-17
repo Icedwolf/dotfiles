@@ -7,8 +7,8 @@ zstyle ':vcs_info:*' check-for-staged-changes true
 zstyle ':vcs_info:*' check-for-untracked true
 zstyle ':vcs_info:git*' formats "on %F{yellow}%b%f%F{red}%u%F{green}%c%f"
 zstyle ':vcs_info:git*' actionformats "on %F{yellow}%b%f %F{red}| %a%f"
-zstyle ':vcs_info:git*' stagedstr ' ●'
-zstyle ':vcs_info:git*' unstagedstr ' ✚'
+zstyle ':vcs_info:git*' stagedstr ' ● '
+zstyle ':vcs_info:git*' unstagedstr ' ✚ '
 
 check_upstream() {
     if git rev-parse --abbrev-ref @{u} >/dev/null 2>&1; then
