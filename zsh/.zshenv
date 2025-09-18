@@ -13,11 +13,11 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 export GTK_THEME=Adwaita:dark
 
-export BROWSER="zen-browser"
+export BROWSER="waterfox"
 export MOZ_ENABLE_WAYLAND=1
 export EDITOR="nvim"
 export VISUAL="nvim"
-export TERMINAL="ghostty"
+export TERMINAL="st"
 export READER="zathura"
 export SYSTEMD_COLORS="true"
 export SYSTEMD_PAGERSECURE="true"
@@ -35,12 +35,6 @@ export ZSH_AUTOSUGGEST_STRATEGY=(atuin_top completion)
 
 export CARGO_HOME="$XDG_CONFIG_HOME/cargo"
 export RUSTUP_HOME="$XDG_CONFIG_HOME/rustup"
-export DOTNET_ROOT="$XDG_CONFIG_HOME/dotnet"
-export NUGET_PACKAGES="$XDG_CONFIG_HOME/nuget"
-export DOTNET_CLI_HOME="$XDG_CONFIG_HOME/dotnet"
-export OPAMROOT="$XDG_CONFIG_HOME/opam"
-export HEX_HOME="$XDG_CONFIG_HOME/hex"
-export MIX_HOME="$XDG_CONFIG_HOME/mix"
 export GOPATH="$XDG_CONFIG_HOME/go"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export GEM_HOME="$HOME/.local/share/gem/ruby/3.3.0"
