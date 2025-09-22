@@ -220,7 +220,6 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
        dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
 
 # Innit?
-
 exec wl-paste --watch cliphist store
 exec brightnessctl set 100%
 seat seat0 hide_cursor $hide_cursor_timeout
@@ -231,4 +230,5 @@ workspace 1
 exec waterfox
 workspace 2
 exec $terminal_app -e tmux
+workspace 3
 exec spotify

@@ -1,45 +1,39 @@
 #!/bin/bash
 
-get_kube_context() {
-  kubectl config current-context 2>/dev/null || echo "no context"
-}
-
-get_mic_volume() {
-  amixer get Capture | grep -o "\[.*%\]" | head -n1 | tr -d '[]'
-}
-
-format_status() {
-  local kube_context=$1
-  local spotify=$2
-  local mic_volume=$3
-  local base_status=$4
-
-  base_status="${base_status#,\[}"
-  base_status="${base_status#\[}"
-  base_status="${base_status%\]}"
-
-  echo "
-  [{\"full_text\":\"${spotify}\", \"color\":\"#dd77ff\"},
-  {\"full_text\":\"☸️ ${kube_context}\", \"color\":\"#5599ff\"},
-  {\"full_text\":\"🎤 ${mic_volume}\", \"color\":\"#ff9e64\"},
-  ${base_status}]
-  "
-}
-
 echo '{"version":1}'
 echo '['
 
-i3status | while read line; do
-  [ -z "$line" ] && continue
-  [[ "$line" =~ ^\[.*\]$ ]] || [[ "$line" =~ ^,\[.*\]$ ]] || continue
+first_line=true
+i3status | while read -r line; do
+	[[ "$line" =~ ^,??\[.*\]$ ]] || continue
 
-  spotify_status=$("$HOME/dotfiles/scripts/playing_status")
-  kube_context=$(get_kube_context)
-  mic_volume=$(get_mic_volume)
-  cleaned=${spotify_status//[\'\"]/}
+	props=$(gdbus call --session --dest "org.mpris.MediaPlayer2.spotify" \
+		--object-path /org/mpris/MediaPlayer2 \
+		--method org.freedesktop.DBus.Properties.GetAll \
+		org.mpris.MediaPlayer2.Player 2>/dev/null)
 
-  prefix=""
-  [[ "$line" =~ ^,.*$ ]] && prefix=","
+	if [[ -n "$props" && "$props" =~ \'PlaybackStatus\':[[:space:]]*\<\'([^\']+)\'\> ]]; then
+		status="${BASH_REMATCH[1]}"
+		if [[ "$status" == "Playing" || "$status" == "Paused" ]]; then
+			[[ "$props" =~ \'xesam:title\':[[:space:]]*\<\'([^\']+)\'\> ]] && title="${BASH_REMATCH[1]}"
+			[[ "$props" =~ \'xesam:artist\':[[:space:]]*\<\[\'([^\']+)\'\]\> ]] && artist="${BASH_REMATCH[1]}"
 
-  echo "${prefix}$(format_status "$kube_context" "$cleaned" "$mic_volume" "$line")"
+			if [[ "$status" == "Playing" ]]; then
+				spotify_status=$(printf " ▶ %s - %s " "$artist" "$title")
+			else
+				spotify_status=$(printf " ❚❚ %s - %s " "$artist" "$title")
+			fi
+		fi
+	fi
+
+	line="${line#,}"
+	line="${line#\[}"
+	line="${line%\]}"
+
+	prefix=$($first_line && echo "" || echo ",")
+	$first_line && first_line=false
+
+	capture_status="🎤 $(amixer get Capture | awk -F'[][]' '/\[/ {print $2; exit}')"
+
+	echo "${prefix}[{\"full_text\":\"${spotify_status}\",\"color\":\"#dd77ff\"},{\"full_text\":\"${capture_status}\",\"color\":\"#ff9e64\"},${line}]"
 done
