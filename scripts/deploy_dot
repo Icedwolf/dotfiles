@@ -55,7 +55,14 @@ zcompile "$DOTFILES/zsh/prompt.zsh"
 
 echo "Rebuilding Zsh completion dump..."
 rm -f "$ZDOTDIR/.zcompdump" "$ZDOTDIR/.zcompdump.zwc"
-compinit
-zcompile "$ZDOTDIR/.zcompdump"
+
+zsh -i -c "compinit" -c "exit"
+
+if [[ -s "$ZDOTDIR/.zcompdump" ]]; then
+    zcompile "$ZDOTDIR/.zcompdump"
+    echo "Completion dump compiled."
+else
+    echo "Warning: .zcompdump file was not created. Completion may not be set up correctly."
+fi
 
 echo "Dotfile deployment complete."

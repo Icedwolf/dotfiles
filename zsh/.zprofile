@@ -17,7 +17,13 @@ done
 
 typeset -U path
 export PATH
-export KUBECONFIG=$(find "$KB" -name "*.yaml" 2>/dev/null | tr '\n' ':' | sed 's/:$//')
+_kubeconfig_cache_file="$XDG_CACHE_HOME/kubeconfigs"
+if [[ ! -f "$_kubeconfig_cache_file" || $(find "$_kubeconfig_cache_file" -mmin +5) ]]; then
+  export KUBECONFIG=$(find "$KB" -name "*.yaml" 2>/dev/null | tr '\n' ':' | sed 's/:$//')
+  echo "$KUBECONFIG" > "$_kubeconfig_cache_file"
+else
+  export KUBECONFIG=$(cat "$_kubeconfig_cache_file")
+fi
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
 export PNPM_HOME="/home/icedwolf/.local/share/pnpm"

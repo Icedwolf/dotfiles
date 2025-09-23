@@ -32,6 +32,14 @@ export WORDCHARS=""
 export ZSH_HIGHLIGHT_MAXLENGTH=100
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 export ZSH_AUTOSUGGEST_STRATEGY=(atuin_top completion)
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="20"
+export ZSH_AUTOSUGGEST_USE_ASYNC=1
+export FAST_HIGHLIGHT=(
+  chroma-git yes
+  chroma-man yes
+  use-simple-cd yes
+)
+export GIT_OPTIONAL_LOCKS=0
 
 export CARGO_HOME="$XDG_CONFIG_HOME/cargo"
 export RUSTUP_HOME="$XDG_CONFIG_HOME/rustup"

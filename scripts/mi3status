@@ -14,15 +14,13 @@ i3status | while read -r line; do
 
 	if [[ -n "$props" && "$props" =~ \'PlaybackStatus\':[[:space:]]*\<\'([^\']+)\'\> ]]; then
 		status="${BASH_REMATCH[1]}"
-		if [[ "$status" == "Playing" || "$status" == "Paused" ]]; then
-			[[ "$props" =~ \'xesam:title\':[[:space:]]*\<\'([^\']+)\'\> ]] && title="${BASH_REMATCH[1]}"
-			[[ "$props" =~ \'xesam:artist\':[[:space:]]*\<\[\'([^\']+)\'\]\> ]] && artist="${BASH_REMATCH[1]}"
+		[[ "$props" =~ \'xesam:title\':[[:space:]]*\<\'([^\']+)\'\> ]] && title="${BASH_REMATCH[1]}"
+		[[ "$props" =~ \'xesam:artist\':[[:space:]]*\<\[\'([^\']+)\'\]\> ]] && artist="${BASH_REMATCH[1]}"
 
-			if [[ "$status" == "Playing" ]]; then
-				spotify_status=$(printf " ▶ %s - %s " "$artist" "$title")
-			else
-				spotify_status=$(printf " ❚❚ %s - %s " "$artist" "$title")
-			fi
+		if [[ "$status" == "Playing" ]]; then
+			spotify_status=" ▶ $artist - $title"
+		else
+			spotify_status=" ❚❚ $artist - $title"
 		fi
 	fi
 
