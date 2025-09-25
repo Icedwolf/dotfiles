@@ -42,8 +42,8 @@ set $dbus_send dbus-send --print-reply --dest=$player /org/mpris/MediaPlayer2 or
 bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-bindsym Shift+XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+
-bindsym Shift+XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-
+bindsym Shift+XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+ && notify-send "$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@)"
+bindsym Shift+XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%- && notify-send "$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@)"
 bindsym Shift+XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
 bindsym --locked XF86AudioPlay exec $dbus_send.PlayPause
