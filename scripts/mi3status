@@ -9,8 +9,8 @@ i3status | while read -r line; do
 		--method org.freedesktop.DBus.Properties.GetAll \
 		org.mpris.MediaPlayer2.Player 2>/dev/null)
 	[[ "$props" =~ \'PlaybackStatus\':[[:space:]]*\<\'([^\']+)\'\> ]] && status="${BASH_REMATCH[1]}"
-	[[ "$props" =~ \'xesam:title\':[[:space:]]*\<([^>]+)\> ]] && title="${BASH_REMATCH[1]//[\'\"]/}"
-	[[ "$props" =~ \'xesam:artist\':[[:space:]]*\<([^>]+)\> ]] && artist="${BASH_REMATCH[1]//[\'\"\]\[]/}"
+	[[ "$props" =~ \'xesam:title\':[[:space:]]*\<([^>]+)\> ]] && title="${BASH_REMATCH[1]//[\'\"\\]/}"
+	[[ "$props" =~ \'xesam:artist\':[[:space:]]*\<([^>]+)\> ]] && artist="${BASH_REMATCH[1]//[\'\"\]\[\\]/}"
 	[[ "$status" == "Playing" ]] && spotify_status=" ▶ $artist - $title" || spotify_status=" ❚❚ $artist - $title"
 	echo "[{\"full_text\":\"${spotify_status}\",\"color\":\"#dd77ff\"},${inner_content}],"
 done

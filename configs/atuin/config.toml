@@ -5,7 +5,7 @@ workspaces = false
 filter_mode_shell_up_key_binding = "global"
 search_mode_shell_up_key_binding = "fuzzy"
 style = "auto"
-store_failed = false
+store_failed = true
 history_filter = [
   "^secret-cmd",
   "^innocuous-cmd .*--secret=.+",
@@ -14,12 +14,9 @@ history_filter = [
   "^c$",
   "^clear$",
 ]
-secrets_filter = false
+secrets_filter = true
 enter_accept = false
 keymap_mode = "auto"
 prefers_reduced_motion = true
-[stats]
 ignored_commands = ["cd", "ls", "vi", "nvim", "vim", "l", "c"]
-[keys]
-daemon = true
 smart_sort = true
