@@ -2,6 +2,8 @@ local bin_paths=(
   "$HOME/.local/bin"
   "$XDG_CONFIG_HOME/go/bin"
   "$XDG_CONFIG_HOME/cargo/bin"
+  "$XDG_CONFIG_HOME/go"
+  "${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
   "$HOME/dotfiles/scripts"
   "$HOME/.local/share/pnpm"
   "$GEM_HOME/bin"

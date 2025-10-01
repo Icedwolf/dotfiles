@@ -1,6 +1,6 @@
 alias vim="nvim"
 alias att="sudo pacman -Syyu --noconfirm;git -C $DOTFILES submodule update --remote;pipx upgrade-all;$HOME/.config/tmux/plugins/tpm/bin/update_plugins all;helm repo update;go-global-update; deploy_dot; fyi att-done"
-alias update="source $HOME/.zshenv && source $ZDOTDIR/.zshrc"
+alias update="source $HOME/.zshenv && source $ZDOTDIR/.zshrc && source $ZDOTDIR/.zprofile"
 alias lcontext="kubectl config get-contexts"
 alias ucontext="kubectl config use-context"
 alias kubectl="kubecolor"
