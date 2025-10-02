@@ -5,4 +5,54 @@ tree = false
 network_use_log = true
 enable_gpu = true
 enable_cache_memory = true
-theme = "nord"
+
+[styles.cpu]
+all_entry_color = "#7aa2f7" # Blue
+avg_entry_color = "#bb9af7" # Purple
+cpu_core_colors = [
+  "#7aa2f7", # Blue
+  "#7dcfff", # Cyan
+  "#9ece6a", # Green
+  "#e0af68", # Yellow
+  "#f7768e", # Red
+  "#bb9af7", # Purple
+  "#2ac3de", # Light blue
+  "#ff9e64", # Orange
+]
+
+[styles.memory]
+ram_color = "#7aa2f7" # Blue
+cache_color = "#9ece6a" # Green
+swap_color = "#e0af68" # Yellow
+arc_color = "#2ac3de" # Light blue
+gpu_colors = [
+  "#bb9af7", # Purple
+  "#f7768e", # Red
+  "#7dcfff", # Cyan
+]
+
+[styles.network]
+rx_color = "#7dcfff"       # Cyan (download)
+tx_color = "#ff9e64"       # Orange (upload)
+rx_total_color = "#7dcfff" # Cyan
+tx_total_color = "#ff9e64" # Orange
+
+[styles.battery]
+high_battery_color = "#9ece6a"   # Green
+medium_battery_color = "#e0af68" # Yellow
+low_battery_color = "#f7768e"    # Red
+
+[styles.tables]
+headers = { color = "#7aa2f7", bold = true } # Blue headers
+
+[styles.graphs]
+graph_color = "#565f89"             # Comment color for graph elements
+legend_text = { color = "#c0caf5" } # Foreground color
+
+[styles.widgets]
+border_color = "#565f89"                                                 # Comment/border color
+selected_border_color = "#7aa2f7"                                        # Blue for selected widget
+widget_title = { color = "#bb9af7", bold = true }                        # Purple titles
+text = { color = "#c0caf5" }                                             # Main foreground
+selected_text = { color = "#1d202f", bg_color = "#7aa2f7", bold = true } # Inverted selection
+disabled_text = { color = "#565f89" }                                    # Dimmed text
