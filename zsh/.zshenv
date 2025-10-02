@@ -52,4 +52,5 @@ export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
 export DOCKER_SOCK=$XDG_RUNTIME_DIR/podman/podman.sock
 export _Z_DATA=$XDG_CONFIG_HOME/z/z
 export CLICOLOR=1
+export LESSKEYIN="$XDG_CONFIG_HOME/less/lesskey"
 export LESS="-R"

@@ -19,5 +19,5 @@ alias l="ls -lna"
 alias ls='ls --color=auto'
 alias cl="c;l"
 alias grep="grep --color=auto"
-alias ke="k8s_events | tabulate -1 -f fancy_grid | cat"
+alias ke="k8s_events | tabulate -1 -f fancy_grid | less -SR"
 alias ka="k8s_alerts"

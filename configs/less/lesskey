@@ -1,0 +1,13 @@
+#command
+j          forw-line
+k          back-line
+h          left-scroll
+l          right-scroll
+^E         forw-line
+^Y         back-line
+^F         forw-screen
+^B         back-screen
+\kD        forw-screen
+\kU        back-screen
+G          goto-end
+g          goto-line
