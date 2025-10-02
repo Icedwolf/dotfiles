@@ -6,53 +6,78 @@ network_use_log = true
 enable_gpu = true
 enable_cache_memory = true
 
+[[row]]
+ratio = 30
+[[row.child]]
+ratio = 1
+type = "cpu"
+[[row.child]]
+ratio = 1
+type = "mem"
+
+[[row]]
+ratio = 25
+[[row.child]]
+ratio = 3
+type = "net"
+[[row.child]]
+ratio = 1
+type = "battery"
+
+[[row]]
+ratio = 15
+[[row.child]]
+type = "disk"
+
+[[row]]
+ratio = 30
+[[row.child]]
+type = "proc"
+
+hide_temps = true
 [styles.cpu]
-all_entry_color = "#7aa2f7" # Blue
-avg_entry_color = "#bb9af7" # Purple
+all_entry_color = "#7aa2f7"
+avg_entry_color = "#bb9af7"
 cpu_core_colors = [
-  "#7aa2f7", # Blue
-  "#7dcfff", # Cyan
-  "#9ece6a", # Green
-  "#e0af68", # Yellow
-  "#f7768e", # Red
-  "#bb9af7", # Purple
-  "#2ac3de", # Light blue
-  "#ff9e64", # Orange
+  "#7aa2f7",
+  "#7dcfff",
+  "#9ece6a",
+  "#e0af68",
+  "#f7768e",
+  "#bb9af7",
+  "#2ac3de",
+  "#ff9e64",
 ]
 
 [styles.memory]
-ram_color = "#7aa2f7" # Blue
-cache_color = "#9ece6a" # Green
-swap_color = "#e0af68" # Yellow
-arc_color = "#2ac3de" # Light blue
-gpu_colors = [
-  "#bb9af7", # Purple
-  "#f7768e", # Red
-  "#7dcfff", # Cyan
-]
+ram_color = "#7aa2f7"
+cache_color = "#9ece6a"
+swap_color = "#e0af68"
+arc_color = "#2ac3de"
+gpu_colors = ["#bb9af7", "#f7768e", "#7dcfff"]
 
 [styles.network]
-rx_color = "#7dcfff"       # Cyan (download)
-tx_color = "#ff9e64"       # Orange (upload)
-rx_total_color = "#7dcfff" # Cyan
-tx_total_color = "#ff9e64" # Orange
+rx_color = "#7dcfff"
+tx_color = "#ff9e64"
+rx_total_color = "#7dcfff"
+tx_total_color = "#ff9e64"
 
 [styles.battery]
-high_battery_color = "#9ece6a"   # Green
-medium_battery_color = "#e0af68" # Yellow
-low_battery_color = "#f7768e"    # Red
+high_battery_color = "#9ece6a"
+medium_battery_color = "#e0af68"
+low_battery_color = "#f7768e"
 
 [styles.tables]
-headers = { color = "#7aa2f7", bold = true } # Blue headers
+headers = { color = "#7aa2f7", bold = true }
 
 [styles.graphs]
-graph_color = "#565f89"             # Comment color for graph elements
-legend_text = { color = "#c0caf5" } # Foreground color
+graph_color = "#565f89"
+legend_text = { color = "#c0caf5" }
 
 [styles.widgets]
-border_color = "#565f89"                                                 # Comment/border color
-selected_border_color = "#7aa2f7"                                        # Blue for selected widget
-widget_title = { color = "#bb9af7", bold = true }                        # Purple titles
-text = { color = "#c0caf5" }                                             # Main foreground
-selected_text = { color = "#1d202f", bg_color = "#7aa2f7", bold = true } # Inverted selection
-disabled_text = { color = "#565f89" }                                    # Dimmed text
+border_color = "#565f89"
+selected_border_color = "#7aa2f7"
+widget_title = { color = "#bb9af7", bold = true }
+text = { color = "#c0caf5" }
+selected_text = { color = "#1d202f", bg_color = "#7aa2f7", bold = true }
+disabled_text = { color = "#565f89" }

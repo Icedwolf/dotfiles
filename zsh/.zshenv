@@ -16,6 +16,9 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 export GTK_THEME=Adwaita:dark
 
+export LESSKEYIN="$XDG_CONFIG_HOME/less/lesskey"
+export LESS="-R"
+
 export MOZ_ENABLE_WAYLAND=1
 export BROWSER="waterfox"
 export EDITOR="nvim"
@@ -23,7 +26,7 @@ export VISUAL="nvim"
 export TERMINAL="st"
 export READER="zathura"
 export SYSTEMD_COLORS="true"
-export SYSTEMD_PAGERSECURE="true"
+export SYSTEMD_PAGERSECURE="false"
 export SYSTEMD_EDITOR="nvim"
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
@@ -52,5 +55,3 @@ export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
 export DOCKER_SOCK=$XDG_RUNTIME_DIR/podman/podman.sock
 export _Z_DATA=$XDG_CONFIG_HOME/z/z
 export CLICOLOR=1
-export LESSKEYIN="$XDG_CONFIG_HOME/less/lesskey"
-export LESS="-R"
