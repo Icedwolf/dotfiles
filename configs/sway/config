@@ -36,15 +36,15 @@ bindsym $mod+p exec cliphist list | fuzzel -I -d | cliphist decode | wl-copy
 bindsym $mod+shift+p exec cliphist wipe | fyi "Clipboard" "Cleared"
 bindsym $mod+r exec swaymsg output "*" bg "$(random_wllppr)" fill
 
-set $player org.mpris.MediaPlayer2.spotify
-set $dbus_send dbus-send --print-reply --dest=$player /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player
-
 bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym Shift+XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+ && notify-send "$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@)"
 bindsym Shift+XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%- && notify-send "$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@)"
 bindsym Shift+XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+
+set $player $(get_ncspot)
+set $dbus_send dbus-send --print-reply --dest=$player /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player
 
 bindsym --locked XF86AudioPlay exec $dbus_send.PlayPause
 bindsym --locked $mod+space exec $dbus_send.PlayPause
@@ -219,7 +219,6 @@ exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CU
 exec hash dbus-update-activation-environment 2>/dev/null && \
        dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
 
-# Innit?
 exec wl-paste --watch cliphist store
 exec brightnessctl set 100%
 seat seat0 hide_cursor $hide_cursor_timeout
@@ -230,5 +229,3 @@ workspace 1
 exec waterfox
 workspace 2
 exec $terminal_app -e tmux
-workspace 3
-exec spotify

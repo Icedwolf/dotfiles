@@ -5,6 +5,7 @@ tree = false
 network_use_log = true
 enable_gpu = true
 enable_cache_memory = true
+default_widget_type = "proc"
 
 [[row]]
 ratio = 30

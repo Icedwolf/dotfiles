@@ -4,8 +4,7 @@ export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export __NV_PRIME_RENDER_OFFLOAD=1
 export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
 export __VK_LAYER_NV_optimus=NVIDIA_only
-export LIBVA_DRIVER_NAME=nvidia
-export WLR_NO_HARDWARE_CURSORS=1
+export LIBVA_DRIVER_NAME=nvidia export WLR_NO_HARDWARE_CURSORS=1
 export GBM_BACKEND=nvidia-drm
 
 export XDG_SESSION_TYPE="wayland"
@@ -46,6 +45,7 @@ export RUSTUP_HOME="$XDG_CONFIG_HOME/rustup"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export GEM_HOME="$HOME/.local/share/gem/ruby/3.3.0"
 
+export BEMENU_OPTS="--fn 'CaskaydiaCove Nerd Font 10'"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_DEFAULT_OPTS='--color=fg:#d0d0d0,hl:#5f87af --color=fg+:#d0d0d0,bg+:#262626,hl+:#5fd7ff --color=info:#afaf87,prompt:#d7005f,pointer:#af5fff --color=marker:#87ff00,spinner:#af5fff,header:#87afaf'
 export KB="${XDG_CONFIG_HOME:-$HOME/.config}/.kube"
