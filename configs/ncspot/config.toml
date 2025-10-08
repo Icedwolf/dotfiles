@@ -1,6 +1,7 @@
 notify = true
 shuffle = true
 repeat = "playlist"
+cover_max_scale = 0.0
 hide_display_names = true
 [theme]
 background = "default"
@@ -14,7 +15,8 @@ highlight = "#73daca"
 highlight_bg = "#1a1b26"
 error = "#c0caf5"
 error_bg = "#f7768e"
-statusbar = "#7dcfff"
+statusbar = "#24283b"
 statusbar_progress = "#73daca"
+statusbar_bg = "#7dcfff"
 cmdline_bg = "#24283b"
 search_match = "#bb9af7"
