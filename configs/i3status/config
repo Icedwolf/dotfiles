@@ -8,7 +8,6 @@ general {
 order += "volume master"
 order += "cpu_usage"
 order += "memory"
-order += "battery 0"
 order += "time"
 
 cpu_usage {
