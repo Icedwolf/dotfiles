@@ -20,7 +20,7 @@ set $titlebar_padding_size 3
 set $font_size_small 0.001
 set $font_size_bar 9
 set $hide_cursor_timeout 6000
-set $pointer_accel_value -0.40
+set $pointer_accel_value -0.50
 set $mouse_move_small 10
 set $mouse_move_large 50
 set $mouse_speed_fast 2
