@@ -232,4 +232,4 @@ exec $terminal_app -e tmux
 workspace 3
 exec discord --enable-features=UseOzonePlatform --ozone-platform=wayland --start-minimized
 workspace 4
-exec steam
+exec steam -silent
