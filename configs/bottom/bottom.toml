@@ -6,32 +6,6 @@ network_use_log = true
 enable_gpu = true
 enable_cache_memory = true
 default_widget_type = "proc"
-
-[[row]]
-ratio = 30
-[[row.child]]
-ratio = 1
-type = "cpu"
-[[row.child]]
-ratio = 1
-type = "mem"
-
-[[row]]
-ratio = 25
-[[row.child]]
-ratio = 3
-type = "net"
-[[row]]
-ratio = 15
-[[row.child]]
-type = "disk"
-
-[[row]]
-ratio = 30
-[[row.child]]
-type = "proc"
-
-hide_temps = true
 [styles.cpu]
 all_entry_color = "#7aa2f7"
 avg_entry_color = "#bb9af7"

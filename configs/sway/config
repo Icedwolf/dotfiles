@@ -38,6 +38,8 @@ bindsym $mod+r exec swaymsg output "*" bg "$(random_wllppr)" fill
 
 bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym $mod+equal exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym $mod+minus exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym Shift+XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+ && notify-send "$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@)"
 bindsym Shift+XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%- && notify-send "$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@)"
@@ -61,6 +63,7 @@ bindsym Shift+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(
 bindsym $mod+Escape exec $dbus_send.Pause & swaylock --image "$(random_wllppr)" -s fill
 
 bindsym $mod+delete exec kill_ps
+bindsym $mod+shift+d exec kill_ps
 bindsym $mod+tab exec switcheroo
 bindsym $mod+shift+tab exec window_selector
 bindsym $mod+apostrophe exec passotp
@@ -221,7 +224,12 @@ seat seat0 hide_cursor $hide_cursor_timeout
 exec mako
 output "*" bg "$(random_wllppr)" fill
 
+exec nvidia-settings -a "[gpu:0]/GpuPowerMizerMode=1"
 workspace 1
 exec waterfox
 workspace 2
 exec $terminal_app -e tmux
+workspace 3
+exec discord --enable-features=UseOzonePlatform --ozone-platform=wayland --start-minimized
+workspace 4
+exec steam
