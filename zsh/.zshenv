@@ -16,6 +16,7 @@ export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
 export __VK_LAYER_NV_optimus=NVIDIA_only
 export LIBVA_DRIVER_NAME=nvidia export WLR_NO_HARDWARE_CURSORS=1
 export GBM_BACKEND=nvidia-drm
+export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
 
 export XDG_SESSION_TYPE="wayland"
 export XDG_CURRENT_DESKTOP="sway"

@@ -129,6 +129,14 @@ hide_edge_borders smart_no_gaps
 
 for_window [class=".*"] border pixel $gap_size
 
+# Inhibit idle for fullscreen windows
+for_window [class=".*"] inhibit_idle fullscreen
+for_window [app_id=".*"] inhibit_idle fullscreen
+
+# Force focus when returning to workspace with fullscreen app
+for_window [title=".*"] focus
+focus_follows_mouse no
+
 titlebar_border_thickness $gap_size
 titlebar_padding $titlebar_padding_size 1
 
