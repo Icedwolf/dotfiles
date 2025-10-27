@@ -1,4 +1,5 @@
 notify = true
+playback_state = "Playing"
 shuffle = true
 repeat = "playlist"
 cover_max_scale = 0.0
