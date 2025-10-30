@@ -35,7 +35,7 @@ ratio = 30
 [[row.child]]
 type = "proc"
 
-hide_temps = true
+hide_temps = false
 [styles.cpu]
 all_entry_color = "#7aa2f7"
 avg_entry_color = "#bb9af7"
