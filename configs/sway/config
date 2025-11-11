@@ -14,7 +14,7 @@ set $yellow_color #ffdd00
 set $orange_color #ff9e64
 set $purple_color #dd77ff
 
-set $terminal_app st
+set $terminal_app foot
 set $gap_size 1
 set $titlebar_padding_size 3
 set $font_size_small 0.001
