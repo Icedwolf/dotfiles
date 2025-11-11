@@ -1,3 +1,4 @@
+volnorm = true
 notify = true
 shuffle = true
 repeat = "playlist"

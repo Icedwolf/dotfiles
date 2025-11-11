@@ -4,7 +4,7 @@ export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export __NV_PRIME_RENDER_OFFLOAD=1
 export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
 export __VK_LAYER_NV_optimus=NVIDIA_only
-export LIBVA_DRIVER_NAME=nvidia
+export LIBVA_DRIVER_NAME=iHD
 export WLR_NO_HARDWARE_CURSORS=1
 export GBM_BACKEND=nvidia-drm
 
@@ -19,7 +19,7 @@ export GTK_THEME=Adwaita:dark
 export LESSKEYIN="$XDG_CONFIG_HOME/less/lesskey"
 export LESS="-R"
 
-export BROWSER="waterfox"
+export BROWSER="floorp"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export TERMINAL="st"
@@ -55,6 +55,3 @@ export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
 export DOCKER_SOCK=$XDG_RUNTIME_DIR/podman/podman.sock
 export _Z_DATA=$XDG_CONFIG_HOME/z/z
 export CLICOLOR=1
-export LIBVA_DRIVER_NAME=iHD
-export MOZ_DISABLE_RDD_SANDBOX=1
-export MOZ_ENABLE_WAYLAND=1

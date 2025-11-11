@@ -37,7 +37,7 @@ bindsym $mod+shift+p exec cliphist wipe | fyi "Clipboard" "Cleared"
 bindsym $mod+r exec swaymsg output "*" bg "$(random_wllppr)" fill
 bindsym $mod+Shift+s exec sh -c 'if tmux list-windows -a -F "#{window_name}" 2>/dev/null | grep -q "^ncspot$"; then exit 0; else tmux new-window -d -n ncspot ncspot 2>/dev/null || $terminal_app -e tmux new-session -s main -n ncspot ncspot; fi'
 
-bindsym $mod+Plus exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym $mod+Equal exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 bindsym $mod+Minus exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym Shift+XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+ && notify-send "$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@)"
@@ -227,6 +227,6 @@ exec mako
 output "*" bg "$(random_wllppr)" fill
 
 workspace 1
-exec waterfox
+exec floorp-vaapi
 workspace 2
 exec $terminal_app -e tmux
