@@ -24,6 +24,7 @@ source $DOTFILES/zsh/completions.zsh
 eval "$(atuin init zsh)"
 
 source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#8db0ff'
 source $DOTFILES/zsh/fsh/fast-syntax-highlighting.plugin.zsh
-source $DOTFILES/zsh/zsh-z/zsh-z.plugin.zsh
 source $DOTFILES/zsh/prompt.zsh
+source $DOTFILES/zsh/zsh-z/zsh-z.plugin.zsh

@@ -32,4 +32,5 @@ precmd() {
     fi
 }
 
-PROMPT=$'%(!.%F{red}%n%f.%F{green}%n%f)@%F{blue}%m%f %F{cyan}%d%f ${vcs_info_msg_0_} \n%F{green}❯%f '
+zstyle ':vcs_info:git*' formats "on %F{11}%b%f%F{9}%u%F{10}%c%f"
+PROMPT=$'%(!.%F{9}%n%f.%F{10}%n%f)@%F{12}%m%f %F{14}%d%f ${vcs_info_msg_0_} \n%F{10}❯%f '

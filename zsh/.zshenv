@@ -55,3 +55,4 @@ export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
 export DOCKER_SOCK=$XDG_RUNTIME_DIR/podman/podman.sock
 export _Z_DATA=$XDG_CONFIG_HOME/z/z
 export CLICOLOR=1
+export LS_COLORS="fi=01;97:di=01;96:ex=01;92:ln=01;95:or=01;91:*.tar=01;93:*.tgz=01;93:*.zip=01;93:*.7z=01;93:*.rar=01;93:*.jpg=01;95:*.png=01;95:*.gif=01;95:*.webp=01;95:*.mp4=01;208:*.mkv=01;208:*.avi=01;208:*.pdf=01;33:*.doc=01;33:*.txt=01;33"
