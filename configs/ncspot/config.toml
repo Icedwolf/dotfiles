@@ -20,3 +20,5 @@ statusbar = "#7dcfff"
 statusbar_progress = "#73daca"
 cmdline_bg = "#24283b"
 search_match = "#bb9af7"
+[keybindings]
+"Ctrl+f" = "search"
