@@ -61,7 +61,7 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +15%
 
 bindsym $mod+Home exec slurp | grim -g - - | wl-copy
 bindsym $mod+Shift+Home exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy
-#bindsym $mod+Escape exec $dbus_send.Pause & swaylock --image "$(random_wllppr)" -s fill
+bindsym $mod+Escape exec $dbus_send.Pause & swaylock --image "$(random_wllppr)" -s fill
 
 bindsym $mod+delete exec kill_ps
 bindsym $mod+shift+d exec kill_ps
