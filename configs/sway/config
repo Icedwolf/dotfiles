@@ -35,7 +35,7 @@ bindsym $mod+d exec fuzzel | xargs swaymsg exec --
 bindsym $mod+p exec cliphist list | fuzzel -I -d | cliphist decode | wl-copy
 bindsym $mod+shift+p exec cliphist wipe | fyi "Clipboard" "Cleared"
 bindsym $mod+r exec swaymsg output "*" bg "$(random_wllppr)" fill
-bindsym $mod+Shift+s exec sh -c 'if tmux list-windows -a -F "#{window_name}" 2>/dev/null | grep -q "^ncspot$"; then exit 0; else tmux new-window -d -n ncspot ncspot 2>/dev/null || $terminal_app -e tmux new-session -s main -n ncspot ncspot; fi'
+bindsym $mod+Shift+s exec sh -c 'tmux list-windows -a -F "#{window_name}" 2>/dev/null | grep -q "^ncspot$" && exit 0; tmux new-window -d -n ncspot ncspot && tmux move-window -s ncspot -t 0'
 
 bindsym $mod+Equal exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 bindsym $mod+Minus exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
