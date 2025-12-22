@@ -15,6 +15,7 @@ set $orange_color #ff9e64
 set $purple_color #dd77ff
 
 set $terminal_app foot
+set $browser floorp-vaapi
 set $gap_size 1
 set $titlebar_padding_size 3
 set $font_size_small 0.001
@@ -227,6 +228,6 @@ exec mako
 output "*" bg "$(random_wllppr)" fill
 
 workspace 1
-exec floorp-vaapi
+exec $browser
 workspace 2
 exec $terminal_app -e tmux
