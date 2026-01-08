@@ -16,7 +16,7 @@ set $purple_color #dd77ff
 
 set $terminal_app foot
 set $browser floorp-vaapi
-set $gap_size 1
+set $gap_size 0
 set $titlebar_padding_size 3
 set $font_size_small 0.001
 set $font_size_bar 9
@@ -45,7 +45,7 @@ bindsym Shift+XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 
 bindsym Shift+XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%- && notify-send "$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@)"
 bindsym Shift+XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
-set $player $(get_ncspot)
+set $player $(get_player)
 set $dbus_send dbus-send --print-reply --dest=$player /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player
 
 bindsym --locked XF86AudioPlay exec $dbus_send.PlayPause
@@ -198,7 +198,7 @@ mode "mouse" {
 default_border none
 default_floating_border none
 font pango:monospace $font_size_small
-titlebar_padding 1
+titlebar_padding 0
 titlebar_border_thickness 0
 
 bar {

@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "$(dbus-send --session --print-reply --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.ListNames | awk -F\" '/ytermusic/ {print $2; exit}')"
