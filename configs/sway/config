@@ -36,7 +36,7 @@ bindsym $mod+d exec fuzzel | xargs swaymsg exec --
 bindsym $mod+p exec cliphist list | fuzzel -I -d | cliphist decode | wl-copy
 bindsym $mod+shift+p exec cliphist wipe | fyi "Clipboard" "Cleared"
 bindsym $mod+r exec swaymsg output "*" bg "$(random_wllppr)" fill
-bindsym $mod+Shift+s exec sh -c 'tmux list-windows -a -F "#{window_name}" 2>/dev/null | grep -q "^ncspot$" && exit 0; tmux new-window -d -n ncspot ncspot && tmux move-window -s ncspot -t 0'
+bindsym $mod+Shift+s exec sh -c 'tmux list-windows -a -F "#{window_name}" 2>/dev/null | grep -q "^youtui$" && exit 0; tmux new-window -d -n youtui youtui && tmux move-window -s youtui -t 0'
 
 bindsym $mod+Equal exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 bindsym $mod+Minus exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
@@ -141,13 +141,8 @@ output eDP-1 {
   position 1920 0
 }
 
-output DP-1 {
-  position 0 0
-}
-
 output HDMI-A-1 {
-  position -1080 0
-  transform 270
+  position 0 0
   mode 1920x1080@60Hz
 }
 
