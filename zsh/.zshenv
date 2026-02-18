@@ -44,6 +44,11 @@ export CARGO_HOME="$XDG_CONFIG_HOME/cargo"
 export RUSTUP_HOME="$XDG_CONFIG_HOME/rustup"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export GEM_HOME="$HOME/.local/share/gem/ruby/3.3.0"
+export GOPATH="$XDG_DATA_HOME/go"
+export GOCACHE="$XDG_CACHE_HOME/go-build"
+export GOMODCACHE="$XDG_CACHE_HOME/go-mod"
+export GOBIN="$XDG_DATA_HOME/bin"
+export PATH="$PATH:$GOBIN"
 
 export BEMENU_OPTS="--fn 'CaskaydiaCove Nerd Font 10'"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
