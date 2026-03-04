@@ -51,7 +51,6 @@ export GOCACHE="$XDG_CACHE_HOME/go-build"
 export GOMODCACHE="$XDG_CACHE_HOME/go-mod"
 export GOBIN="$HOME/.local/bin"
 
-
 export BEMENU_OPTS="--fn 'CaskaydiaCove Nerd Font 10'"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_DEFAULT_OPTS='--color=fg:#d0d0d0,hl:#5f87af --color=fg+:#d0d0d0,bg+:#262626,hl+:#5fd7ff --color=info:#afaf87,prompt:#d7005f,pointer:#af5fff --color=marker:#87ff00,spinner:#af5fff,header:#87afaf'
@@ -63,3 +62,18 @@ export DOCKER_SOCK=$XDG_RUNTIME_DIR/podman/podman.sock
 export _Z_DATA=$XDG_CONFIG_HOME/z/z
 export CLICOLOR=1
 export LS_COLORS="fi=01;97:di=01;96:ex=01;92:ln=01;95:or=01;91:*.tar=01;93:*.tgz=01;93:*.zip=01;93:*.7z=01;93:*.rar=01;93:*.jpg=01;95:*.png=01;95:*.gif=01;95:*.webp=01;95:*.mp4=01;208:*.mkv=01;208:*.avi=01;208:*.pdf=01;33:*.doc=01;33:*.txt=01;33"
+
+export LESS_TERMCAP_mb=$'\e[1;38;2;187;154;247m'
+export LESS_TERMCAP_md=$'\e[1;38;2;125;207;255m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[1;38;2;26;27;38;48;2;65;72;104m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;38;2;224;226;241m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_mr=$'\e[7m'
+export LESS_TERMCAP_mh=$'\e[2m'
+export GROFF_NO_SGR=1
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
+export MANROFFOPT="-P -c"
+export SYSTEMD_COLORS=1
+export SYSTEMD_PAGER="less -R --use-color -Dd+r -Du+b -DP+g -DE+r -DW+k -DS+y -DC+c"
