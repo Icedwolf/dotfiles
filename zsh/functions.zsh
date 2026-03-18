@@ -13,3 +13,20 @@ _get_kube_contexts() {
   contexts=($(kubectl config get-contexts -o=name))
   _describe 'values' contexts
 }
+
+f() {
+  local selection
+  selection=$(fd --hidden --follow --exclude '.git' "$@" | fzf --preview '
+    if [ -d {} ]; then
+      ls -la {}
+    else
+      cat {}
+    fi
+  ' --height 60% --border --prompt '∴ ') || return 0
+  
+  if [ -d "$selection" ]; then
+    cd "$selection"
+  elif [ -f "$selection" ]; then
+    nvim "$selection"
+  fi
+}
