@@ -20,3 +20,5 @@ keymap_mode = "auto"
 prefers_reduced_motion = true
 ignored_commands = ["cd", "ls", "vi", "nvim", "vim", "l", "c"]
 smart_sort = true
+[logs]
+search_enabled = false

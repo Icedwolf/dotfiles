@@ -1,0 +1,21 @@
+#!/bin/bash
+PROFILE_DIR=$(find ~/.floorp -maxdepth 1 -name "*.default*" -type d | head -1)
+if [ -z "$PROFILE_DIR" ]; then echo "No profile found"; exit 1; fi
+mkdir -p "$PROFILE_DIR" 2>/dev/null
+BACKUP="$PROFILE_DIR/user.js.backup.$(date +%s)"
+[ -f "$PROFILE_DIR/user.js" ] && cp "$PROFILE_DIR/user.js" "$BACKUP"
+cat > "$PROFILE_DIR/user.js" << 'EOFPREFS'
+// Performance fixes
+user_pref("browser.cache.disk.enable", true);
+user_pref("media.memory_cache_max_size", 524288);
+user_pref("browser.sessionstore.interval", 300000);
+user_pref("browser.sessionstore.resume_from_crash", false);
+user_pref("media.ffmpeg.vaapi.enabled", false);
+user_pref("media.hardware-video-decoding.force-enabled", false);
+user_pref("widget.wayland-dmabuf-vaapi.enabled", false);
+user_pref("media.ffmpeg.vaapi-drm-display.enabled", false);
+user_pref("gfx.webrender.all", false);
+user_pref("privacy.fingerprintingProtection", false);
+EOFPREFS
+echo "Applied to $PROFILE_DIR/user.js"
+[ -f "$BACKUP" ] && echo "Backup: $BACKUP"
