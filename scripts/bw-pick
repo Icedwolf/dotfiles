@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+set -euo pipefail
+umask 077
+
+SESSION_FILE="/run/user/${UID}/bw-session"
+CACHE_FILE="/run/user/${UID}/bw-items.json"
+
+die() { notify-send -u critical "Bitwarden" "$1"; exit 1; }
+
+list_items() {
+    local session="$1"
+    local out
+    if out=$(BW_SESSION="$session" bw list items 2>/dev/null); then
+        printf '%s' "$out"
+        return 0
+    fi
+    rm -f "$SESSION_FILE" "$CACHE_FILE"
+    session=$(bw-session) || die "Could not refresh session"
+    BW_SESSION="$session" bw list items 2>/dev/null || die "Failed to list items"
+}
+
+SESSION=$(bw-session) || die "Could not get session"
+
+if [[ -s "$CACHE_FILE" ]]; then
+    raw=$(< "$CACHE_FILE")
+else
+    raw=$(list_items "$SESSION")
+    [[ -n "$raw" && "$raw" != "[]" ]] || die "Vault empty — run bw-sync"
+    printf '%s' "$raw" > "$CACHE_FILE"
+fi
+
+choice=$(printf '%s' "$raw" \
+    | jq -r '.[] | [.name, (.login.username // "-"), .id] | @tsv' \
+    | awk -F'\t' '{ printf "%-45s %-30s [%s]\n", $1, $2, $3 }' \
+    | fuzzel -d --prompt "󰷡 Bitwarden: " --width 80) || exit 0
+
+[[ -n "$choice" ]] || exit 0
+
+item_id=$(grep -oP '\[\K[a-f0-9\-]+(?=\])' <<< "$choice") \
+    || die "Could not parse item ID"
+
+item_json=$(jq -c --arg id "$item_id" '.[] | select(.id == $id)' <<< "$raw")
+[[ -n "$item_json" ]] || die "Item not found in cache — try bw-sync"
+
+has_totp=$(jq -r '.login.totp // ""' <<< "$item_json")
+has_notes=$(jq -r '.notes // ""' <<< "$item_json")
+
+fields="password\nusername\nurl"
+[[ -n "$has_totp" ]] && fields="${fields}\ntotp"
+[[ -n "$has_notes" ]] && fields="${fields}\nnotes"
+
+field=$(printf "$fields" | fuzzel -d --prompt "Field: " --width 40) || exit 0
+[[ -n "$field" ]] || exit 0
+
+case "$field" in
+    password) value=$(jq -r '.login.password // ""' <<< "$item_json") ;;
+    username) value=$(jq -r '.login.username // ""' <<< "$item_json") ;;
+    url)      value=$(jq -r '.login.uris[0].uri // ""' <<< "$item_json") ;;
+    totp)     value=$(BW_SESSION="$SESSION" bw get totp "$item_id" 2>/dev/null) \
+                  || die "Could not get TOTP" ;;
+    notes)    value=$(jq -r '.notes // ""' <<< "$item_json") ;;
+    *)        die "Unknown field: $field" ;;
+esac
+
+[[ -n "$value" ]] || die "Field '$field' is empty"
+
+printf '%s' "$value" | wl-copy
+notify-send "Bitwarden" "$field copied — clears in 45s"
+
+(sleep 45 && wl-copy --clear) &
+disown

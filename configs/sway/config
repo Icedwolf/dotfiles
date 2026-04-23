@@ -66,6 +66,8 @@ bindsym $mod+delete exec kill_ps
 bindsym $mod+tab exec switcheroo
 bindsym $mod+shift+tab exec window_selector
 bindsym $mod+apostrophe exec passotp
+bindsym $mod+b       exec bw-pick
+bindsym $mod+Shift+b exec bw-sync
 
 floating_modifier $mod normal
 

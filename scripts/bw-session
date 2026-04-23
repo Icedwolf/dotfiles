@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -euo pipefail
+umask 077
+
+SESSION_FILE="/run/user/${UID}/bw-session"
+
+die() { notify-send -u critical "Bitwarden" "$1"; exit 1; }
+
+unlock() {
+    local pw session
+    pw=$(pass show bitwarden) || die "Could not read bitwarden from pass"
+    pw="${pw%%$'\n'*}"
+    [[ -n "$pw" ]] || die "Empty password from pass"
+    session=$(BW_MASTER="$pw" bw unlock --passwordenv BW_MASTER --raw 2>/dev/null) \
+        || die "bw unlock failed"
+    [[ -n "$session" ]] || die "bw unlock returned empty session"
+    printf '%s' "$session" > "$SESSION_FILE"
+    printf '%s' "$session"
+}
+
+if [[ -s "$SESSION_FILE" ]]; then
+    cat "$SESSION_FILE"
+else
+    unlock
+fi

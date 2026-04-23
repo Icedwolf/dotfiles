@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+set -euo pipefail
+umask 077
+
+SESSION_FILE="/run/user/${UID}/bw-session"
+CACHE_FILE="/run/user/${UID}/bw-items.json"
+
+die() { notify-send -u critical "Bitwarden" "$1"; exit 1; }
+
+attempt() {
+    local session="$1"
+    BW_SESSION="$session" bw sync >/dev/null 2>&1 || return 1
+    BW_SESSION="$session" bw list items 2>/dev/null
+}
+
+SESSION=$(bw-session) || die "Could not get session"
+
+if ! raw=$(attempt "$SESSION"); then
+    rm -f "$SESSION_FILE" "$CACHE_FILE"
+    SESSION=$(bw-session) || die "Could not refresh session"
+    raw=$(attempt "$SESSION") || die "Sync failed after retry"
+fi
+
+[[ -n "$raw" && "$raw" != "[]" ]] || die "Vault empty after sync"
+
+printf '%s' "$raw" > "$CACHE_FILE"
+notify-send "Bitwarden" "Vault synced"
