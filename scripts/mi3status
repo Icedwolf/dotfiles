@@ -1,16 +1,40 @@
 #!/bin/bash
+
+RECORD_PID="/tmp/sway-record.pid"
+RECORD_START="/tmp/sway-record-start"
+
+recording_block() {
+    if [[ -f "$RECORD_PID" ]] && kill -0 "$(cat "$RECORD_PID")" 2>/dev/null; then
+        local elapsed="00:00"
+        if [[ -f "$RECORD_START" ]]; then
+            local start now diff mins secs
+            start=$(cat "$RECORD_START")
+            now=$(date +%s)
+            diff=$((now - start))
+            mins=$((diff / 60))
+            secs=$((diff % 60))
+            elapsed=$(printf "%02d:%02d" "$mins" "$secs")
+        fi
+        echo "{\"full_text\":\" ⏺ REC $elapsed \",\"color\":\"#1a1a2e\",\"background\":\"#ff3333\",\"urgent\":true},"
+    fi
+}
+
 echo '{"version":1}'
 echo '['
 i3status | while read -r line; do
-	[[ "$line" =~ ^,??\[(.*)\]$ ]] || continue
-	inner_content="${BASH_REMATCH[1]}"
-	props=$(gdbus call --session --dest org.mpris.MediaPlayer2.youtui \
-		--object-path /org/mpris/MediaPlayer2 \
-		--method org.freedesktop.DBus.Properties.GetAll \
-		"org.mpris.MediaPlayer2.Player" 2>/dev/null)
-	[[ "$props" =~ \'PlaybackStatus\':[[:space:]]*\<\'([^\']+)\'\> ]] && status="${BASH_REMATCH[1]}"
-	[[ "$props" =~ \'xesam:title\':[[:space:]]*\<([^>]+)\> ]] && title="${BASH_REMATCH[1]//[\'\"\\]/}"
-	[[ "$props" =~ \'xesam:artist\':[[:space:]]*\<([^>]+)\> ]] && artist="${BASH_REMATCH[1]//[\'\"\]\[\\]/}"
-	[[ "$status" == "Playing" ]] && spotify_status=" ▶ $artist - $title" || spotify_status=" ❚❚ $artist - $title"
-	echo "[{\"full_text\":\"${spotify_status}\",\"color\":\"#dd77ff\"},${inner_content}],"
+    [[ "$line" =~ ^,??\[(.*)\]$ ]] || continue
+    inner_content="${BASH_REMATCH[1]}"
+
+    rec_block=$(recording_block)
+
+    props=$(gdbus call --session --dest org.mpris.MediaPlayer2.youtui \
+        --object-path /org/mpris/MediaPlayer2 \
+        --method org.freedesktop.DBus.Properties.GetAll \
+        "org.mpris.MediaPlayer2.Player" 2>/dev/null)
+    [[ "$props" =~ \'PlaybackStatus\':[[:space:]]*\<\'([^\']+)\'\> ]] && status="${BASH_REMATCH[1]}"
+    [[ "$props" =~ \'xesam:title\':[[:space:]]*\<([^>]+)\> ]] && title="${BASH_REMATCH[1]//[\'\"\\]/}"
+    [[ "$props" =~ \'xesam:artist\':[[:space:]]*\<([^>]+)\> ]] && artist="${BASH_REMATCH[1]//[\'\"\]\[\\]/}"
+    [[ "$status" == "Playing" ]] && spotify_status=" ▶ $artist - $title" || spotify_status=" ❚❚ $artist - $title"
+
+    echo "[${rec_block}{\"full_text\":\"${spotify_status}\",\"color\":\"#dd77ff\"},${inner_content}],"
 done

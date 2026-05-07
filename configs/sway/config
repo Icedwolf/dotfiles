@@ -227,3 +227,6 @@ workspace 1
 exec $browser
 workspace 2
 exec $terminal_app -e tmux
+
+bindsym $mod+Shift+r exec sway-record toggle
+bindsym $mod+Shift+g exec sway-record gif

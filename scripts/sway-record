@@ -1,0 +1,144 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+RECORD_DIR="${RECORD_DIR:-$HOME/recordings}"
+RECORD_PID="/tmp/sway-record.pid"
+RECORD_FILE="/tmp/sway-record-path"
+RECORD_START="/tmp/sway-record-start"
+FPS="${RECORD_FPS:-30}"
+GIF_FPS="${GIF_FPS:-15}"
+GIF_WIDTH="${GIF_WIDTH:-640}"
+
+mkdir -p "$RECORD_DIR"
+
+usage() {
+    cat <<EOF
+Usage: $(basename "$0") [command] [options]
+
+Commands:
+    start       select a region and start recording (default)
+    stop        stop recording and save
+    toggle      start if not recording, stop if recording
+    gif         stop recording and convert to gif
+    status      check if currently recording
+
+Options:
+    -f, --fullscreen    record the focused output instead of a selection
+    -a, --audio         include audio (pipewire/pulseaudio)
+
+Environment:
+    RECORD_DIR      output directory (default: ~/recordings)
+    RECORD_FPS      recording fps (default: 30)
+    GIF_FPS         gif fps (default: 15)
+    GIF_WIDTH       gif max width in px (default: 640)
+EOF
+    exit 0
+}
+
+notify() {
+    command -v notify-send &>/dev/null && notify-send -a "sway-record" "$@" || true
+}
+
+is_recording() {
+    [[ -f "$RECORD_PID" ]] && kill -0 "$(cat "$RECORD_PID")" 2>/dev/null
+}
+
+start_recording() {
+    local fullscreen=false
+    local audio=false
+
+    for arg in "$@"; do
+        case "$arg" in
+            -f|--fullscreen) fullscreen=true ;;
+            -a|--audio)      audio=true ;;
+        esac
+    done
+
+    if is_recording; then
+        notify "Already recording" "Use 'stop' or 'toggle' to finish."
+        exit 1
+    fi
+
+    local timestamp
+    timestamp=$(date +%Y%m%d-%H%M%S)
+    local outfile="$RECORD_DIR/$timestamp.mp4"
+
+    local args=(--file="$outfile" --codec=libx264 --framerate="$FPS" --pixel-format=yuv420p)
+
+    if [[ "$audio" == true ]]; then
+        args+=(--audio)
+    fi
+
+    if [[ "$fullscreen" == false ]]; then
+        local geometry
+        geometry=$(slurp) || { notify "Recording cancelled"; exit 1; }
+        args+=(--geometry="$geometry")
+    fi
+
+    wf-recorder "${args[@]}" &
+    local pid=$!
+    echo "$pid" > "$RECORD_PID"
+    echo "$outfile" > "$RECORD_FILE"
+    date +%s > "$RECORD_START"
+
+    notify "Recording started" "$outfile"
+}
+
+stop_recording() {
+    local convert_gif="${1:-false}"
+
+    if ! is_recording; then
+        notify "Not recording" "Nothing to stop."
+        exit 1
+    fi
+
+    local pid
+    pid=$(cat "$RECORD_PID")
+    kill -INT "$pid" 2>/dev/null
+    wait "$pid" 2>/dev/null || true
+
+    local outfile
+    outfile=$(cat "$RECORD_FILE")
+
+    rm -f "$RECORD_PID" "$RECORD_FILE" "$RECORD_START"
+
+    if [[ "$convert_gif" == true && -f "$outfile" ]]; then
+        local giffile="${outfile%.mp4}.gif"
+        notify "Converting to GIF..." "$giffile"
+        ffmpeg -y -i "$outfile" \
+            -vf "fps=$GIF_FPS,scale=$GIF_WIDTH:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" \
+            "$giffile" 2>/dev/null
+        rm -f "$outfile"
+        notify "GIF saved" "$giffile"
+        echo "$giffile"
+    else
+        notify "Recording saved" "$outfile"
+        echo "$outfile"
+    fi
+}
+
+cmd="${1:-start}"
+shift || true
+
+case "$cmd" in
+    start)      start_recording "$@" ;;
+    stop)       stop_recording false ;;
+    gif)        stop_recording true ;;
+    toggle)
+        if is_recording; then
+            stop_recording false
+        else
+            start_recording "$@"
+        fi
+        ;;
+    status)
+        if is_recording; then
+            echo "recording (pid $(cat "$RECORD_PID"))"
+            echo "file: $(cat "$RECORD_FILE")"
+        else
+            echo "idle"
+        fi
+        ;;
+    -h|--help|help) usage ;;
+    *)          echo "Unknown command: $cmd" >&2; usage ;;
+esac
