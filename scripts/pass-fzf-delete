@@ -1,0 +1,90 @@
+#!/usr/bin/env bash
+# pass-fzf-delete: Interactive pass entry deletion with fzf
+
+PASS_DIR="${PASSWORD_STORE_DIR:-$HOME/.password-store}"
+
+# Function to get git log info for a pass file
+get_git_info() {
+  local file="$1"
+  local fullpath="$PASS_DIR/$file.gpg"
+
+  if [ ! -f "$fullpath" ]; then
+    echo ""
+    return
+  fi
+
+  cd "$PASS_DIR" 2>/dev/null || return
+
+  # Get last commit date for this file
+  local last_commit
+  last_commit=$(git log -1 --format="%ad" --date=short -- "$file.gpg" 2>/dev/null)
+
+  # Get first commit date (creation)
+  local first_commit
+  first_commit=$(git log --format="%ad" --date=short -- "$file.gpg" 2>/dev/null | tail -n 1)
+
+  if [ -n "$last_commit" ]; then
+    echo " [created: $first_commit | modified: $last_commit]"
+  else
+    echo ""
+  fi
+}
+
+# Build list of entries with metadata
+build_list() {
+  find "$PASS_DIR" -name "*.gpg" -print0 | while IFS= read -r -d '' file; do
+    # Get relative path without .gpg extension
+    local rel_path="${file#$PASS_DIR/}"
+    local entry="${rel_path%.gpg}"
+
+    # Get git info
+    local git_info
+    git_info=$(get_git_info "$entry")
+
+    echo "$entry$git_info"
+  done
+}
+
+# Main interactive loop
+while true; do
+  # Build fresh list each iteration
+  mapfile -t entries < <(build_list | sort)
+
+  if [ ${#entries[@]} -eq 0 ]; then
+    echo "No pass entries found."
+    exit 0
+  fi
+
+  # Show in fzf with multi-select
+  # Tab to select multiple, Ctrl-A to select all, Enter to delete selected
+  selected=$(printf '%s\n' "${entries[@]}" |
+    fzf --multi --header="TAB: select multiple | CTRL-A: select all | ENTER: delete | CTRL-C: quit" --prompt="pass entries > " --preview="echo {} | sed 's/ \[.*\]//' | xargs -I[] pass show [] 2>/dev/null | head -5 || echo 'Preview not available'" --preview-window=up:3:wrap --bind="ctrl-a:select-all" --bind="ctrl-d:deselect-all" --height=80%)
+
+  [ -z "$selected" ] && break
+
+  # Extract just the entry names (strip git metadata)
+  mapfile -t to_delete < <(echo "$selected" | sed 's/ \[.*\]//')
+
+  # Show confirmation
+  echo ""
+  echo "Entries to delete:"
+  for entry in "${to_delete[@]}"; do
+    echo "  - $entry"
+  done
+  echo ""
+  read -rp "Confirm deletion? [y/N] " confirm
+
+  if [[ "$confirm" =~ ^[Yy]$ ]]; then
+    for entry in "${to_delete[@]}"; do
+      echo "Deleting: $entry"
+      pass rm -f "$entry"
+    done
+    echo "Done."
+  else
+    echo "Cancelled."
+  fi
+
+  echo ""
+  read -rp "Continue? [Y/n] " cont
+  [[ "$cont" =~ ^[Nn]$ ]] && break
+done

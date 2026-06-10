@@ -6,6 +6,7 @@ local bin_paths=(
   "${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
   "$HOME/dotfiles/scripts"
   "$HOME/.local/share/pnpm"
+  "$HOME/.local/share/pnpm/bin"
   "$GEM_HOME/bin"
 )
 
