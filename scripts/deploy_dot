@@ -37,6 +37,7 @@ for folder_path in "$SOURCE_CONFIGS_DIR"/*; do
 done
 
 echo "Symlinking Zsh core configurations..."
+ln -sf "$DOTFILES/zsh/.zlogin" "$ZDOTDIR/.zlogin"
 ln -sf "$DOTFILES/zsh/.zprofile" "$ZDOTDIR/.zprofile"
 ln -sf "$DOTFILES/zsh/.zshrc" "$ZDOTDIR/.zshrc"
 ln -sf "$DOTFILES/zsh/.zshenv" "$HOME/.zshenv"

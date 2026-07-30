@@ -224,9 +224,9 @@ exec mako
 output "*" bg "$(random_wllppr)" fill
 
 workspace 1
-exec $browser
-workspace 2
 exec $terminal_app -e tmux
+workspace 2
+exec $browser
 
 bindsym $mod+Shift+r exec sway-record toggle
 bindsym $mod+Shift+g exec sway-record gif

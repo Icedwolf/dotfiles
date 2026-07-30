@@ -8,6 +8,7 @@ local bin_paths=(
   "$HOME/.local/share/pnpm"
   "$HOME/.local/share/pnpm/bin"
   "$GEM_HOME/bin"
+  "$HOME/.local/share/pnpm"
 )
 
 path=($path)
