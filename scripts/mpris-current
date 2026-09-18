@@ -1,0 +1,39 @@
+#!/bin/bash
+STATE_FILE="/tmp/mpris_pinned_player"
+
+players=$(busctl --user list | grep org.mpris.MediaPlayer2. | awk '{print $1}')
+[[ -z "$players" ]] && exit 0
+
+if [[ -f "$STATE_FILE" ]]; then
+  pinned=$(cat "$STATE_FILE")
+  if echo "$players" | grep -q "^$pinned$"; then
+    target_player="$pinned"
+  fi
+fi
+
+if [[ -z "$target_player" ]]; then
+  target_player=$(echo "$players" | head -n 1) # default fallback
+  for p in $players; do
+    status=$(busctl --user get-property "$p" /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player PlaybackStatus 2>/dev/null)
+    if [[ "$status" == *"Playing"* ]]; then
+      target_player="$p"
+      break
+    fi
+  done
+fi
+
+if [[ "$1" == "select" ]]; then
+  chosen_pretty=$(echo "$players" | sed 's/org.mpris.MediaPlayer2.//' | fuzzel -d -p "Pin Player: ")
+  [[ -z "$chosen_pretty" ]] && exit 0
+
+  target_full="org.mpris.MediaPlayer2.$chosen_pretty"
+  echo "$target_full" >"$STATE_FILE"
+  notify-send "MPRIS" "Pinned media keys to $chosen_pretty"
+
+  busctl --user call "$target_full" /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player Play
+elif [[ "$1" == "unpin" ]]; then
+  rm -f "$STATE_FILE"
+  notify-send "MPRIS" "Reset to automatic player targeting"
+else
+  busctl --user call "$target_player" /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player "$1"
+fi

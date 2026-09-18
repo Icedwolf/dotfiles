@@ -45,22 +45,33 @@ bindsym Shift+XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 
 bindsym Shift+XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%- && notify-send "$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@)"
 bindsym Shift+XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
-set $player org.mpris.MediaPlayer2.youtui
-set $dbus_send dbus-send --print-reply --dest=$player /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player
+# set $player org.mpris.MediaPlayer2.youtui
+# set $dbus_send dbus-send --print-reply --dest=$player /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player
 
-bindsym --locked XF86AudioPlay exec $dbus_send.PlayPause
-bindsym --locked $mod+space exec $dbus_send.PlayPause
-bindsym XF86AudioNext exec $dbus_send.Next
-bindsym $mod+s exec $dbus_send.Next
-bindsym XF86AudioPrev exec $dbus_send.Previous
-bindsym $mod+a exec $dbus_send.Previous
+# bindsym --locked XF86AudioPlay exec $dbus_send.PlayPause
+# bindsym --locked $mod+space exec $dbus_send.PlayPause
+# bindsym XF86AudioNext exec $dbus_send.Next
+# bindsym $mod+s exec $dbus_send.Next
+# bindsym XF86AudioPrev exec $dbus_send.Previous
+# bindsym $mod+a exec $dbus_send.Previous
+set $mpris_cmd exec mpris-current
+bindsym $mod+Shift+Space exec mpris-current select
+bindsym $mod+Ctrl+Space exec mpris-current unpin
+bindsym --locked XF86AudioPlay exec $mpris_cmd PlayPause
+bindsym --locked $mod+space    exec $mpris_cmd PlayPause
+bindsym XF86AudioNext          exec $mpris_cmd Next
+bindsym $mod+s                 exec $mpris_cmd Next
+bindsym XF86AudioPrev          exec $mpris_cmd Previous
+bindsym $mod+a                 exec $mpris_cmd Previous
+
+bindsym $mod+Escape exec mpris-current Pause & swaylock --image "$(random_wllppr)" -s fill
+# bindsym $mod+Escape exec $dbus_send.Pause & swaylock --image "$(random_wllppr)" -s fill
 
 bindsym XF86MonBrightnessDown exec brightnessctl set 15%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +15%
 
 bindsym Home exec slurp | grim -g - - | wl-copy
 bindsym Shift+Home exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy
-bindsym $mod+Escape exec $dbus_send.Pause & swaylock --image "$(random_wllppr)" -s fill
 
 bindsym $mod+delete exec kill_ps
 bindsym $mod+tab exec switcheroo
