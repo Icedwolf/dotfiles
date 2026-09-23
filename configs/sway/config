@@ -20,7 +20,6 @@ set $gap_size 1
 set $titlebar_padding_size 1
 set $font_size_small 0.001
 set $font_size_bar 9
-set $hide_cursor_timeout 6000
 set $pointer_accel_value -0.40
 set $mouse_move_small 10
 set $mouse_move_large 50
@@ -230,7 +229,6 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 
 exec wl-paste --watch cliphist store
 exec brightnessctl set 100%
-seat seat0 hide_cursor $hide_cursor_timeout
 exec mako
 output "*" bg "$(random_wllppr)" fill
 
